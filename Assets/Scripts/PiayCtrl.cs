@@ -2,8 +2,10 @@
 
 public class PiayCtrl : MonoBehaviour
 {
-    [Header("移動速度")]
+    [Header("移動速度"),Range(0, 10)]
     [SerializeField] float speed = 10;
+    [Header("參數名稱")]
+    [SerializeField] string parRun = "runSwitch";
 
     Rigidbody2D rig = null;
     Animator ani = null;
@@ -36,7 +38,7 @@ public class PiayCtrl : MonoBehaviour
         rig.velocity = new Vector2(ad * speed, ws * speed);
 
         // 移動動畫
-        ani.SetBool("runSwitch", (ws != 0 || ad != 0));
+        ani.SetBool(parRun, (ws != 0 || ad != 0));
 
         // 翻轉
         if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A))
