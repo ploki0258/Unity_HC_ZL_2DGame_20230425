@@ -43,11 +43,11 @@ public class PiayCtrl : MonoBehaviour
         // 翻轉
         if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A))
         {
-            this.transform.Rotate(0f, 180f, 0f);
+            transform.eulerAngles = new Vector3(0, 180, 0);
         }
         if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D))
         {
-            this.transform.Rotate(0f, 0f, 0f);
+            transform.eulerAngles = new Vector3(0, 0, 0);
         }
     }
 }
