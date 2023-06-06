@@ -1,26 +1,28 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 public class WeaponSystem : MonoBehaviour
 {
-    [Header("¥Í¦¨¶¡¹j"), Range(0, 10)]
-    [SerializeField] float interval = 3.5f;         // ªZ¾¹¥Í¦¨¶¡¹j®É¶¡
-    [Header("ªZ¾¹¹w»sª«")]
-    [SerializeField] GameObject[] prefabWeapon = null; // ­n¥Í¦¨ªºªZ¾¹
-    [Header("ªZ¾¹³Ì¤j¼Æ¶q")]
-    [SerializeField] int weaponMax;
+	[Header("ç”Ÿæˆé–“éš”"), Range(0, 10)]
+	[SerializeField] float interval = 3.5f;         // æ­¦å™¨ç”Ÿæˆé–“éš”æ™‚é–“
+	[Header("æ­¦å™¨é è£½ç‰©")]
+	[SerializeField] GameObject[] prefabWeapon = null; // è¦ç”Ÿæˆçš„æ­¦å™¨
+	[Header("æŠ•æ“²åŠ›é“"), Range(1, 30)]
+	[SerializeField] float force = 10f;
+	[Header("ç”Ÿæˆé»")]
+	[SerializeField] Transform pointWeapon;
 
-    private void Start()
+	private void Start()
 	{
-        InvokeRepeating("SpawnWeapon", 0f, interval);
-    }
+		InvokeRepeating("SpawnWeapon", 0f, interval);
+	}
 
-    /// <summary>
-    /// ¥Í¦¨ªZ¾¹¤èªk
-    /// </summary>
-    void SpawnWeapon()
-    {
-        int i = Random.Range(0, weaponMax);
-        Instantiate(prefabWeapon[i], transform.position, transform.rotation);
-        // prefabWeapon[i].GetComponent<Transform>().
-    }
+	/// <summary>
+	/// ç”Ÿæˆæ­¦å™¨æ–¹æ³•
+	/// </summary>
+	void SpawnWeapon()
+	{
+		int i = Random.Range(0, prefabWeapon.Length);
+		Instantiate(prefabWeapon[i], pointWeapon.position, pointWeapon.rotation);
+		// prefabWeapon[i].GetComponent<Rigidbody2D>().AddForce(transform.up * force, ForceMode2D.Impulse);
+	}
 }
