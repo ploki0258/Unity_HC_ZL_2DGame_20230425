@@ -6,8 +6,10 @@ public class WeaponSystem : MonoBehaviour
 	[SerializeField] float interval = 3.5f;         // 武器生成間隔時間
 	[Header("武器預製物")]
 	[SerializeField] GameObject[] prefabWeapon = null; // 要生成的武器
-	[Header("投擲力道"), Range(1, 30)]
-	[SerializeField] float force = 10f;
+	// [Header("投擲力道"), Range(1, 30)]
+	// [SerializeField] float force = 10f;
+	[Header("武器推力")]
+	[SerializeField] Vector2 power;
 	[Header("生成點")]
 	[SerializeField] Transform pointWeapon;
 
@@ -22,7 +24,7 @@ public class WeaponSystem : MonoBehaviour
 	void SpawnWeapon()
 	{
 		int i = Random.Range(0, prefabWeapon.Length);
-		Instantiate(prefabWeapon[i], pointWeapon.position, pointWeapon.rotation);
-		// prefabWeapon[i].GetComponent<Rigidbody2D>().AddForce(transform.up * force, ForceMode2D.Impulse);
+		GameObject tempWeapon = Instantiate(prefabWeapon[i], pointWeapon.position, pointWeapon.rotation);
+		tempWeapon.GetComponent<Rigidbody2D>().AddForce(power);
 	}
 }

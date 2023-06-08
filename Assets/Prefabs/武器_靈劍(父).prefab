@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 334021014327441766}
   - component: {fileID: 2457199800250157867}
   - component: {fileID: 383808620973743533}
-  - component: {fileID: -5648103489603394018}
+  - component: {fileID: -1456589416007015657}
   m_Layer: 0
   m_Name: "\u6B66\u5668_\u9748\u528D(\u7236)"
   m_TagString: Untagged
@@ -72,7 +72,7 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: -0.01}
   m_Size: {x: 0.5, y: 2.2}
   m_Direction: 0
---- !u!114 &-5648103489603394018
+--- !u!114 &-1456589416007015657
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -85,7 +85,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   force: 20
-  pos: {x: -100, y: 10}
+  pos: {x: 0, y: 10}
 --- !u!1 &3276579730651210352
 GameObject:
   m_ObjectHideFlags: 0

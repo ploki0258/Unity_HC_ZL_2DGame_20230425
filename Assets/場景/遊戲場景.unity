@@ -3024,7 +3024,7 @@ MonoBehaviour:
   - {fileID: 4113992056280128208, guid: f779e08857946374db52b6ef067fec03, type: 3}
   - {fileID: 1598455604991311875, guid: 9e6387029ee845b45821e9f004c82595, type: 3}
   - {fileID: 969034769822350505, guid: 0b4d49bc900bec64ea5e160b5a64297b, type: 3}
-  force: 30
+  power: {x: 100, y: 800}
   pointWeapon: {fileID: 278752197}
 --- !u!1 &334133934
 GameObject:
@@ -3665,7 +3665,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 069f2709964cf0d4ea5720604fce6c0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interval: 3
+  interval: 1
   prefabEnemy: {fileID: 8299294610674943156, guid: e2c8e30707eb97f498fe3016f0cf1dee,
     type: 3}
 --- !u!4 &496656902
@@ -4185,7 +4185,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 069f2709964cf0d4ea5720604fce6c0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interval: 1
+  interval: 4
   prefabEnemy: {fileID: 8299294610674943156, guid: e2c8e30707eb97f498fe3016f0cf1dee,
     type: 3}
 --- !u!1 &795910945
@@ -6252,7 +6252,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 069f2709964cf0d4ea5720604fce6c0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interval: 5
+  interval: 3
   prefabEnemy: {fileID: 8299294610674943156, guid: e2c8e30707eb97f498fe3016f0cf1dee,
     type: 3}
 --- !u!1001 &1630622523
