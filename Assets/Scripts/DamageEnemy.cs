@@ -24,6 +24,9 @@ public class DamageEnemy : DamageBasic
 		}
 	}
 
+	/// <summary>
+	/// 敵人死亡功能
+	/// </summary>
 	protected override void Dead()
 	{
 		base.Dead();

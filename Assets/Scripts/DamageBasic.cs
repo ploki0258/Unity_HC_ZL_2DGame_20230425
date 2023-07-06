@@ -15,6 +15,10 @@ public class DamageBasic : MonoBehaviour
 		hp = data.hp;
 	}
 
+	/// <summary>
+	/// 敵人受傷功能
+	/// </summary>
+	/// <param name="damage">傷害量</param>
 	public void Damage(float damage)
 	{
 		hp -= damage;
@@ -30,9 +34,11 @@ public class DamageBasic : MonoBehaviour
 		{
 			Dead();
 		}
-			
 	}
 
+	/// <summary>
+	/// 死亡功能
+	/// </summary>
 	protected virtual void Dead()
 	{
 		Debug.Log($"<color=yellow>{ gameObject.name } 死亡</color>");
