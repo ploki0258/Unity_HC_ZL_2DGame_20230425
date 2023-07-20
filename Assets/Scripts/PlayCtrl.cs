@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
 
-public class PiayCtrl : MonoBehaviour
+public class PlayCtrl : MonoBehaviour
 {
     [Header("移動速度"),Range(0, 10)]
-    [SerializeField] float speed = 10;
+    public float speed = 10;
     [Header("參數名稱")]
     [SerializeField] string parRun = "runSwitch";
 
