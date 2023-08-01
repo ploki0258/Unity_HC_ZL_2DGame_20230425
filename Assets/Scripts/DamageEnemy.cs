@@ -18,8 +18,8 @@ public class DamageEnemy : DamageBasic
 	{
 		if (collision.gameObject.tag == "Bullet")
 		{
-			Damage(dataPlayer.Attack);
-
+			float damage = collision.gameObject.GetComponent<Weapon>().attack;
+			Damage(damage);
 			// Debug.Log(dataPlayer.Attack);
 		}
 	}

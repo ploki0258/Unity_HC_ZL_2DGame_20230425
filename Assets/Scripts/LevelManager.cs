@@ -153,22 +153,23 @@ public class LevelManager : MonoBehaviour
 
 	[SerializeField, Header("主角鼠：武器系統")]
 	WeaponSystem weaponSystem;
-
+	// 武器攻擊提升
 	private void UpgradeWeaponAttack()
 	{
 		int lv = dataSkill[0].skillLv - 1;
 		weaponSystem.attack = dataSkill[0].skillValues[lv];
 	}
-	
+	// 武器間隔縮短
 	private void UpgradeWeaponInterval()
 	{
 		int lv = dataSkill[1].skillLv - 1;
 		weaponSystem.interval = dataSkill[1].skillValues[lv];
+		weaponSystem.Restart();
 	}
 
 	[SerializeField, Header("主角鼠：玩家資料")]
 	DataBasic dataBasic;
-
+	// 玩家血量提升
 	private void UpgradePlayerHp()
 	{
 		int lv = dataSkill[2].skillLv - 1;
@@ -177,7 +178,7 @@ public class LevelManager : MonoBehaviour
 
 	[SerializeField, Header("主角鼠：角色控制")]
 	PlayCtrl playerMoveSpeed;
-
+	// 玩家移動提升
 	private void UpgradeMoveSpeed()
 	{
 		int lv = dataSkill[3].skillLv - 1;
@@ -186,7 +187,7 @@ public class LevelManager : MonoBehaviour
 
 	[SerializeField, Header("主角鼠：吸取經驗值範圍")]
 	CircleCollider2D playerExpRange;
-
+	// 經驗範圍增加
 	private void UpgradeAbsorbExpRange()
 	{
 		int lv = dataSkill[4].skillLv - 1;

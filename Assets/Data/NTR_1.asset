@@ -18,3 +18,5 @@ MonoBehaviour:
   expProbability: 0.5
   prefabExp: {fileID: 5749870304825581111, guid: 9a2879c37f8b8754887371594a5e0ce9,
     type: 3}
+  attackRange: 2.2
+  attackInterval: 2.5

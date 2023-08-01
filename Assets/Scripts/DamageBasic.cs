@@ -1,34 +1,36 @@
-using TMPro;
+ï»¿using TMPro;
 using UnityEngine;
 
 public class DamageBasic : MonoBehaviour
 {
-	[Header("¸ê®Æ(Enemy)")]
+	[Header("è³‡æ–™(Enemy)")]
 	public DataBasic data;
-	[Header("¶Ë®`­È¹w»sª«")]
+	[Header("å‚·å®³å€¼é è£½ç‰©")]
 	public GameObject prefabDamage = null;
 
-	float hp;   // ¦å¶q
+	protected float hp;   // è¡€é‡
+	protected float hpMax;   // è¡€é‡æœ€å¤§å€¼
 
 	private void Awake()
 	{
 		hp = data.hp;
+		hpMax = hp;
 	}
 
 	/// <summary>
-	/// ¼Ä¤H¨ü¶Ë¥\¯à
+	/// æ•µäººå—å‚·åŠŸèƒ½
 	/// </summary>
-	/// <param name="damage">¶Ë®`¶q</param>
-	public void Damage(float damage)
+	/// <param name="damage">å‚·å®³é‡</param>
+	public virtual void Damage(float damage)
 	{
 		hp -= damage;
 		GameObject tempDamage = Instantiate(prefabDamage, transform.position, transform.rotation);
-		tempDamage.transform.Find("¶Ë®`­È¤å¦r").GetComponent<TextMeshProUGUI>().text = damage.ToString();
+		tempDamage.transform.Find("å‚·å®³å€¼æ–‡å­—").GetComponent<TextMeshProUGUI>().text = damage.ToString();
 
 		Destroy(tempDamage, 1.5f);
 
-		hp = Mathf.Clamp(hp, 0f, hp);	// ­­¨î¦å¶q¤W¤U­­
-		Debug.Log($"<color=red>{ gameObject.name } ³Ñ¾l¦å¶q¡G{hp}</color>");
+		hp = Mathf.Clamp(hp, 0f, hp);	// é™åˆ¶è¡€é‡ä¸Šä¸‹é™
+		Debug.Log($"<color=red>{ gameObject.name } å‰©é¤˜è¡€é‡ï¼š{hp}</color>");
 
 		if (hp <= 0)
 		{
@@ -37,10 +39,10 @@ public class DamageBasic : MonoBehaviour
 	}
 
 	/// <summary>
-	/// ¦º¤`¥\¯à
+	/// æ­»äº¡åŠŸèƒ½
 	/// </summary>
 	protected virtual void Dead()
 	{
-		Debug.Log($"<color=yellow>{ gameObject.name } ¦º¤`</color>");
+		Debug.Log($"<color=yellow>{ gameObject.name } æ­»äº¡</color>");
 	}
 }

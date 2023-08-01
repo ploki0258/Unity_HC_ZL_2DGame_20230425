@@ -27,6 +27,15 @@ public class WeaponSystem : MonoBehaviour
 	{
 		int i = Random.Range(0, prefabWeapon.Length);
 		GameObject tempWeapon = Instantiate(prefabWeapon[i], pointWeapon.position, pointWeapon.rotation);
+		// 生成的武器.取得剛體元件.添加力量(武器推力) 
 		tempWeapon.GetComponent<Rigidbody2D>().AddForce(power);
+		// 生成的武器.取得武器元件.攻擊力 = 此腳本的攻擊力
+		tempWeapon.GetComponent<Weapon>().attack = this.attack;
+	}
+
+	public void Restart()
+	{
+		CancelInvoke("SpawnWeapon");
+		InvokeRepeating("SpawnWeapon", 0f, interval);
 	}
 }

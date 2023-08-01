@@ -1,11 +1,13 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
-	[Header("§ëÂY¤O¹D"), Range(1, 50)]
+	[Header("æŠ•æ“²åŠ›é“"), Range(1, 50)]
 	[SerializeField] float force = 10f;
-	[Header("§ëÂY®y¼Ğ")]
+	[Header("æŠ•æ“²åº§æ¨™")]
 	[SerializeField] Vector2 pos;
+
+	public float attack;
 
 	Rigidbody2D rig2D;
 
