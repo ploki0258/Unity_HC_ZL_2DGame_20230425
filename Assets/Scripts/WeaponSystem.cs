@@ -33,9 +33,20 @@ public class WeaponSystem : MonoBehaviour
 		tempWeapon.GetComponent<Weapon>().attack = this.attack;
 	}
 
+	/// <summary>
+	/// 重新啟動武器生成系統
+	/// </summary>
 	public void Restart()
 	{
 		CancelInvoke("SpawnWeapon");
 		InvokeRepeating("SpawnWeapon", 0f, interval);
+	}
+
+	/// <summary>
+	/// 停止武器生成系統
+	/// </summary>
+	public void Stop()
+	{
+		CancelInvoke("SpawnWeapon");
 	}
 }

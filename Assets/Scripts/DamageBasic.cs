@@ -8,8 +8,8 @@ public class DamageBasic : MonoBehaviour
 	[Header("傷害值預製物")]
 	public GameObject prefabDamage = null;
 
-	protected float hp;   // 血量
-	protected float hpMax;   // 血量最大值
+	protected float hp;		// 血量
+	protected float hpMax;	// 血量最大值
 
 	private void Awake()
 	{
@@ -24,7 +24,7 @@ public class DamageBasic : MonoBehaviour
 	public virtual void Damage(float damage)
 	{
 		hp -= damage;
-		GameObject tempDamage = Instantiate(prefabDamage, transform.position, transform.rotation);
+		GameObject tempDamage = Instantiate(prefabDamage, transform.position, Quaternion.identity);
 		tempDamage.transform.Find("傷害值文字").GetComponent<TextMeshProUGUI>().text = damage.ToString();
 
 		Destroy(tempDamage, 1.5f);
@@ -43,6 +43,6 @@ public class DamageBasic : MonoBehaviour
 	/// </summary>
 	protected virtual void Dead()
 	{
-		Debug.Log($"<color=yellow>{ gameObject.name } 死亡</color>");
+		// Debug.Log($"<color=yellow>{ gameObject.name } 死亡</color>");
 	}
 }

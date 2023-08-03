@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: NTR_1
   m_EditorClassIdentifier: 
   hp: 200
-  Attack: 20
+  attack: 1000
   moveSpeed: 5
   expProbability: 0.5
   prefabExp: {fileID: 5749870304825581111, guid: 9a2879c37f8b8754887371594a5e0ce9,

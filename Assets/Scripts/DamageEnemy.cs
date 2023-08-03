@@ -1,15 +1,15 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 public class DamageEnemy : DamageBasic
 {
-	[Header("ª±®a¸ê®Æ")]
+	[Header("ç©å®¶è³‡æ–™")]
 	public DataBasic dataPlayer;
 
-	private DataEnemy dataEnemy;    // ¼Ä¤H¸ê®Æ
+	private DataEnemy dataEnemy;    // æ•µäººè³‡æ–™
 
 	private void Start()
 	{
-		// ±N¸ê®ÆÂà´«¬°¼Ä¤H¸ê®Æ
+		// å°‡è³‡æ–™è½‰æ›ç‚ºæ•µäººè³‡æ–™
 		dataEnemy = (DataEnemy)data;
 		// Debug.Log(dataEnemy.expProbability);
 	}
@@ -25,7 +25,7 @@ public class DamageEnemy : DamageBasic
 	}
 
 	/// <summary>
-	/// ¼Ä¤H¦º¤`¥\¯à
+	/// æ•µäººæ­»äº¡åŠŸèƒ½
 	/// </summary>
 	protected override void Dead()
 	{
@@ -33,11 +33,11 @@ public class DamageEnemy : DamageBasic
 		Destroy(gameObject);
 
 		float randomValue = Random.value;
-		// ¦pªGÀH¾÷­È ¤p©ó ±¼¸¨¾÷²v ´N±¼¸¨¸gÅç­È¹D¨ã
+		// å¦‚æœéš¨æ©Ÿå€¼ å°æ–¼ æ‰è½æ©Ÿç‡ å°±æ‰è½ç¶“é©—å€¼é“å…·
 		if (randomValue < dataEnemy.expProbability)
 		{
 			Instantiate(dataEnemy.prefabExp, transform.position, transform.rotation);
 		}
-		// Debug.Log("ÀH¾÷­È¡G" + randomValue);
+		// Debug.Log("éš¨æ©Ÿå€¼ï¼š" + randomValue);
 	}
 }

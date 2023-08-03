@@ -1,17 +1,17 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 [CreateAssetMenu(fileName = "Data Basic", menuName = "Add New Data")]
 public class DataBasic : ScriptableObject
 {
-    [Header("¦å¶q"), Range(1,10000)]
+    [Header("è¡€é‡"), Range(1,10000)]
     public float hp;
-    [Header("§ğÀ»¤O"), Range(1, 1000)]
-    public float Attack;
-    [Header("²¾°Ê³t«×"), Range(1, 100)]
+    [Header("æ”»æ“ŠåŠ›"), Range(1, 1000)]
+    public float attack;
+    [Header("ç§»å‹•é€Ÿåº¦"), Range(1, 100)]
     public float moveSpeed;
-    /*[Header("±¼¸¨¸gÅç¾÷²v")]
+    /*[Header("æ‰è½ç¶“é©—æ©Ÿç‡")]
     public float aaa;
-    [Header("¸gÅç­Èª«¥ó")]
+    [Header("ç¶“é©—å€¼ç‰©ä»¶")]
     public GameObject Experience;
     */
 }

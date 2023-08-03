@@ -1,14 +1,14 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 [CreateAssetMenu(fileName = "Data Enemy", menuName = "Add New EnemyData")]
 public class DataEnemy : DataBasic
 {
-    [Header("±¼¸¨¸gÅç¾÷²v"), Range(0, 1)]
+    [Header("æ‰è½ç¶“é©—æ©Ÿç‡"), Range(0, 1)]
     public float expProbability;
-    [Header("¸gÅç­Èª«¥ó")]
+    [Header("ç¶“é©—å€¼ç‰©ä»¶")]
     public GameObject prefabExp;
-    [Header("§ğÀ»½d³ò"), Range(0, 5)]
+    [Header("æ”»æ“Šç¯„åœ"), Range(0, 5)]
     public float attackRange = 2f;
-    [Header("§ğÀ»¶¡¹j"), Range(0, 5)]
+    [Header("æ”»æ“Šé–“éš”"), Range(0, 5)]
     public float attackInterval = 2.5f;
 }

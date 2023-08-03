@@ -1,45 +1,65 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 public class EnemySystem : MonoBehaviour
 {
-	[SerializeField, Header("¼Ä¤H¸ê®Æ")]
+	[SerializeField, Header("æ•µäººè³‡æ–™")]
 	DataEnemy data;
-	[SerializeField, Header("¦ì²¾")]
+	[SerializeField, Header("ä½ç§»")]
 	Vector3 offset;
 
 	private Transform player;
 	private float timer;
+	private DamagePlayer damagePlayer;
 
 	private void Awake()
 	{
-		// ¨ú±oª±®aªº transform
-		player = GameObject.Find("¥D¨¤¹«").transform;
+		// å–å¾—ç©å®¶çš„ transform
+		player = GameObject.Find("ä¸»è§’é¼ ").transform;
+		damagePlayer = player.GetComponent<DamagePlayer>();
 	}
 
 	private void Update()
 	{
 		float distance = Vector3.Distance(transform.position, player.position);
-		print(distance);
+		// print(distance);
 
-		// ¦pªG¶ZÂ÷ ¤j©ó ¼Ä¤H¸ê®Æ.§ğÀ»½d³ò
-		// ´N°lÂÜª±®a
+		// å¦‚æœè·é›¢ å¤§æ–¼ æ•µäººè³‡æ–™.æ”»æ“Šç¯„åœ
+		// å°±è¿½è¹¤ç©å®¶
 		if (distance > data.attackRange)
 		{
-			// °l´Mª±®a
+			// è¿½å°‹ç©å®¶
 			transform.position = Vector3.MoveTowards(transform.position, player.position, data.moveSpeed * Time.deltaTime);
 		}
 		else
 		{
-			Debug.Log($"<color=#f69>¶i¤J§ğÀ»½d³ò</color>");
+			// Debug.Log($"<color=#f69>é€²å…¥æ”»æ“Šç¯„åœ</color>");
 			timer += Time.deltaTime;
-			Debug.Log($"<color=#f94>­p®É¾¹¡G{timer}</color>");
+			// Debug.Log($"<color=#f94>è¨ˆæ™‚å™¨ï¼š{timer}</color>");
+
+			if (timer >= data.attackInterval)
+			{
+				timer = 0;
+				damagePlayer.Damage(data.attack);
+			}
+		}
+
+		// æ•µäººé¢å‘ç©å®¶
+		if (transform.position.x > player.position.x)
+		{
+			transform.eulerAngles = new Vector3(0, 180, 0);
+		}
+		else
+		{
+			transform.eulerAngles = new Vector3(0, 0, 0);
 		}
 	}
 
+	// ç¹ªè£½åœ–ç¤º
 	private void OnDrawGizmos()
 	{
+		// åœ–ç¤º.é¡è‰²
 		Gizmos.color = new Color(0, 1, 0.3f, 0.5f);
-
+		// åœ–ç¤º.ç¹ªè£½åœ–å½¢(åœ“å½¢)
 		Gizmos.DrawSphere(transform.position + offset, data.attackRange);
 	}
 }

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 namespace Jack
@@ -22,6 +23,17 @@ namespace Jack
         public void QuitGame()
         {
             Application.Quit();
+        }
+
+        /// <summary>
+        /// 重新遊戲
+        /// </summary>
+        public void RestartGame()
+		{
+            // 取得當前遊戲場景的名稱
+            String scene = SceneManager.GetActiveScene().name;
+            // 載入至當前遊戲場景
+            SceneManager.LoadScene(scene);
         }
     }
 }

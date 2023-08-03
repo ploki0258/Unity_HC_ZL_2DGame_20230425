@@ -1,16 +1,16 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 [CreateAssetMenu(fileName = "Data Skill", menuName = "Add New Skill")]
 public class DataSkill : ScriptableObject
 {
-	[Header("§Ş¯à¦WºÙ")]
+	[Header("æŠ€èƒ½åç¨±")]
 	public string skillName;
-	[Header("§Ş¯à¹Ï¥Ü")]
+	[Header("æŠ€èƒ½åœ–ç¤º")]
 	public Sprite skillPicture;
-	[Header("§Ş¯à´y­z"), TextArea(3, 8)]
+	[Header("æŠ€èƒ½æè¿°"), TextArea(3, 8)]
 	public string skillDescription;
-	[Header("§Ş¯àµ¥¯Å")]
+	[Header("æŠ€èƒ½ç­‰ç´š")]
 	public int skillLv = 1;
-	[Header("§Ş¯à¼Æ­È")]
+	[Header("æŠ€èƒ½æ•¸å€¼")]
 	public float[] skillValues;
 }
