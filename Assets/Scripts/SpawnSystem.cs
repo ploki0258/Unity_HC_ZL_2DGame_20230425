@@ -1,20 +1,20 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 public class SpawnSystem : MonoBehaviour
 {
-    [Header("¥Í¦¨¶¡¹j"), Range(0,10)]
-    [SerializeField] float interval = 3.5f;         // ©Çª«¥Í¦¨¶¡¹j®É¶¡
-    [Header("©Çª«¹w»sª«")]
-    [SerializeField] GameObject prefabEnemy = null; // ­n¥Í¦¨ªº©Çª«
+    [Header("ç”Ÿæˆé–“éš”"), Range(0,10)]
+    [SerializeField] float interval = 3.5f;         // æ€ªç‰©ç”Ÿæˆé–“éš”æ™‚é–“
+    [Header("æ€ªç‰©é è£½ç‰©")]
+    [SerializeField] GameObject prefabEnemy = null; // è¦ç”Ÿæˆçš„æ€ªç‰©
 
 	private void Start()
 	{
-        // ©µ¿ğ­«½Æ©I¥s(­n°õ¦æªº¤èªk, ´X¬í«á¶}©l, ­«½Æ¶¡¹j)
+        // å»¶é²é‡è¤‡å‘¼å«(è¦åŸ·è¡Œçš„æ–¹æ³•, å¹¾ç§’å¾Œé–‹å§‹, é‡è¤‡é–“éš”)
         InvokeRepeating("SpawnEnemy", 0f, interval);
 	}
 
 	/// <summary>
-    /// ¥Í¦¨©Çª«¤èªk
+    /// ç”Ÿæˆæ€ªç‰©æ–¹æ³•
     /// </summary>
     void SpawnEnemy()
     {

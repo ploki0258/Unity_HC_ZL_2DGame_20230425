@@ -1,15 +1,15 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 /// <summary>
-/// ¸gÅç­È¨t²Î
+/// ç¶“é©—å€¼ç³»çµ±
 /// </summary>
 public class ExpSystem : MonoBehaviour
 {
-	[SerializeField, Header("²¾°Ê³t«×"), Range(0, 10)]
+	[SerializeField, Header("ç§»å‹•é€Ÿåº¦"), Range(0, 10)]
 	float speed = 2f;
-	[SerializeField, Header("³Q¦Y±¼ªº¶ZÂ÷"), Range(0, 5)]
+	[SerializeField, Header("è¢«åƒæ‰çš„è·é›¢"), Range(0, 5)]
 	float distanceEat = 1f;
-	[SerializeField, Header("¸gÅç¼Æ­È"), Range(0, 500)]
+	[SerializeField, Header("ç¶“é©—æ•¸å€¼"), Range(0, 500)]
 	float expValue = 30f;
 
 	private Transform player;
@@ -17,14 +17,14 @@ public class ExpSystem : MonoBehaviour
 
 	private void Awake()
 	{
-		player = GameObject.Find("¥D¨¤¹«").transform;
+		player = GameObject.Find("ä¸»è§’é¼ ").transform;
 		levelManager = player.GetComponent<LevelManager>();
 	}
 
 	private void Update()
 	{
 		transform.position = Vector3.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
-		// ¦pªG¦¹¸gÅç­Èª«¥ó»Pª±®aª«¥óªº¶ZÂ÷¤p©ó 1 ´N¦Y±¼
+		// å¦‚æœæ­¤ç¶“é©—å€¼ç‰©ä»¶èˆ‡ç©å®¶ç‰©ä»¶çš„è·é›¢å°æ–¼ 1 å°±åƒæ‰
 		if (Vector3.Distance(transform.position, player.position) <= distanceEat)
 		{
 			levelManager.AddExp(expValue);
