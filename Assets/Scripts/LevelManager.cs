@@ -19,6 +19,8 @@ public class LevelManager : MonoBehaviour
 	GameObject goLvUp = null;
 	[Header("技能按鈕1~3")]
 	[SerializeField] GameObject[] goSkillUI;
+	[Header("關閉按鈕")]
+	public GameObject btnClose;
 
 	/// <summary>
 	/// 0 武器攻擊
@@ -71,6 +73,16 @@ public class LevelManager : MonoBehaviour
 		*/
 	}
 
+	private void Update()
+	{
+#if UNITY_EDITOR
+		if (Input.GetKeyDown(KeyCode.Keypad1))
+		{
+			AddExp(100);
+		}
+#endif
+	}
+
 	/// <summary>
 	/// 添加經驗值功能
 	/// </summary>
@@ -80,7 +92,7 @@ public class LevelManager : MonoBehaviour
 		this.exp += exp;
 
 		// 目前得等級 = lv - 1
-		if (this.exp > expNeeds[lv - 1])
+		if (this.exp >= expNeeds[lv - 1])
 		{
 			this.exp -= expNeeds[lv - 1];   // 計算多出的經驗值
 			lv++;                           // 等級+1
@@ -108,10 +120,22 @@ public class LevelManager : MonoBehaviour
 		// 更新技能介面資訊
 		for (int i = 0; i < 3; i++)
 		{
-			goSkillUI[i].transform.Find("技能名稱").GetComponent<TextMeshProUGUI>().text = randomSkill[i].skillName;
-			goSkillUI[i].transform.Find("技能描述").GetComponent<TextMeshProUGUI>().text = randomSkill[i].skillDescription;
-			goSkillUI[i].transform.Find("技能等級").GetComponent<TextMeshProUGUI>().text = "LV " + randomSkill[i].skillLv;
-			goSkillUI[i].transform.Find("技能圖片").GetComponent<Image>().sprite = randomSkill[i].skillPicture;
+			if (i > randomSkill.Count - 1)
+			{
+				goSkillUI[i].SetActive(false);
+			}
+			else
+			{
+				goSkillUI[i].transform.Find("技能名稱").GetComponent<TextMeshProUGUI>().text = randomSkill[i].skillName;
+				goSkillUI[i].transform.Find("技能描述").GetComponent<TextMeshProUGUI>().text = randomSkill[i].skillDescription;
+				goSkillUI[i].transform.Find("技能等級").GetComponent<TextMeshProUGUI>().text = "LV " + randomSkill[i].skillLv;
+				goSkillUI[i].transform.Find("技能圖片").GetComponent<Image>().sprite = randomSkill[i].skillPicture;
+			}
+		}
+
+		if (randomSkill.Count == 0)
+		{
+			btnClose.SetActive(true);
 		}
 	}
 
@@ -126,6 +150,15 @@ public class LevelManager : MonoBehaviour
 		{
 			expNeeds[i] = (i + 1) * 100;
 		}
+	}
+
+	/// <summary>
+	/// 點擊關閉按鈕
+	/// </summary>
+	public void ClickCloseButton()
+	{
+		goLvUp.SetActive(false);
+		Time.timeScale = 1f;
 	}
 
 	/// <summary>

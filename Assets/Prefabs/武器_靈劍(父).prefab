@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2457199800250157867}
   - component: {fileID: 383808620973743533}
   - component: {fileID: -1456589416007015657}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: "\u6B66\u5668_\u9748\u528D(\u7236)"
   m_TagString: Bullet
   m_Icon: {fileID: 0}
@@ -86,6 +86,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   force: 20
   pos: {x: 0, y: 10}
+  attack: 0
 --- !u!1 &3276579730651210352
 GameObject:
   m_ObjectHideFlags: 0

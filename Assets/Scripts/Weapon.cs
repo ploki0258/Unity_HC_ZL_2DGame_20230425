@@ -15,5 +15,7 @@ public class Weapon : MonoBehaviour
 	{
 		rig2D = GetComponent<Rigidbody2D>();
 		rig2D.AddForce(pos * force);
+
+		Destroy(gameObject, 4.5f);
 	}
 }
