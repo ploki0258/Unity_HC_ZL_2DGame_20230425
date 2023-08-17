@@ -1236,6 +1236,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7112003683573990485, guid: 1df48aa8cc8beba4b9909bf1168e75da,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 7559564879882583054, guid: 1df48aa8cc8beba4b9909bf1168e75da,
         type: 3}
       propertyPath: m_Bounds.m_Center.x
@@ -1430,6 +1435,24 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &234111857
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8027692107564285294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 321d2172b6d4d1b4798f80b038059bf5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: {fileID: 11400000, guid: 8fd4df2e49908cf468d86f8b746dfd06, type: 2}
+  prefabDamage: {fileID: 8290296663770516459, guid: 5fc4565c2ab865f4f85aba2856be262a,
+    type: 3}
+  onDead:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &6050101349709312167
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1471,22 +1494,6 @@ MonoBehaviour:
     showGizmo: 1
   - color: {r: 0, g: 1, b: 0, a: 1}
     showGizmo: 1
---- !u!114 &234111857
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8027692107564285294}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 321d2172b6d4d1b4798f80b038059bf5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  data: {fileID: 11400000, guid: 8fd4df2e49908cf468d86f8b746dfd06, type: 2}
-  prefabDamage: {fileID: 8290296663770516459, guid: 5fc4565c2ab865f4f85aba2856be262a,
-    type: 3}
-  dataPlayer: {fileID: 11400000, guid: 21590b054ab31454085d5a7114c9dfd2, type: 2}
 --- !u!4 &9070670803342285323 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -1136171739242781904, guid: 1df48aa8cc8beba4b9909bf1168e75da,

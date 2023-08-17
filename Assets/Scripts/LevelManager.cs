@@ -21,6 +21,8 @@ public class LevelManager : MonoBehaviour
 	[SerializeField] GameObject[] goSkillUI;
 	[Header("關閉按鈕")]
 	public GameObject btnClose;
+	[Header("召喚獸生成點")]
+	public Transform[] pointPetArray;
 
 	/// <summary>
 	/// 0 武器攻擊
@@ -28,6 +30,7 @@ public class LevelManager : MonoBehaviour
 	/// 2 玩家血量
 	/// 3 移動速度
 	/// 4 吸取範圍
+	/// 5 召喚萌寵
 	/// </summary>
 	[SerializeField, Header("技能資料陣列")]
 	DataSkill[] dataSkill;
@@ -137,6 +140,7 @@ public class LevelManager : MonoBehaviour
 			}
 		}
 
+		// 如果隨機技能等於0 則顯示關閉按鈕
 		if (randomSkill.Count == 0)
 		{
 			btnClose.SetActive(true);
@@ -186,6 +190,8 @@ public class LevelManager : MonoBehaviour
 			UpgradeMoveSpeed();
 		if (randomSkill[skillID].skillName == "經驗值範圍增加")
 			UpgradeAbsorbExpRange();
+		if (randomSkill[skillID].skillName == "召喚獸數量增加")
+			UpgradeSummonPet();
 	}
 
 	[SerializeField, Header("主角鼠：武器系統")]
@@ -229,5 +235,16 @@ public class LevelManager : MonoBehaviour
 	{
 		int lv = dataSkill[4].skillLv - 1;
 		playerExpRange.radius = dataSkill[4].skillValues[lv];
+	}
+
+	[SerializeField, Header("主角鼠：召喚系統")]
+	GameObject playerPet;
+	// 經驗範圍增加
+	private void UpgradeSummonPet()
+	{
+		int lv = dataSkill[5].skillLv - 1;
+		int random = Random.Range(0, pointPetArray.Length);
+		Vector3 posPet = pointPetArray[random].position;
+		Instantiate(playerPet, posPet, Quaternion.identity);
 	}
 }

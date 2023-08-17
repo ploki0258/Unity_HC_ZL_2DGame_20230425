@@ -6,11 +6,11 @@ public class PlayCtrl : MonoBehaviour
 	[Header("移動速度"), Range(0, 10)]
 	public float speed = 10;
 	[Header("參數名稱")]
-	[SerializeField] string parRun = "runSwitch";
+	public string parAniName = "runSwitch";
 
 
-	Rigidbody2D rig = null;
-	Animator ani = null;
+	public Rigidbody2D rig = null;
+	public Animator ani = null;
 
 	private void Awake()
 	{
@@ -40,7 +40,7 @@ public class PlayCtrl : MonoBehaviour
 		rig.velocity = new Vector2(ad * speed, ws * speed);
 
 		// 移動動畫
-		ani.SetBool(parRun, (ws != 0 || ad != 0));
+		ani.SetBool(parAniName, (ws != 0 || ad != 0));
 
 		// 翻轉
 		if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A))
