@@ -35,8 +35,8 @@ public class LevelManager : MonoBehaviour
 	public List<DataSkill> randomSkill = new List<DataSkill>();
 	public float[] expNeeds = { 100, 200, 300, 400, 500 };
 
-	private int lv = 1;
-	private float exp = 0;
+	private int lv = 1;     // 等級
+	private float exp = 0;  // 經驗值
 
 	/// <summary>
 	/// 觸發事件
@@ -76,9 +76,13 @@ public class LevelManager : MonoBehaviour
 	private void Update()
 	{
 #if UNITY_EDITOR
-		if (Input.GetKeyDown(KeyCode.Keypad1))
+		if (Input.GetKeyDown(KeyCode.Keypad1) || Input.GetKeyDown(KeyCode.Alpha1))
 		{
-			AddExp(100);
+			// AddExp(100);
+
+			// 依據玩家當前的經驗值需求來升級經驗
+			float needsValue = expNeeds[lv - 1];
+			AddExp(needsValue);
 		}
 #endif
 	}
@@ -113,7 +117,7 @@ public class LevelManager : MonoBehaviour
 		Time.timeScale = 0.00001f;
 
 		// 挑選全部技能資料中 等級小於5的技能
-		randomSkill = dataSkill.Where(skill => skill.skillLv <= 5).ToList();
+		randomSkill = dataSkill.Where(skill => skill.skillLv < 5).ToList();
 		// 將randomSkill清單隨機排序：洗牌
 		randomSkill = randomSkill.OrderBy(skill => Random.Range(0, 999)).ToList();
 

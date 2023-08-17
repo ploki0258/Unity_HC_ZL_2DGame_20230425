@@ -15,7 +15,7 @@ MonoBehaviour:
   skillName: "\u6B66\u5668\u9593\u9694\u7E2E\u77ED"
   skillPicture: {fileID: 21300000, guid: acc6f0bafbd24ca49b8148b21f21f6aa, type: 3}
   skillDescription: "\u63D0\u5347\u6B66\u5668\u751F\u6210\u901F\u5EA6\uFF0C\u6BCF\u5347\u4E00\u7B49\u52A00.2\u3002"
-  skillLv: 6
+  skillLv: 1
   skillValues:
   - 1
   - 0.8

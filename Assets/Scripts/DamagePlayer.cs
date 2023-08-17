@@ -38,4 +38,10 @@ public class DamagePlayer : DamageBasic
 		textFinal.text = "You are Dead";
 		gpFinal.SetActive(true);
 	}
+
+	public void Win()
+	{
+		textFinal.text = "You are Win";
+		gpFinal.SetActive(true);
+	}
 }

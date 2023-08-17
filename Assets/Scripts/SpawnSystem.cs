@@ -3,9 +3,9 @@
 public class SpawnSystem : MonoBehaviour
 {
     [Header("生成間隔"), Range(0,10)]
-    [SerializeField] float interval = 3.5f;         // 怪物生成間隔時間
+    public float interval = 3.5f;         // 怪物生成間隔時間
     [Header("怪物預製物")]
-    [SerializeField] GameObject prefabEnemy = null; // 要生成的怪物
+    public GameObject prefabEnemy = null; // 要生成的怪物
 
 	private void Start()
 	{
@@ -19,5 +19,14 @@ public class SpawnSystem : MonoBehaviour
     void SpawnEnemy()
     {
         Instantiate(prefabEnemy, transform.position, transform.rotation);
+    }
+
+    /// <summary>
+    /// 重新生成怪物
+    /// </summary>
+    public void Restart()
+	{
+        CancelInvoke();
+        InvokeRepeating("SpawnEnemy", 0f, interval);
     }
 }
