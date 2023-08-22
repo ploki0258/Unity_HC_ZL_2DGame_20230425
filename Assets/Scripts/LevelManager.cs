@@ -21,6 +21,8 @@ public class LevelManager : MonoBehaviour
 	[SerializeField] GameObject[] goSkillUI;
 	[Header("關閉按鈕")]
 	public GameObject btnClose;
+	[Header("確認按鈕")]
+	public GameObject btnConfirm;
 	[Header("召喚獸生成點")]
 	public Transform[] pointPetArray;
 
@@ -74,6 +76,8 @@ public class LevelManager : MonoBehaviour
 			Debug.Log($"<color=#ff6969>i 的值：{i}</color>");
 		}
 		*/
+
+		DeselectButton();
 	}
 
 	private void Update()
@@ -125,10 +129,13 @@ public class LevelManager : MonoBehaviour
 		randomSkill = randomSkill.OrderBy(skill => Random.Range(0, 999)).ToList();
 
 		// 更新技能介面資訊
+		// 出現3個技能按鈕
 		for (int i = 0; i < 3; i++)
 		{
 			if (i > randomSkill.Count - 1)
 			{
+				Debug.Log($"<color=green>顯示升級介面</color>");
+				// 升滿的技能不顯示
 				goSkillUI[i].SetActive(false);
 			}
 			else
@@ -137,6 +144,7 @@ public class LevelManager : MonoBehaviour
 				goSkillUI[i].transform.Find("技能描述").GetComponent<TextMeshProUGUI>().text = randomSkill[i].skillDescription;
 				goSkillUI[i].transform.Find("技能等級").GetComponent<TextMeshProUGUI>().text = "LV " + randomSkill[i].skillLv;
 				goSkillUI[i].transform.Find("技能圖片").GetComponent<Image>().sprite = randomSkill[i].skillPicture;
+				Debug.Log($"<color=green>{goSkillUI[i]}</color>");
 			}
 		}
 
@@ -144,6 +152,12 @@ public class LevelManager : MonoBehaviour
 		if (randomSkill.Count == 0)
 		{
 			btnClose.SetActive(true);
+		}
+
+		// 如果所選擇的按鈕個數 等於 2個 就顯示確認按鈕
+		if (buttonList.Count == goSkillUI.Length - 1)
+		{
+			btnConfirm.SetActive(true);
 		}
 	}
 
@@ -170,15 +184,87 @@ public class LevelManager : MonoBehaviour
 	}
 
 	/// <summary>
-	/// 點擊技能升級
+	/// 點擊確認按鈕
 	/// </summary>
-	/// <param name="skillID">技能編號</param>
+	public void ClickConfirmButton()
+	{
+		ClickSkillButton(indexChooseButton);
+
+		goLvUp.SetActive(false);
+		Time.timeScale = 1f;
+	}
+
+	[Tooltip("所選擇的按鈕編號")]
+	private int indexChooseButton;
+	[Tooltip("該按鈕是否被選擇")]
+	private bool isSelected = false;
+
+	[Tooltip("所存放的按鈕編號的列表")]
+	List<int> buttonList = new List<int>();
+
+	/// <summary>
+	/// 已選擇按鈕
+	/// </summary>
+	public void SelectButton()
+	{
+		isSelected = true;
+		Debug.Log("已選擇");
+	}
+
+	/// <summary>
+	/// 取消選擇的按鈕
+	/// </summary>
+	public void DeselectButton()
+	{
+		isSelected = false;
+		Debug.Log("取消選擇");
+	}
+
+	/// <summary>
+	/// 回傳按鈕的選擇狀態
+	/// </summary>
+	/// <returns></returns>
+	public bool IsSelected()
+	{
+		return isSelected;
+	}
+
+	/// <summary>
+	/// 切換按鈕的選擇狀態
+	/// </summary>
+	public void SwitchSelected()
+	{
+		isSelected = !isSelected;
+	}
+
+	/// <summary>
+	/// 點擊技能按鈕升級
+	/// </summary>
+	/// <param name="skillID">技能按鈕編號</param>
 	public void ClickSkillButton(int skillID)
 	{
 		// Debug.Log($"<color=#9966ff>點擊技能編號：{skillID}</color>");
-		randomSkill[skillID].skillLv++;
-		goLvUp.SetActive(false);
-		Time.timeScale = 1f;
+		randomSkill[skillID].skillLv++; // 技能等級+1
+										// goLvUp.SetActive(false);		// 隱藏技能介面
+										// Time.timeScale = 1f;         // 遊戲時間恢復
+		SwitchSelected();   // 點擊切換按鈕狀態
+		Debug.Log("按鈕是否有按：" + isSelected);
+		for (int i = 0; i < goSkillUI.Length; i++)
+		{
+			Image colorButton = goSkillUI[i].GetComponent<Image>();
+
+			if (IsSelected())
+			{
+				colorButton.color = Color.yellow;
+			}
+			else
+			{
+				colorButton.color = new Color(96f, 96f, 96f);
+			}
+
+			indexChooseButton = skillID;
+			buttonList.Add(indexChooseButton);
+		}
 
 		if (randomSkill[skillID].skillName == "武器攻擊力提升")
 			UpgradeWeaponAttack();
@@ -193,6 +279,7 @@ public class LevelManager : MonoBehaviour
 		if (randomSkill[skillID].skillName == "召喚獸數量增加")
 			UpgradeSummonPet();
 	}
+
 	#region 技能升級方法
 	[SerializeField, Header("主角鼠：武器系統")]
 	WeaponSystem weaponSystem;

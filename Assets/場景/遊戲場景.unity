@@ -7410,7 +7410,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -7921,7 +7921,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1538510112}
         m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
-        m_MethodName: ClickCloseButton
+        m_MethodName: ClickConfirmButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -10015,7 +10015,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -10348,7 +10348,7 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.12, y: 0}
+  m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 2.5
 --- !u!114 &1538510112
@@ -10372,6 +10372,7 @@ MonoBehaviour:
   - {fileID: 953258615}
   - {fileID: 1890193633}
   btnClose: {fileID: 1857888938}
+  btnConfirm: {fileID: 1232061683}
   pointPetArray:
   - {fileID: 1516496306}
   - {fileID: 217478355}
@@ -12384,7 +12385,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1871178098
 RectTransform:
   m_ObjectHideFlags: 0
