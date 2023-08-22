@@ -179,3 +179,4 @@ MonoBehaviour:
   rig: {fileID: 0}
   ani: {fileID: 0}
   data: {fileID: 11400000, guid: a60de3653d0b51645a956bfda58fc5cb, type: 2}
+  offset: {x: 1.4, y: 0, z: 0}

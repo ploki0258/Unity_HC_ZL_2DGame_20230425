@@ -193,7 +193,7 @@ public class LevelManager : MonoBehaviour
 		if (randomSkill[skillID].skillName == "召喚獸數量增加")
 			UpgradeSummonPet();
 	}
-
+	#region 技能升級方法
 	[SerializeField, Header("主角鼠：武器系統")]
 	WeaponSystem weaponSystem;
 	// 武器攻擊提升
@@ -247,4 +247,5 @@ public class LevelManager : MonoBehaviour
 		Vector3 posPet = pointPetArray[random].position;
 		Instantiate(playerPet, posPet, Quaternion.identity);
 	}
+	#endregion
 }
