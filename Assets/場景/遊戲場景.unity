@@ -4719,7 +4719,7 @@ GameObject:
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &496656901
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5927,7 +5927,7 @@ GameObject:
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &745791174
 Transform:
   m_ObjectHideFlags: 0
@@ -9332,7 +9332,7 @@ GameObject:
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1425297773
 Transform:
   m_ObjectHideFlags: 0
@@ -10187,7 +10187,7 @@ GameObject:
   - component: {fileID: 1538510113}
   m_Layer: 6
   m_Name: "\u4E3B\u89D2\u9F20"
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10369,8 +10369,8 @@ MonoBehaviour:
   goLvUp: {fileID: 1871178097}
   goSkillUI:
   - {fileID: 1443647279}
-  - {fileID: 953258615}
-  - {fileID: 1890193633}
+  - {fileID: 1517543297}
+  - {fileID: 1077772645}
   btnClose: {fileID: 1857888938}
   btnConfirm: {fileID: 1232061683}
   pointPetArray:
@@ -10485,6 +10485,7 @@ MonoBehaviour:
   - 9800
   - 9900
   - 10000
+  buttonSelectList: 
   weaponSystem: {fileID: 278752198}
   dataBasic: {fileID: 11400000, guid: 21590b054ab31454085d5a7114c9dfd2, type: 2}
   playerMoveSpeed: {fileID: 1538510108}
@@ -11140,7 +11141,7 @@ GameObject:
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1619563848
 Transform:
   m_ObjectHideFlags: 0
@@ -12395,7 +12396,7 @@ RectTransform:
   m_GameObject: {fileID: 1871178097}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1689524304}

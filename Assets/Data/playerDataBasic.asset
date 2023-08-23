@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: playerDataBasic
   m_EditorClassIdentifier: 
   hp: 200
-  Attack: 50
-  moveSpeed: 10
+  attack: 50
+  moveSpeed: 5

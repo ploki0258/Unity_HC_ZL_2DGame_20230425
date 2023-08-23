@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e210918d5b9e85489a058dfdd4538f5, type: 3}
   m_Name: "\u7B2C2\u6CE2\u602A\u7269"
   m_EditorClassIdentifier: 
-  timeToSpawn: 6
+  timeToSpawn: 10
   prefabEnemy: {fileID: 8027692107564285294, guid: d5053fb3ab9c056488f26467142391fd,
     type: 3}
-  intervalSpawn: 2
+  intervalSpawn: 5
