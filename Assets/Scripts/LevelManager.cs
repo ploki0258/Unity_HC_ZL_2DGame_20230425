@@ -156,7 +156,7 @@ public class LevelManager : MonoBehaviour
 		randomSkill = randomSkill.OrderBy(skill => Random.Range(0, 999)).ToList();
 
 		// 更新技能介面資訊
-		// 出現3個技能按鈕
+		// 顯示3個技能按鈕
 		for (int i = 0; i < 3; i++)
 		{
 			if (i > randomSkill.Count - 1)
@@ -175,7 +175,7 @@ public class LevelManager : MonoBehaviour
 			}
 		}
 
-		//// 初始化所有按鈕的顏色
+		// 初始化所有按鈕的顏色
 		foreach (GameObject colorButton in goSkillUI)
 		{
 			colorButton.GetComponent<Image>().color = normalColor;
@@ -206,8 +206,8 @@ public class LevelManager : MonoBehaviour
 	/// </summary>
 	public void ClickCloseButton()
 	{
-		goLvUp.SetActive(false);
-		Time.timeScale = 1f;
+		goLvUp.SetActive(false);    // 關閉介面
+		Time.timeScale = 1f;        // 恢復時間
 	}
 
 	[Header("選擇按鈕列表"), Tooltip("所存放的按鈕編號的列表")]
@@ -236,10 +236,15 @@ public class LevelManager : MonoBehaviour
 				UpgradeSummonPet();
 		}
 
-		buttonSelectList.Clear();
-		goLvUp.SetActive(false);
-		Time.timeScale = 1f;
+		buttonSelectList.Clear();   // 清空列表
+		goLvUp.SetActive(false);    // 關閉介面
+		Time.timeScale = 1f;        // 恢復時間
 	}
+
+	[Tooltip("最大選擇數量")]
+	private int maxSelectCount = 2;
+	[Tooltip("是否已達最大選擇數量")]
+	private bool maxSelect = false;
 
 	/// <summary>
 	/// 點擊技能按鈕升級
@@ -254,22 +259,50 @@ public class LevelManager : MonoBehaviour
 		Time.timeScale = 1f;			// 遊戲時間恢復
 		*/
 
-		// 如果選中按鈕時 添加至列表中 顏色變為黃色
-		// 否則選中按鈕時 從列表中移除 顏色變為灰色
-		if (buttonSelectList.Contains(skillID))
+		// 如果按鈕列表中的數量 等於 最大選擇數量的話
+		if (buttonSelectList.Count == maxSelectCount)
 		{
-			buttonSelectList.Remove(skillID);   // 從列表中移除
-			goSkillUI[skillID].GetComponent<Image>().color = normalColor;
+			maxSelect = true;   // 是否已達最大選擇數量 = true
 		}
 		else
 		{
-			buttonSelectList.Add(skillID);  // 添加至列表
-			goSkillUI[skillID].GetComponent<Image>().color = selectColor;
+			maxSelect = false;  // 是否已達最大選擇數量 = false
+		}
+
+		// 如果已達最大選擇數量的話
+		if (maxSelect)
+		{
+			// 如果是未選的按鈕的話 就不執行
+			// 否則就從列表中移除 顏色變為灰色
+			if (!buttonSelectList.Contains(skillID))
+			{
+				return;
+			}
+			else
+			{
+				buttonSelectList.Remove(skillID);   // 從列表中移除
+				goSkillUI[skillID].GetComponent<Image>().color = normalColor;
+			}
+		}
+		else
+		{
+			// 如果選中按鈕時 添加至列表中 顏色變為黃色
+			// 否則未選按鈕時 從列表中移除 顏色變為灰色
+			if (buttonSelectList.Contains(skillID))
+			{
+				buttonSelectList.Remove(skillID);   // 從列表中移除
+				goSkillUI[skillID].GetComponent<Image>().color = normalColor;
+			}
+			else
+			{
+				buttonSelectList.Add(skillID);  // 添加至列表
+				goSkillUI[skillID].GetComponent<Image>().color = selectColor;
+			}
 		}
 
 		#region 寫法測試
 		/*
-		// buttonSelectManager.SwitchSelected();   // 點擊切換按鈕狀態
+		buttonSelectManager.SwitchSelected();   // 點擊切換按鈕狀態
 
 		for (int i = 0; i < goSkillUI.Length; i++)
 		{
