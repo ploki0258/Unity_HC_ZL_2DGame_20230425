@@ -20,6 +20,8 @@ public class LevelManager : MonoBehaviour
 	GameObject goLvUp = null;
 	[Header("技能按鈕1~3")]
 	[SerializeField] GameObject[] goSkillUI;
+	[Header("技能欄圖示")]
+	public Image skillIcon = null;
 	[Header("關閉按鈕")]
 	public GameObject btnClose;
 	[Header("確認按鈕")]
@@ -58,6 +60,12 @@ public class LevelManager : MonoBehaviour
 		if (collision.name.Contains("經驗值"))
 		{
 			collision.GetComponent<ExpSystem>().enabled = true;
+			Debug.Log("已碰到經驗值物件");
+		}
+		else if (collision.name.Contains("BOSS"))
+		{
+			collision.GetComponent<ItemSystem>().enabled = true;
+			Debug.Log("已碰到BOSS物件");
 		}
 	}
 
@@ -89,16 +97,11 @@ public class LevelManager : MonoBehaviour
 		// buttonSelectManager.DeselectButton();
 	}
 
-	private void OnEnable()
-	{
-
-	}
-
 	private void Update()
 	{
-		// 如果所選擇的按鈕個數 等於 2個 就顯示確認按鈕
+		// 如果所選擇的按鈕個數 等於 2個 或只剩下一種技能時 就顯示確認按鈕
 		// 否則就隱藏
-		if (buttonSelectList.Count == goSkillUI.Length - 1)
+		if (buttonSelectList.Count == goSkillUI.Length - 1 || randomSkill.Count < 2)
 		{
 			btnConfirm.SetActive(true);
 		}
@@ -356,13 +359,16 @@ public class LevelManager : MonoBehaviour
 		weaponSystem.Restart();
 	}
 
-	[SerializeField, Header("主角鼠：玩家資料")]
-	DataBasic dataBasic;
+	[Header("主角鼠：玩家資料")]
+	[SerializeField] DataBasic dataBasic;
+	[SerializeField] DamagePlayer damagePlayer;
+	[SerializeField] DamageBasic damageBasic;
 	// 玩家血量提升
 	private void UpgradePlayerHp()
 	{
 		int lv = dataSkill[2].skillLv - 1;
 		dataBasic.hp = dataSkill[2].skillValues[lv];
+		damagePlayer.hpBar.fillAmount = damageBasic.hpMax;
 	}
 
 	[SerializeField, Header("主角鼠：角色控制")]

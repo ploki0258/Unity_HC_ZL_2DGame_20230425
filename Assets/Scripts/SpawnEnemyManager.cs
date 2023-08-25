@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class SpawnEnemyManager : MonoBehaviour
 {
@@ -35,12 +36,13 @@ public class SpawnEnemyManager : MonoBehaviour
 			// 生成BOSS
 			if (index == dataSpawnEnemys.Length - 1)
 			{
-				int random = Random.Range(0, spawnSystems.Length);
+				int random = UnityEngine.Random.Range(0, spawnSystems.Length);
 				Vector3 pos = spawnSystems[random].transform.position;
 				Instantiate(dataSpawnEnemys[index].prefabEnemy, pos, Quaternion.identity);
 				index++;
 
 				SpawBossSkillItem();
+				Debug.Log("生成BOSS道具-2");
 				return;
 			}
 
@@ -61,18 +63,26 @@ public class SpawnEnemyManager : MonoBehaviour
 	/// </summary>
 	private void SpawBossSkillItem()
 	{
-		int random = Random.Range(0, spawnPointArray.Length);
-		float width = Random.Range(0f, 22f);
-		float height = Random.Range(0f, 22f);
+		Debug.Log("生成BOSS道具");
+		int random = UnityEngine.Random.Range(0, spawnPointArray.Length);
+		float width = UnityEngine.Random.Range(0f, 22f);
+		float height = UnityEngine.Random.Range(0f, 22f);
 
 		Vector3 posA = spawnPointArray[random].transform.position;
 		posA.x = width;
 		posA.y = height;
 		Vector3 posB = new Vector3(posA.x, posA.y, posA.z);
 
-		if (dataSpawnEnemys[index].prefabEnemy)
+		for (int i = 0; i < dataSpawnEnemys.Length; i++)
 		{
-			Instantiate(itemBoss, posB, Quaternion.identity);
+			bool spawnBOSS = dataSpawnEnemys[i].isBossLevel == true;
+			int spawnBOSSIndex = Array.IndexOf(dataSpawnEnemys, spawnBOSS);
+
+			if (spawnBOSSIndex != -1)
+			{
+				Instantiate(itemBoss, posB, Quaternion.identity); 
+				Debug.Log("生成BOSS道具-1");
+			}
 		}
 	}
 }

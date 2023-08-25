@@ -16,3 +16,4 @@ MonoBehaviour:
   prefabEnemy: {fileID: 5380361610353910839, guid: bfeae8a7322a0c84699904faee731bdc,
     type: 3}
   intervalSpawn: 1.5
+  isBossLevel: 1

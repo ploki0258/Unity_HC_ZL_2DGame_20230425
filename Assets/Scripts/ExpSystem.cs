@@ -13,7 +13,8 @@ public class ExpSystem : MonoBehaviour
 	float expValue = 30f;
 
 	private Transform player;
-	private LevelManager levelManager;
+	public LevelManager levelManager;
+
 
 	private void Awake()
 	{
@@ -23,12 +24,19 @@ public class ExpSystem : MonoBehaviour
 
 	private void Update()
 	{
+		TrackingPlayer();
+	}
+
+	public void TrackingPlayer()
+	{
+		Debug.Log("已發動效果");
 		transform.position = Vector3.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
 		// 如果此經驗值物件與玩家物件的距離小於 1 就吃掉
 		if (Vector3.Distance(transform.position, player.position) <= distanceEat)
 		{
 			levelManager.AddExp(expValue);
 			Destroy(gameObject);
+			Debug.Log("已發動效果-1");
 		}
 	}
 }

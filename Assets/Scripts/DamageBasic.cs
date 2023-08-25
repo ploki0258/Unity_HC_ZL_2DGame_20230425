@@ -9,7 +9,7 @@ public class DamageBasic : MonoBehaviour
 	public GameObject prefabDamage = null;
 
 	protected float hp;		// 血量
-	protected float hpMax;	// 血量最大值
+	public float hpMax;	// 血量最大值
 
 	private void Awake()
 	{

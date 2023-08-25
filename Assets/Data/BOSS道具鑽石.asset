@@ -9,11 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e210918d5b9e85489a058dfdd4538f5, type: 3}
-  m_Name: "\u7B2C2\u6CE2\u602A\u7269"
+  m_Script: {fileID: 11500000, guid: be5778118a08f9f438699ff98f739647, type: 3}
+  m_Name: "BOSS\u9053\u5177\u947D\u77F3"
   m_EditorClassIdentifier: 
-  timeToSpawn: 10
-  prefabEnemy: {fileID: 8027692107564285294, guid: d5053fb3ab9c056488f26467142391fd,
-    type: 3}
-  intervalSpawn: 5
-  isBossLevel: 0
+  iconItem: {fileID: 21300000, guid: 8f98e7ad9a26d0c4199c7137ffb0eec0, type: 3}
