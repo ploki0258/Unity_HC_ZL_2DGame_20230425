@@ -150,6 +150,10 @@ public class LevelManager : MonoBehaviour
 	/// </summary>
 	private void LevelUp()
 	{
+		// 播放升級音效
+		AudioClip sound = SoundManager.instance.soundLvUp;
+		SoundManager.instance.PlaySound(sound);
+
 		goLvUp.SetActive(true);
 		Time.timeScale = 0.00001f;
 
@@ -221,6 +225,10 @@ public class LevelManager : MonoBehaviour
 	/// </summary>
 	public void ClickConfirmButton()
 	{
+		// 播放技能升級音效
+		AudioClip sound = SoundManager.instance.soundSkillLvUp;
+		SoundManager.instance.PlaySound(sound);
+
 		foreach (int skillID in buttonSelectList)
 		{
 			randomSkill[skillID].skillLv++; // 技能等級+1

@@ -27,6 +27,10 @@ public class DamageEnemy : DamageBasic
 			float damage = collision.gameObject.GetComponent<Weapon>().attack;
 			Damage(damage);
 			// Debug.Log(dataPlayer.Attack);
+
+			// 播放怪物受傷音效
+			AudioClip sound = SoundManager.instance.soundEnemyHurt;
+			SoundManager.instance.PlaySound(sound);
 		}
 	}
 
@@ -38,6 +42,10 @@ public class DamageEnemy : DamageBasic
 		base.Dead();
 		onDead.Invoke();
 		Destroy(gameObject);
+
+		// 播放怪物死亡音效
+		AudioClip sound = SoundManager.instance.soundEnemyDead;
+		SoundManager.instance.PlaySound(sound);
 
 		float randomValue = Random.value;
 		// 如果隨機值 小於 掉落機率 就掉落經驗值道具
