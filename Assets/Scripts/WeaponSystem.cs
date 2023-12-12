@@ -8,8 +8,8 @@ public class WeaponSystem : MonoBehaviour
 	public float attack = 50f;
 	[Header("武器預製物")]
 	[SerializeField] GameObject[] prefabWeapon = null; // 要生成的武器
-	// [Header("投擲力道"), Range(1, 30)]
-	// [SerializeField] float force = 10f;
+													   // [Header("投擲力道"), Range(1, 30)]
+													   // [SerializeField] float force = 10f;
 	[Header("武器推力")]
 	[SerializeField] Vector2 power;
 	[Header("生成點")]
@@ -31,6 +31,9 @@ public class WeaponSystem : MonoBehaviour
 		tempWeapon.GetComponent<Rigidbody2D>().AddForce(power);
 		// 生成的武器.取得武器元件.攻擊力 = 此腳本的攻擊力
 		tempWeapon.GetComponent<Weapon>().attack = this.attack;
+		// 播放攻擊音效
+		AudioClip sound = SoundManager.instance.soundFireWeapon;
+		SoundManager.instance.PlaySound(sound);
 	}
 
 	/// <summary>
