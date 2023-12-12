@@ -13,6 +13,7 @@ public class ExpSystem : MonoBehaviour
 	float expValue = 30f;
 
 	private Transform player;
+	[HideInInspector]
 	public LevelManager levelManager;
 
 
@@ -27,6 +28,9 @@ public class ExpSystem : MonoBehaviour
 		TrackingPlayer();
 	}
 
+	/// <summary>
+	/// 經驗值道具追蹤玩家
+	/// </summary>
 	public void TrackingPlayer()
 	{
 		Debug.Log("已發動效果");
@@ -35,6 +39,7 @@ public class ExpSystem : MonoBehaviour
 		if (Vector3.Distance(transform.position, player.position) <= distanceEat)
 		{
 			levelManager.AddExp(expValue);
+			//levelManager.timer += Time.deltaTime;
 			Destroy(gameObject);
 			Debug.Log("已發動效果-1");
 		}

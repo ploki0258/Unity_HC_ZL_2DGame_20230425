@@ -6,10 +6,11 @@ using System.Linq;
 using Unity.VisualScripting;
 
 /// <summary>
-/// 等級系統
+/// 等級系統：管理角色的升級技能
 /// </summary>
 public class LevelManager : MonoBehaviour
 {
+	#region 欄位
 	[SerializeField, Header("經驗值")]
 	Image imgExp;
 	[SerializeField, Header("文字等級")]
@@ -43,11 +44,14 @@ public class LevelManager : MonoBehaviour
 	public List<DataSkill> randomSkill = new List<DataSkill>();
 	public float[] expNeeds = { 100, 200, 300, 400, 500 };
 
-	private int lv = 1;     // 等級
-	private float exp = 0;  // 經驗值
+	private int lv = 1;         // 等級
+	private float exp = 0;      // 經驗值
+	public float timer = 0;    // 計時器
 	private ButtonSelectManager buttonSelectManager;
+	private ItemSkillSystem itemSkillSystem;
 	private Color normalColor = Color.gray;
 	private Color selectColor = new Color(255f, 255f, 0f);
+	#endregion
 
 	/// <summary>
 	/// 觸發事件
@@ -64,7 +68,9 @@ public class LevelManager : MonoBehaviour
 		}
 		else if (collision.name.Contains("BOSS"))
 		{
-			collision.GetComponent<ItemSystem>().enabled = true;
+			collision.GetComponent<ItemSkillSystem>().enabled = true;
+			skillIcon.enabled = true;
+			skillIcon.sprite = itemSkillSystem.itemData.iconItem;
 			Debug.Log("已碰到BOSS物件");
 		}
 	}
@@ -72,6 +78,8 @@ public class LevelManager : MonoBehaviour
 	private void Awake()
 	{
 		buttonSelectManager = FindObjectOfType<ButtonSelectManager>();
+		itemSkillSystem = FindObjectOfType<ItemSkillSystem>();
+		skillIcon.enabled = false;
 	}
 
 	private void Start()
@@ -110,6 +118,8 @@ public class LevelManager : MonoBehaviour
 			btnConfirm.SetActive(false);
 		}
 
+		ItemEffectForBoss();
+
 #if UNITY_EDITOR
 		if (Input.GetKeyDown(KeyCode.Keypad1) || Input.GetKeyDown(KeyCode.Alpha1))
 		{
@@ -132,7 +142,7 @@ public class LevelManager : MonoBehaviour
 	{
 		this.exp += exp;
 
-		// 目前得等級 = lv - 1
+		// 目前的等級 = lv - 1
 		if (this.exp >= expNeeds[lv - 1])
 		{
 			this.exp -= expNeeds[lv - 1];   // 計算多出的經驗值
@@ -340,6 +350,16 @@ public class LevelManager : MonoBehaviour
 		//if (randomSkill[skillID].skillName == "召喚獸數量增加")
 		//	UpgradeSummonPet();
 		#endregion
+	}
+
+	public void ItemEffectForBoss()
+	{
+		if (timer >= itemSkillSystem.itemData.skillHoldTime)
+		{
+			Debug.Log("BOSS道具效果消失");
+			skillIcon.enabled = false;
+			timer = 0;
+		}
 	}
 
 	#region 技能升級方法
