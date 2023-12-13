@@ -44,6 +44,9 @@ public class LevelManager : MonoBehaviour
 	public List<DataSkill> randomSkill = new List<DataSkill>();
 	public float[] expNeeds = { 100, 200, 300, 400, 500 };
 
+	[Header("按鈕選擇列表"), Tooltip("所存放的按鈕編號的列表")]
+	public List<int> buttonSelectList = new List<int>();
+
 	private int lv = 1;         // 等級
 	private float exp = 0;      // 經驗值
 	public float timer = 0;    // 計時器
@@ -226,9 +229,6 @@ public class LevelManager : MonoBehaviour
 		goLvUp.SetActive(false);    // 關閉介面
 		Time.timeScale = 1f;        // 恢復時間
 	}
-
-	[Header("選擇按鈕列表"), Tooltip("所存放的按鈕編號的列表")]
-	public List<int> buttonSelectList = new List<int>();
 
 	/// <summary>
 	/// 點擊確認按鈕

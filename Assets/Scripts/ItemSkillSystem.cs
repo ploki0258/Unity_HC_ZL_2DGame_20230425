@@ -9,4 +9,15 @@ public class ItemSkillSystem : ExpSystem
 	{
 		TrackingPlayer();
 	}
+
+	private void OnTriggerEnter2D(Collider2D collision)
+	{
+		if (collision.name.Contains("主角鼠"))
+		{
+			if (Vector3.Distance(transform.position, player.position) <= 1f)
+			{
+				
+			}
+		}
+	}
 }

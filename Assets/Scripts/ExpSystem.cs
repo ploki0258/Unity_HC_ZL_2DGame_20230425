@@ -12,10 +12,10 @@ public class ExpSystem : MonoBehaviour
 	[SerializeField, Header("經驗數值"), Range(0, 500)]
 	float expValue = 30f;
 
-	private Transform player;
+	[HideInInspector]
+	public Transform player;
 	[HideInInspector]
 	public LevelManager levelManager;
-
 
 	private void Awake()
 	{
@@ -39,7 +39,6 @@ public class ExpSystem : MonoBehaviour
 		if (Vector3.Distance(transform.position, player.position) <= distanceEat)
 		{
 			levelManager.AddExp(expValue);
-			//levelManager.timer += Time.deltaTime;
 			Destroy(gameObject);
 			Debug.Log("已發動效果-1");
 		}
