@@ -25,6 +25,7 @@ public class EnemySystem : MonoBehaviour
 
 		// 如果距離 大於 敵人資料.攻擊範圍
 		// 就追蹤玩家
+		// 否則就(每隔攻擊間隔)攻擊玩家
 		if (distance > data.attackRange)
 		{
 			// 追尋玩家

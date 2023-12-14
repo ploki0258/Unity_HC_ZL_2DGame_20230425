@@ -7,8 +7,9 @@ public class DamageBasic : MonoBehaviour
 	public DataBasic data;
 	[Header("傷害值預製物")]
 	public GameObject prefabDamage = null;
-
-	protected float hp;		// 血量
+	
+	protected float hp; // 血量
+	[HideInInspector]
 	public float hpMax;	// 血量最大值
 
 	private void Awake()
