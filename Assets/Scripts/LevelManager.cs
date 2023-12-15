@@ -51,7 +51,7 @@ public class LevelManager : MonoBehaviour
 	private float exp = 0;      // 經驗值
 	public float timer = 0;    // 計時器
 	private ButtonSelectManager buttonSelectManager;
-	private ItemSkillSystem itemSkillSystem;
+	public ItemSkillSystem itemSkillSystem;
 	private Color normalColor = Color.gray;
 	private Color selectColor = new Color(255f, 255f, 0f);
 	#endregion
@@ -67,14 +67,14 @@ public class LevelManager : MonoBehaviour
 		if (collision.name.Contains("經驗值"))
 		{
 			collision.GetComponent<ExpSystem>().enabled = true;
-			Debug.Log("已碰到經驗值物件");
+			//Debug.Log("已碰到經驗值物件");
 		}
 		else if (collision.name.Contains("BOSS"))
 		{
 			collision.GetComponent<ItemSkillSystem>().enabled = true;
-			skillIcon.enabled = true;
-			skillIcon.sprite = itemSkillSystem.itemData.iconItem;
-			Debug.Log("已碰到BOSS物件");
+			//skillIcon.enabled = true;
+			//skillIcon.sprite = itemSkillSystem.itemData.iconItem;
+			//Debug.Log("已碰到BOSS物件");
 		}
 	}
 
@@ -121,7 +121,7 @@ public class LevelManager : MonoBehaviour
 			btnConfirm.SetActive(false);
 		}
 
-		ItemEffectForBoss();
+		//ItemEffectForBoss();
 
 #if UNITY_EDITOR
 		if (Input.GetKeyDown(KeyCode.Keypad1) || Input.GetKeyDown(KeyCode.Alpha1))

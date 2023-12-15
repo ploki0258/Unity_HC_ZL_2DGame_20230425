@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be5778118a08f9f438699ff98f739647, type: 3}
   m_Name: "BOSS\u9053\u5177\u947D\u77F3"
   m_EditorClassIdentifier: 
-  iconItem: {fileID: 21300000, guid: 8f98e7ad9a26d0c4199c7137ffb0eec0, type: 3}
-  effectBossState: 5
-  skillHoldTime: 3
-  itemExistTime: 10
+  iconItem: {fileID: 21300000, guid: 4b9debbd72f821f4dae3b561302a81f8, type: 3}
+  _effectBossState: 0
+  itemBossDescription: "\u7121\u6548\u679C"
+  skillHoldTime: 0
+  itemExistTime: 0

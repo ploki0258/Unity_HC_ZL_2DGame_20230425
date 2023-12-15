@@ -8,6 +8,7 @@ public class DamageEnemy : DamageBasic
 
 	private DataEnemy dataEnemy;        // 敵人資料
 	private DamagePlayer damagePlayer;  // 玩家資料
+	private SkillPlayer skillPlayer;	// 玩家技能資料
 
 	private void Start()
 	{
@@ -16,8 +17,11 @@ public class DamageEnemy : DamageBasic
 		// Debug.Log(dataEnemy.expProbability);
 
 		damagePlayer = GameObject.Find("主角鼠").GetComponent<DamagePlayer>();
+		skillPlayer = GameObject.Find("主角鼠").GetComponent<SkillPlayer>();
+
 		if (name.Contains("BOSS"))
-			onDead.AddListener(() => damagePlayer.Win());
+			onDead.AddListener(() => skillPlayer.SkillBossDiscripen());
+		//onDead.AddListener(() => damagePlayer.Win());
 	}
 
 	private void OnCollisionEnter2D(Collision2D collision)

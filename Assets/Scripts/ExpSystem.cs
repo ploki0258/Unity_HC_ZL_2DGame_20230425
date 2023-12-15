@@ -39,6 +39,8 @@ public class ExpSystem : MonoBehaviour
 		if (Vector3.Distance(transform.position, player.position) <= distanceEat)
 		{
 			levelManager.AddExp(expValue);
+			//levelManager.skillIcon.enabled = true;
+			//levelManager.skillIcon.sprite = levelManager.itemSkillSystem.itemData.iconItem;
 			Destroy(gameObject);
 			Debug.Log("已發動效果-1");
 		}
