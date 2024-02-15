@@ -33,7 +33,7 @@ public class SkillPlayer : MonoBehaviour
 				//Debug.Log("執行" + itemEffectBossState.ToString() + "效果");
 				break;
 
-			case ItemEffectBossState.萬有引力:
+			case ItemEffectBossState.強力打擊:
 				//Debug.Log("執行" + itemEffectBossState.ToString() + "效果");
 				break;
 
@@ -53,7 +53,7 @@ public class SkillPlayer : MonoBehaviour
 				//Debug.Log("執行" + itemEffectBossState.ToString() + "效果");
 				break;
 
-			case ItemEffectBossState.不屈鬥士:
+			case ItemEffectBossState.巫毒之術:
 				//Debug.Log("執行" + itemEffectBossState.ToString() + "效果");
 				break;
 		}
@@ -88,7 +88,7 @@ public class SkillPlayer : MonoBehaviour
 
 	[Header("主角鼠：玩家資料")]
 	[SerializeField] DataBasic dataBasic;
-	// 萬有引力：吸收範圍內的所有道具
+	// 強力打擊：吸收範圍內的所有道具
 	private void 萬有引力()
 	{
 		

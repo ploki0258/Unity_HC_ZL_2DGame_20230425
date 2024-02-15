@@ -43,7 +43,7 @@ public class EffectTest : MonoBehaviour
 			case ItemEffectBossState.超絕防禦:
 				itemBossDescription = "不會受到任何攻擊";
 				break;
-			case ItemEffectBossState.萬有引力:
+			case ItemEffectBossState.強力打擊:
 				itemBossDescription = "吸收範圍內的所有道具";
 				break;
 			case ItemEffectBossState.神靈轉生:
@@ -58,7 +58,7 @@ public class EffectTest : MonoBehaviour
 			case ItemEffectBossState.睿智之心:
 				itemBossDescription = "獲得經驗值時，額外增加10%經驗值";
 				break;
-			case ItemEffectBossState.不屈鬥士:
+			case ItemEffectBossState.巫毒之術:
 				itemBossDescription = "每當玩家受到攻擊時，攻擊力提升10%";
 				break;
 		}

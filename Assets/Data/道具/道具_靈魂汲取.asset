@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be5778118a08f9f438699ff98f739647, type: 3}
+  m_Name: "\u9053\u5177_\u9748\u9B42\u6C72\u53D6"
+  m_EditorClassIdentifier: 
+  iconName: "\u9B54\u7269\u5FC3\u81DF"
+  iconItem: {fileID: 374495580, guid: 080cb6d98b00c2645b2c41df5f69bc78, type: 3}
+  _effectBossState: 1
+  itemBossDescription: 
+  skillHoldTime: 0
