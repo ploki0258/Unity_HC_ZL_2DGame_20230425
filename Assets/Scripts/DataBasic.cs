@@ -9,9 +9,4 @@ public class DataBasic : ScriptableObject
     public float attack;
     [Header("移動速度"), Range(1, 100)]
     public float moveSpeed;
-    /*[Header("掉落經驗機率")]
-    public float aaa;
-    [Header("經驗值物件")]
-    public GameObject Experience;
-    */
 }

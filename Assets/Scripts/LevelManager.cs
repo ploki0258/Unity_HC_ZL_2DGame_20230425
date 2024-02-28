@@ -46,8 +46,8 @@ public class LevelManager : MonoBehaviour
 
 	[Header("按鈕選擇列表"), Tooltip("所存放的按鈕編號的列表")]
 	public List<int> buttonSelectList = new List<int>();
-
-	private int lv = 1;         // 等級
+	[HideInInspector]
+	public int lv = 1;         // 等級
 	private float exp = 0;      // 經驗值
 	public float timer = 0;    // 計時器
 	private ButtonSelectManager buttonSelectManager;
@@ -105,7 +105,6 @@ public class LevelManager : MonoBehaviour
 		}
 		*/
 		#endregion
-		// buttonSelectManager.DeselectButton();
 	}
 
 	private void Update()
@@ -243,6 +242,7 @@ public class LevelManager : MonoBehaviour
 		{
 			randomSkill[skillID].skillLv++; // 技能等級+1
 
+			#region 執行技能效果
 			if (randomSkill[skillID].skillName == "武器攻擊力提升")
 				UpgradeWeaponAttack();
 			if (randomSkill[skillID].skillName == "武器間隔縮短")
@@ -255,6 +255,7 @@ public class LevelManager : MonoBehaviour
 				UpgradeAbsorbExpRange();
 			if (randomSkill[skillID].skillName == "召喚獸數量增加")
 				UpgradeSummonPet();
+			#endregion
 		}
 
 		buttonSelectList.Clear();   // 清空列表
@@ -280,40 +281,84 @@ public class LevelManager : MonoBehaviour
 		Time.timeScale = 1f;			// 遊戲時間恢復
 		*/
 
-		// 如果按鈕列表中的數量 等於 最大選擇數量的話
-		if (buttonSelectList.Count == maxSelectCount)
+		// 如果等級 大於等於 5
+		if (lv < 4)
+		{
+			if (buttonSelectList.Count <= 1)
+			{
+				if (buttonSelectList.Contains(skillID))
+				{
+					buttonSelectList.Remove(skillID);   // 從列表中移除
+					goSkillUI[skillID].GetComponent<Image>().color = normalColor;
+				}
+				else
+				{
+					//Debug.Log($"<color=#9966ff>點擊技能編號：{skillID}</color>");
+					buttonSelectList.Add(skillID);  // 添加至列表
+					goSkillUI[skillID].GetComponent<Image>().color = selectColor;
+				}
+			}
+			else
+			{
+				if (!buttonSelectList.Contains(skillID))
+				{
+					return;
+				}
+				else
+				{
+					buttonSelectList.Remove(skillID);   // 從列表中移除
+					goSkillUI[skillID].GetComponent<Image>().color = normalColor;
+				}
+			}
+
+			// 如果已有選擇技能 就顯示確認按鈕
+			if (buttonSelectList.Count > 0)
+				btnConfirm.SetActive(true);
+		}
+		else
+		{
+			
+		}
+
+		// 如果按鈕列表中的數量 等於 最大選擇數量的話 或只剩下一種技能時 就顯示確認按鈕
+		if (buttonSelectList.Count == maxSelectCount || randomSkill.Count < 2)
 		{
 			maxSelect = true;   // 是否已達最大選擇數量 = true
+
+			btnConfirm.SetActive(true);
 		}
 		else
 		{
 			maxSelect = false;  // 是否已達最大選擇數量 = false
+
+			btnConfirm.SetActive(false);
 		}
 
-		// 如果已達最大選擇數量的話
+		// 如果已達最大選擇數量的話 (已選擇2個的情況)
 		if (maxSelect)
 		{
 			// 如果是未選的按鈕的話 就不執行
-			// 否則就從列表中移除 顏色變為灰色
 			if (!buttonSelectList.Contains(skillID))
 			{
 				return;
 			}
+			// 否則就從列表中移除 顏色變為灰色
 			else
 			{
 				buttonSelectList.Remove(skillID);   // 從列表中移除
 				goSkillUI[skillID].GetComponent<Image>().color = normalColor;
 			}
 		}
+		// 否則未達最大選擇數量的話 (選擇1個或以下的情況)
 		else
 		{
-			// 如果選中按鈕時 添加至列表中 顏色變為黃色
-			// 否則未選按鈕時 從列表中移除 顏色變為灰色
+			// 如果選中按鈕時 按鈕已被選擇 從列表中移除 顏色變為灰色
 			if (buttonSelectList.Contains(skillID))
 			{
 				buttonSelectList.Remove(skillID);   // 從列表中移除
 				goSkillUI[skillID].GetComponent<Image>().color = normalColor;
 			}
+			// 否則選中按鈕時 按鈕未被選 添加至列表中 顏色變為黃色
 			else
 			{
 				buttonSelectList.Add(skillID);  // 添加至列表
@@ -405,7 +450,7 @@ public class LevelManager : MonoBehaviour
 	private void UpgradeMoveSpeed()
 	{
 		int lv = dataSkill[3].skillLv - 1;
-		playerMoveSpeed.speed = dataSkill[3].skillValues[lv];
+		playerMoveSpeed.dataPlayer.moveSpeed = dataSkill[3].skillValues[lv];
 	}
 
 	[SerializeField, Header("主角鼠：吸取經驗值範圍")]

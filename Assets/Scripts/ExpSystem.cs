@@ -33,7 +33,7 @@ public class ExpSystem : MonoBehaviour
 	/// </summary>
 	public void TrackingPlayer()
 	{
-		Debug.Log("已發動效果");
+		//Debug.Log("已發動效果");
 		transform.position = Vector3.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
 		// 如果此經驗值物件與玩家物件的距離小於 1 就吃掉
 		if (Vector3.Distance(transform.position, player.position) <= distanceEat)
@@ -42,7 +42,7 @@ public class ExpSystem : MonoBehaviour
 			//levelManager.skillIcon.enabled = true;
 			//levelManager.skillIcon.sprite = levelManager.itemSkillSystem.itemData.iconItem;
 			Destroy(gameObject);
-			Debug.Log("已發動效果-1");
+			//Debug.Log("已發動效果-1");
 		}
 	}
 }

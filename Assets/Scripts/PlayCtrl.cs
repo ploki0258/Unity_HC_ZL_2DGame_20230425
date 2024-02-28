@@ -3,14 +3,13 @@ using UnityEngine.UI;
 
 public class PlayCtrl : MonoBehaviour
 {
-	[Header("移動速度"), Range(0, 10)]
-	public float speed = 10;
+	[Header("玩家資料")]
+	public DataBasic dataPlayer;
 	[Header("參數名稱")]
 	public string parAniName = "runSwitch";
 
-
-	public Rigidbody2D rig = null;
-	public Animator ani = null;
+	[HideInInspector]
+	public Rigidbody2D rig = null;	public Animator ani = null;
 
 	private void Awake()
 	{
@@ -31,13 +30,16 @@ public class PlayCtrl : MonoBehaviour
 		Move();
 	}
 
+	/// <summary>
+	/// 角色移動
+	/// </summary>
 	private void Move()
 	{
 		float ad = Input.GetAxisRaw("Horizontal");
 		float ws = Input.GetAxisRaw("Vertical");
 
 		// 角色移動
-		rig.velocity = new Vector2(ad * speed, ws * speed);
+		rig.velocity = new Vector2(ad * dataPlayer.moveSpeed, ws * dataPlayer.moveSpeed);
 
 		// 移動動畫
 		ani.SetBool(parAniName, (ws != 0 || ad != 0));

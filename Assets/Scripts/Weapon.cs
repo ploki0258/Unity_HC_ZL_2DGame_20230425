@@ -6,7 +6,10 @@ public class Weapon : MonoBehaviour
 	[SerializeField] float force = 10f;
 	[Header("投擲座標")]
 	[SerializeField] Vector2 pos;
-
+	[SerializeField, Header("暴擊率")]
+	public float critical;
+	[SerializeField, Header("暴擊傷害")]
+	public float criticalHit = 2;
 	public float attack;
 
 	Rigidbody2D rig2D;
@@ -16,6 +19,6 @@ public class Weapon : MonoBehaviour
 		rig2D = GetComponent<Rigidbody2D>();
 		rig2D.AddForce(pos * force);
 
-		Destroy(gameObject, 4.5f);
+		Destroy(gameObject, 5f);
 	}
 }
