@@ -8,6 +8,7 @@ using Unity.VisualScripting;
 /// <summary>
 /// 等級系統：管理角色的升級技能
 /// </summary>
+//[ExecuteInEditMode] // 在編輯模式中也能運行Play模式的功能
 public class LevelManager : MonoBehaviour
 {
 	#region 欄位
@@ -17,6 +18,7 @@ public class LevelManager : MonoBehaviour
 	TextMeshProUGUI textLv;
 	[SerializeField, Header("文字經驗值")]
 	TextMeshProUGUI textExp;
+	[ContextMenuItem("Open\"Close", "OpenWindows")] // 在Inspector中右鍵可執行自定義方法
 	[SerializeField, Header("升級介面")]
 	GameObject goLvUp = null;
 	[Header("技能按鈕1~3")]
@@ -44,17 +46,22 @@ public class LevelManager : MonoBehaviour
 	public List<DataSkill> randomSkill = new List<DataSkill>();
 	public float[] expNeeds = { 100, 200, 300, 400, 500 };
 
-	[Header("按鈕選擇列表"), Tooltip("所存放的按鈕編號的列表")]
-	public List<int> buttonSelectList = new List<int>();
 	[HideInInspector]
-	public int lv = 1;         // 等級
-	private float exp = 0;      // 經驗值
-	public float timer = 0;    // 計時器
-	private ButtonSelectManager buttonSelectManager;
+	public int lv = 1;      // 等級
+	private float exp = 0;  // 經驗值
+	public float timer = 0; // 計時器
+	private ButtonSelectManager btnSelect;
 	public ItemSkillSystem itemSkillSystem;
-	private Color normalColor = Color.gray;
-	private Color selectColor = new Color(255f, 255f, 0f);
 	#endregion
+
+	void OpenWindows()
+	{
+		print("測試訊息...");
+		if (goLvUp.activeInHierarchy == false)
+			goLvUp.SetActive(true);
+		else
+			goLvUp.SetActive(false);
+	}
 
 	/// <summary>
 	/// 觸發事件
@@ -67,20 +74,16 @@ public class LevelManager : MonoBehaviour
 		if (collision.name.Contains("經驗值"))
 		{
 			collision.GetComponent<ExpSystem>().enabled = true;
-			//Debug.Log("已碰到經驗值物件");
 		}
 		else if (collision.name.Contains("BOSS"))
 		{
 			collision.GetComponent<ItemSkillSystem>().enabled = true;
-			//skillIcon.enabled = true;
-			//skillIcon.sprite = itemSkillSystem.itemData.iconItem;
-			//Debug.Log("已碰到BOSS物件");
 		}
 	}
 
 	private void Awake()
 	{
-		buttonSelectManager = FindObjectOfType<ButtonSelectManager>();
+		btnSelect = FindObjectOfType<ButtonSelectManager>();
 		itemSkillSystem = FindObjectOfType<ItemSkillSystem>();
 		skillIcon.enabled = false;
 	}
@@ -88,8 +91,9 @@ public class LevelManager : MonoBehaviour
 	private void Start()
 	{
 		imgExp.fillAmount = 0f;                 // 歸零經驗條
-		textLv.text = "LV " + lv.ToString();    // 回復起始等級
+		textLv.text = "LV " + lv.ToString();    // 恢復玩家起始等級
 
+		// 恢復技能起始等級
 		for (int i = 0; i < dataSkill.Length; i++)
 		{
 			dataSkill[i].skillLv = 1;
@@ -111,23 +115,26 @@ public class LevelManager : MonoBehaviour
 	{
 		// 如果所選擇的按鈕個數 等於 2個 或只剩下一種技能時 就顯示確認按鈕
 		// 否則就隱藏
-		if (buttonSelectList.Count == goSkillUI.Length - 1 || randomSkill.Count < 2)
+		/*if (buttonSelectList.Count == goSkillUI.Length - 1 || randomSkill.Count < 2)
 		{
 			btnConfirm.SetActive(true);
 		}
 		else
 		{
 			btnConfirm.SetActive(false);
-		}
+		}*/
 
 		//ItemEffectForBoss();
+
+		if (Input.GetKeyDown(KeyCode.Escape))
+			ClickCloseButton();
 
 #if UNITY_EDITOR
 		if (Input.GetKeyDown(KeyCode.Keypad1) || Input.GetKeyDown(KeyCode.Alpha1))
 		{
 			// AddExp(100);
 
-			buttonSelectList.Clear();
+			btnSelect.buttonSelectList.Clear();
 
 			// 依據玩家當前的經驗值需求來升級經驗
 			float needsValue = expNeeds[lv - 1];
@@ -167,7 +174,7 @@ public class LevelManager : MonoBehaviour
 		SoundManager.instance.PlaySound(sound);
 
 		goLvUp.SetActive(true);
-		Time.timeScale = 0.00001f;
+		Time.timeScale = 0f;
 
 		// 挑選全部技能資料中 等級小於5的技能
 		randomSkill = dataSkill.Where(skill => skill.skillLv < 5).ToList();
@@ -197,7 +204,7 @@ public class LevelManager : MonoBehaviour
 		// 初始化所有按鈕的顏色
 		foreach (GameObject colorButton in goSkillUI)
 		{
-			colorButton.GetComponent<Image>().color = normalColor;
+			colorButton.GetComponent<Image>().color = btnSelect.normalColor;
 		}
 
 		// 如果隨機技能等於0 則顯示關閉按鈕
@@ -238,7 +245,7 @@ public class LevelManager : MonoBehaviour
 		AudioClip sound = SoundManager.instance.soundSkillLvUp;
 		SoundManager.instance.PlaySound(sound);
 
-		foreach (int skillID in buttonSelectList)
+		foreach (int skillID in btnSelect.buttonSelectList)
 		{
 			randomSkill[skillID].skillLv++; // 技能等級+1
 
@@ -258,15 +265,15 @@ public class LevelManager : MonoBehaviour
 			#endregion
 		}
 
-		buttonSelectList.Clear();   // 清空列表
-		goLvUp.SetActive(false);    // 關閉介面
-		Time.timeScale = 1f;        // 恢復時間
+		btnSelect.buttonSelectList.Clear(); // 清空列表
+		goLvUp.SetActive(false);            // 關閉介面
+		Time.timeScale = 1f;                // 恢復時間
 	}
 
-	[Tooltip("最大選擇數量")]
-	private int maxSelectCount = 2;
-	[Tooltip("是否已達最大選擇數量")]
-	private bool maxSelect = false;
+	//[Tooltip("最大選擇數量")]
+	//private int maxSelectCount = 2;
+	//[Tooltip("是否已達最大選擇數量")]
+	//private bool maxSelect = false;
 
 	/// <summary>
 	/// 點擊技能按鈕升級
@@ -280,48 +287,51 @@ public class LevelManager : MonoBehaviour
 		goLvUp.SetActive(false);		// 隱藏技能介面
 		Time.timeScale = 1f;			// 遊戲時間恢復
 		*/
+		Color colorBtn = goSkillUI[skillID].GetComponent<Image>().color;
 
 		// 如果等級 大於等於 5
-		if (lv < 4)
+		if (lv < 5)
 		{
-			if (buttonSelectList.Count <= 1)
+			// 如果已有選擇了
+			if (btnSelect.buttonSelectList.Count == btnSelect.maxSelectCount - 1)
 			{
-				if (buttonSelectList.Contains(skillID))
-				{
-					buttonSelectList.Remove(skillID);   // 從列表中移除
-					goSkillUI[skillID].GetComponent<Image>().color = normalColor;
-				}
-				else
-				{
-					//Debug.Log($"<color=#9966ff>點擊技能編號：{skillID}</color>");
-					buttonSelectList.Add(skillID);  // 添加至列表
-					goSkillUI[skillID].GetComponent<Image>().color = selectColor;
-				}
-			}
-			else
-			{
-				if (!buttonSelectList.Contains(skillID))
+				if (btnSelect.SelectButton(skillID))
 				{
 					return;
 				}
 				else
 				{
-					buttonSelectList.Remove(skillID);   // 從列表中移除
-					goSkillUI[skillID].GetComponent<Image>().color = normalColor;
+					btnSelect.ButtonIsSelect(skillID, btnSelect.SelectButton(skillID));
+					//btnSelect.buttonSelectList.Remove(skillID);   // 從列表中移除
+					goSkillUI[skillID].GetComponent<Image>().color = btnSelect.normalColor;
+				}
+			}
+			else
+			{
+				if (btnSelect.SelectButton(skillID))
+				{
+					Debug.Log($"<color=#9966ff>點擊技能編號：{skillID}</color>");
+					btnSelect.ButtonIsSelect(skillID, btnSelect.SelectButton(skillID));
+					//btnSelect.buttonSelectList.Add(skillID);  // 添加至列表
+					goSkillUI[skillID].GetComponent<Image>().color = btnSelect.selectColor;
+				}
+				else
+				{
+					btnSelect.ButtonIsSelect(skillID, btnSelect.SelectButton(skillID));
+					//btnSelect.buttonSelectList.Remove(skillID);   // 從列表中移除
+					goSkillUI[skillID].GetComponent<Image>().color = btnSelect.normalColor;
 				}
 			}
 
 			// 如果已有選擇技能 就顯示確認按鈕
-			if (buttonSelectList.Count > 0)
+			if (btnSelect.buttonSelectList.Count == 0)
+				btnConfirm.SetActive(false);
+			else
 				btnConfirm.SetActive(true);
 		}
-		else
-		{
-			
-		}
-
+		/*
 		// 如果按鈕列表中的數量 等於 最大選擇數量的話 或只剩下一種技能時 就顯示確認按鈕
-		if (buttonSelectList.Count == maxSelectCount || randomSkill.Count < 2)
+		if (btnSelect.buttonSelectList.Count == maxSelectCount || randomSkill.Count < 2)
 		{
 			maxSelect = true;   // 是否已達最大選擇數量 = true
 
@@ -338,33 +348,33 @@ public class LevelManager : MonoBehaviour
 		if (maxSelect)
 		{
 			// 如果是未選的按鈕的話 就不執行
-			if (!buttonSelectList.Contains(skillID))
+			if (!btnSelect.buttonSelectList.Contains(skillID))
 			{
 				return;
 			}
 			// 否則就從列表中移除 顏色變為灰色
 			else
 			{
-				buttonSelectList.Remove(skillID);   // 從列表中移除
-				goSkillUI[skillID].GetComponent<Image>().color = normalColor;
+				btnSelect.buttonSelectList.Remove(skillID);   // 從列表中移除
+				goSkillUI[skillID].GetComponent<Image>().color = btnSelect.normalColor;
 			}
 		}
 		// 否則未達最大選擇數量的話 (選擇1個或以下的情況)
 		else
 		{
 			// 如果選中按鈕時 按鈕已被選擇 從列表中移除 顏色變為灰色
-			if (buttonSelectList.Contains(skillID))
+			if (btnSelect.buttonSelectList.Contains(skillID))
 			{
-				buttonSelectList.Remove(skillID);   // 從列表中移除
-				goSkillUI[skillID].GetComponent<Image>().color = normalColor;
+				btnSelect.buttonSelectList.Remove(skillID);   // 從列表中移除
+				goSkillUI[skillID].GetComponent<Image>().color = btnSelect.normalColor;
 			}
 			// 否則選中按鈕時 按鈕未被選 添加至列表中 顏色變為黃色
 			else
 			{
-				buttonSelectList.Add(skillID);  // 添加至列表
-				goSkillUI[skillID].GetComponent<Image>().color = selectColor;
+				btnSelect.buttonSelectList.Add(skillID);  // 添加至列表
+				goSkillUI[skillID].GetComponent<Image>().color = btnSelect.selectColor;
 			}
-		}
+		}*/
 
 		#region 寫法測試
 		/*

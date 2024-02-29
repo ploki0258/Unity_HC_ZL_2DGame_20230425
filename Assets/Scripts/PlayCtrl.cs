@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class PlayCtrl : MonoBehaviour
@@ -9,7 +10,9 @@ public class PlayCtrl : MonoBehaviour
 	public string parAniName = "runSwitch";
 
 	[HideInInspector]
-	public Rigidbody2D rig = null;	public Animator ani = null;
+	public Rigidbody2D rig = null;
+	[NonSerialized]
+	public Animator ani = null;
 
 	private void Awake()
 	{

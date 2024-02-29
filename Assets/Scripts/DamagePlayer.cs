@@ -10,6 +10,7 @@ public class DamagePlayer : DamageBasic
 	public PlayCtrl playCtrl;
 	[Header("武器生成系統")]
 	public WeaponSystem weaponSystem;
+	[ContextMenuItem("Open\"Close", "OpenWindows")]
 	[Header("結束介面")]
 	public GameObject gpFinal;
 	[Header("結束標題")]
@@ -59,5 +60,14 @@ public class DamagePlayer : DamageBasic
 
 		textFinal.text = "You are Win";
 		gpFinal.SetActive(true);
+	}
+
+	void OpenWindows()
+	{
+		print("測試訊息...");
+		if (gpFinal.activeSelf == false)
+			gpFinal.SetActive(true);
+		else
+			gpFinal.SetActive(false);
 	}
 }

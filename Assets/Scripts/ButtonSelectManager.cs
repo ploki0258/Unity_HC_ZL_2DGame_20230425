@@ -3,46 +3,82 @@ using UnityEngine;
 
 public class ButtonSelectManager : MonoBehaviour
 {
-	[Header("按鈕編號"), Tooltip("所選擇的按鈕編號")]
-	public int indexSelectButton;
-	[Header("按鈕狀態"), Tooltip("該按鈕是否被選擇")]
-	public bool isSelected = false;
+	//[Header("按鈕編號"), Tooltip("所選擇的按鈕編號")]
+	//public int indexSelectButton;
+	[Header("最大選擇數量"), Range(0, 3), Tooltip("可選擇的最大數量")]
+	public int maxSelectCount = 2;
+	[Header("初始按鈕顏色")]
+	public Color normalColor = Color.gray;
+	[Header("選擇按鈕顏色")]
+	public Color selectColor = new Color(1f, 1f, 0f);
+	[Space(10)]
+	[Header("選擇按鈕列表"), Tooltip("所存放的按鈕編號的列表")]
+	public List<int> buttonSelectList = new List<int>();
 
-	//[Header("按鈕編號列表"), Tooltip("所存放的按鈕編號的列表")]
-	//public List<int> buttonList = new List<int>();
+	[Tooltip("該按鈕是否被選擇")]
+	bool isSelected = false;
 
 	/// <summary>
-	/// 已選擇按鈕
+	/// 是否選擇按鈕
 	/// </summary>
-	public void SelectButton()
+	public bool SelectButton(int idBtn)
 	{
-		isSelected = true;
-		Debug.Log("已選擇");
+		isSelected = !buttonSelectList.Contains(idBtn);
+		if (isSelected == true)
+		{
+			Debug.Log($"已選擇： {idBtn}");
+			return true;
+		}
+		else
+		{
+			Debug.Log($"未選擇： {idBtn}");
+			return false;
+		}
 	}
 
 	/// <summary>
-	/// 取消選擇的按鈕
+	/// 未選擇的按鈕
 	/// </summary>
-	public void DeselectButton()
+	/*public bool DeselectButton(int idBtn)
 	{
-		isSelected = false;
-		Debug.Log("取消選擇");
-	}
+		Debug.Log($"未選擇： {idBtn}");
+		isSelected = !buttonSelectList.Contains(idBtn);
+		return isSelected;
+	}*/
 
 	/// <summary>
-	/// 回傳按鈕的選擇狀態
+	/// 是否已達最大選擇數量
 	/// </summary>
 	/// <returns></returns>
-	public bool IsSelected()
+	public bool IsSelectMax()
 	{
-		return isSelected;
+		if (buttonSelectList.Count == maxSelectCount)
+			return true;
+		else
+			return false;
 	}
 
 	/// <summary>
-	/// 切換按鈕的選擇狀態
+	/// 回傳已被選擇的按鈕數量
 	/// </summary>
-	public void SwitchSelected()
+	/// <returns></returns>
+	public int ButtonSelectCount()
 	{
-		isSelected = !isSelected;
+		int count = buttonSelectList.Count;
+		return count;
+	}
+
+	public void ButtonIsSelect(int idBtn, bool select)
+	{
+		if (select == true)
+		{
+			Debug.Log($"已添加至列表：{idBtn}");
+			buttonSelectList.Add(idBtn);
+		}
+		else
+		{
+			Debug.Log($"已從列表移除：{idBtn}");
+			buttonSelectList.Remove(idBtn);
+		}
 	}
 }

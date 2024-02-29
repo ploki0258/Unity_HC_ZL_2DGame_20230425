@@ -2519,7 +2519,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 100535347}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -11718,6 +11718,7 @@ GameObject:
   - component: {fileID: 1538510112}
   - component: {fileID: 1538510113}
   - component: {fileID: 1538510114}
+  - component: {fileID: 1538510115}
   m_Layer: 6
   m_Name: "\u4E3B\u89D2\u9F20"
   m_TagString: Player
@@ -11831,7 +11832,6 @@ MonoBehaviour:
   dataPlayer: {fileID: 11400000, guid: 21590b054ab31454085d5a7114c9dfd2, type: 2}
   parAniName: runSwitch
   rig: {fileID: 0}
-  ani: {fileID: 0}
 --- !u!50 &1538510109
 Rigidbody2D:
   serializedVersion: 4
@@ -12063,7 +12063,6 @@ MonoBehaviour:
   - 9800
   - 9900
   - 10000
-  buttonSelectList: 
   lv: 1
   timer: 0
   itemSkillSystem: {fileID: 0}
@@ -12112,12 +12111,28 @@ MonoBehaviour:
   textDescription: {fileID: 0}
   textSkillDescription: {fileID: 0}
   imageDescription: {fileID: 0}
-  itemEffectBossState: 0
+  itemEffectBossState: 6
   itemData: {fileID: 0}
   dataBasicPlater: {fileID: 11400000, guid: 21590b054ab31454085d5a7114c9dfd2, type: 2}
   damagePlayer: {fileID: 0}
   damageBasic: {fileID: 0}
   dataBasic: {fileID: 0}
+--- !u!114 &1538510115
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1538510104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77084a4cf9c62794db81c01625f787a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxSelectCount: 2
+  normalColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  selectColor: {r: 1, g: 1, b: 0, a: 1}
+  buttonSelectList: 
 --- !u!1 &1556832017
 GameObject:
   m_ObjectHideFlags: 0
