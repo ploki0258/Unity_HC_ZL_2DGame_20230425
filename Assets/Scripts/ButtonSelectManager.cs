@@ -12,7 +12,7 @@ public class ButtonSelectManager : MonoBehaviour
 	[Header("選擇按鈕顏色")]
 	public Color selectColor = new Color(1f, 1f, 0f);
 	[Space(10)]
-	[Header("選擇按鈕列表"), Tooltip("所存放的按鈕編號的列表")]
+	[Header("按鈕選擇列表"), Tooltip("所存放的按鈕編號的列表")]
 	public List<int> buttonSelectList = new List<int>();
 
 	[Tooltip("該按鈕是否被選擇")]
@@ -21,19 +21,23 @@ public class ButtonSelectManager : MonoBehaviour
 	/// <summary>
 	/// 是否選擇按鈕
 	/// </summary>
+	/// <param name="idBtn">按鈕編號</param>
+	/// <returns></returns>
 	public bool SelectButton(int idBtn)
 	{
+		// 如果選擇的按鈕不包含在原本的列表裡 則回傳 true
 		isSelected = !buttonSelectList.Contains(idBtn);
-		if (isSelected == true)
+		return isSelected;
+		/*if (isSelected == true)
 		{
-			Debug.Log($"已選擇： {idBtn}");
+			//Debug.Log($"已選擇： {idBtn}");
 			return true;
 		}
 		else
 		{
-			Debug.Log($"未選擇： {idBtn}");
+			//Debug.Log($"未選擇： {idBtn}");
 			return false;
-		}
+		}*/
 	}
 
 	/// <summary>

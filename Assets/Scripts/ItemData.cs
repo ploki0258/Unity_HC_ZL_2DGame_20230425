@@ -19,7 +19,7 @@ public class ItemData : ScriptableObject
 	}
 	[Header("Boss道具效果類型")]
 	public ItemEffectBossState _effectBossState = ItemEffectBossState.無;
-	[Header("Boss道具效果描述")]
+	[Header("Boss道具效果描述"), TextArea(2, 5)]
 	public string itemBossDescription;
 	[Header("技能持續時間"), Range(0f, 20f)]
 	public float skillHoldTime;

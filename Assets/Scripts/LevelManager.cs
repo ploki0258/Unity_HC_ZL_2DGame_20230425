@@ -113,19 +113,6 @@ public class LevelManager : MonoBehaviour
 
 	private void Update()
 	{
-		// 如果所選擇的按鈕個數 等於 2個 或只剩下一種技能時 就顯示確認按鈕
-		// 否則就隱藏
-		/*if (buttonSelectList.Count == goSkillUI.Length - 1 || randomSkill.Count < 2)
-		{
-			btnConfirm.SetActive(true);
-		}
-		else
-		{
-			btnConfirm.SetActive(false);
-		}*/
-
-		//ItemEffectForBoss();
-
 		if (Input.GetKeyDown(KeyCode.Escape))
 			ClickCloseButton();
 
@@ -174,10 +161,12 @@ public class LevelManager : MonoBehaviour
 		SoundManager.instance.PlaySound(sound);
 
 		goLvUp.SetActive(true);
+		btnClose.SetActive(false);
+		btnConfirm.SetActive(false);
 		Time.timeScale = 0f;
 
-		// 挑選全部技能資料中 等級小於5的技能
-		randomSkill = dataSkill.Where(skill => skill.skillLv < 5).ToList();
+		// 挑選全部技能資料中 等級小於10的技能
+		randomSkill = dataSkill.Where(skill => skill.skillLv < 10).ToList();
 		// 將randomSkill清單隨機排序：洗牌
 		randomSkill = randomSkill.OrderBy(skill => Random.Range(0, 999)).ToList();
 
@@ -289,45 +278,109 @@ public class LevelManager : MonoBehaviour
 		*/
 		Color colorBtn = goSkillUI[skillID].GetComponent<Image>().color;
 
-		// 如果等級 大於等於 5
-		if (lv < 5)
+		// 只要還有技能的話 就一直執行
+		if (randomSkill.Count > 0)
 		{
-			// 如果已有選擇了
-			if (btnSelect.buttonSelectList.Count == btnSelect.maxSelectCount - 1)
+			// 如果等級 小於 10
+			if (lv < 10)
 			{
-				if (btnSelect.SelectButton(skillID))
+				// 如果已有選擇了
+				if (btnSelect.buttonSelectList.Count == btnSelect.maxSelectCount - 1)
 				{
-					return;
+					// 如果選擇的按鈕是其他按鈕的話 就不執行
+					if (btnSelect.SelectButton(skillID))
+					{
+						return;
+					}
+					// 如果選擇的按鈕是自己的話 就從列表中移除
+					else
+					{
+						btnSelect.ButtonIsSelect(skillID, btnSelect.SelectButton(skillID));
+						//btnSelect.buttonSelectList.Remove(skillID);   // 從列表中移除
+						goSkillUI[skillID].GetComponent<Image>().color = btnSelect.normalColor;
+					}
 				}
+				// 均未選擇
 				else
 				{
-					btnSelect.ButtonIsSelect(skillID, btnSelect.SelectButton(skillID));
-					//btnSelect.buttonSelectList.Remove(skillID);   // 從列表中移除
-					goSkillUI[skillID].GetComponent<Image>().color = btnSelect.normalColor;
+					// 如果選擇的按鈕不包含在原本的列表裡 就添加至列表中 顏色變為黃色
+					if (btnSelect.SelectButton(skillID))
+					{
+						Debug.Log($"<color=#9966ff>點擊技能編號：{skillID}</color>");
+						btnSelect.ButtonIsSelect(skillID, btnSelect.SelectButton(skillID));
+						//btnSelect.buttonSelectList.Add(skillID);  // 添加至列表
+						goSkillUI[skillID].GetComponent<Image>().color = btnSelect.selectColor;
+					}
+					// 否則就移除 顏色恢復為灰色
+					else
+					{
+						btnSelect.ButtonIsSelect(skillID, btnSelect.SelectButton(skillID));
+						//btnSelect.buttonSelectList.Remove(skillID);   // 從列表中移除
+						goSkillUI[skillID].GetComponent<Image>().color = btnSelect.normalColor;
+					}
 				}
-			}
-			else
-			{
-				if (btnSelect.SelectButton(skillID))
-				{
-					Debug.Log($"<color=#9966ff>點擊技能編號：{skillID}</color>");
-					btnSelect.ButtonIsSelect(skillID, btnSelect.SelectButton(skillID));
-					//btnSelect.buttonSelectList.Add(skillID);  // 添加至列表
-					goSkillUI[skillID].GetComponent<Image>().color = btnSelect.selectColor;
-				}
-				else
-				{
-					btnSelect.ButtonIsSelect(skillID, btnSelect.SelectButton(skillID));
-					//btnSelect.buttonSelectList.Remove(skillID);   // 從列表中移除
-					goSkillUI[skillID].GetComponent<Image>().color = btnSelect.normalColor;
-				}
-			}
 
-			// 如果已有選擇技能 就顯示確認按鈕
-			if (btnSelect.buttonSelectList.Count == 0)
-				btnConfirm.SetActive(false);
+				// 如果已有選擇技能 就顯示確認按鈕
+				if (btnSelect.buttonSelectList.Count == 0)
+					btnConfirm.SetActive(false);
+				else
+					btnConfirm.SetActive(true);
+			}
+			// 否則等級 大於等於 10
 			else
-				btnConfirm.SetActive(true);
+			{
+				//Debug.Log($"<color=orange>玩家等級已達{lv}等</color>");
+				// 如果按鈕列表中的數量 等於 最大選擇數量 就顯示確認按鈕
+				if (btnSelect.IsSelectMax())
+				{
+					// 如果選擇的按鈕是其他按鈕的話 就不執行
+					if (btnSelect.SelectButton(skillID))
+					{
+						return;
+					}
+					// 否則選擇的按鈕是自己的話 就從列表中移除 顏色恢復為灰色
+					else
+					{
+						btnSelect.ButtonIsSelect(skillID, btnSelect.SelectButton(skillID));   // 從列表中移除
+						goSkillUI[skillID].GetComponent<Image>().color = btnSelect.normalColor;
+					}
+				}
+				// 否則未達最大選擇數量的話 (選擇1個或以下的情況)
+				else
+				{
+					// 如果選中的按鈕 不在列表中 則添加至列表中 顏色變為黃色
+					if (btnSelect.SelectButton(skillID))
+					{
+						btnSelect.ButtonIsSelect(skillID, btnSelect.SelectButton(skillID));   // 添加至列表
+						goSkillUI[skillID].GetComponent<Image>().color = btnSelect.selectColor;
+					}
+					// 否則選中的按鈕 在列表之中 從列表中移除 顏色恢復為灰色
+					else
+					{
+						btnSelect.ButtonIsSelect(skillID, btnSelect.SelectButton(skillID));  // 從列表中移除
+						goSkillUI[skillID].GetComponent<Image>().color = btnSelect.normalColor;
+					}
+				}
+
+				// 如果隨機技能列表 大於等於 2的話
+				if (randomSkill.Count > 1)
+				{
+					// 如果已達最大選擇數量 就顯示確認按鈕
+					if (btnSelect.IsSelectMax())
+						btnConfirm.SetActive(true);
+					else
+						btnConfirm.SetActive(false);
+				}
+				// 否則隨機技能列表 小於等於 1的話
+				else
+				{
+					// 如果按鈕選擇列表 大於等於 1的話 就顯示確認按鈕
+					if (btnSelect.buttonSelectList.Count > 0)
+						btnConfirm.SetActive(true);
+					else
+						btnConfirm.SetActive(false);
+				}
+			}
 		}
 		/*
 		// 如果按鈕列表中的數量 等於 最大選擇數量的話 或只剩下一種技能時 就顯示確認按鈕
