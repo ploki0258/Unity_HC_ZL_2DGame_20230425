@@ -2,6 +2,12 @@
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// 玩家受傷系統：
+/// 1.玩家扣血
+/// 2.玩家死亡 / 勝利
+/// 3.刷新血條顯示
+/// </summary>
 public class DamagePlayer : DamageBasic
 {
 	[Header("血條")]
@@ -20,6 +26,21 @@ public class DamagePlayer : DamageBasic
 	{
 		hpBar.fillAmount = hpMax;
 		// Damage(100);
+		hpChangeAction += HpChange;
+	}
+
+	private void OnDisable()
+	{
+		hpChangeAction -= HpChange;
+	}
+
+	/// <summary>
+	/// 刷新血條
+	/// 當Hp發生變化時
+	/// </summary>
+	void HpChange()
+	{
+		hpBar.fillAmount = _hp / hpMax;
 	}
 
 	public override void Damage(float damage)
@@ -30,7 +51,7 @@ public class DamagePlayer : DamageBasic
 		AudioClip sound = SoundManager.instance.soundPlayerHurt;
 		SoundManager.instance.PlaySound(sound);
 
-		hpBar.fillAmount = hp / hpMax;
+		//hpBar.fillAmount = _hp / hpMax;
 	}
 
 	protected override void Dead()

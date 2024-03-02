@@ -6,11 +6,11 @@
 public class ExpSystem : MonoBehaviour
 {
 	[SerializeField, Header("移動速度"), Range(0, 10)]
-	float speed = 2f;
+	public float speed = 2f;
 	[SerializeField, Header("被吃掉的距離"), Range(0, 5)]
-	float distanceEat = 1f;
+	public float distanceEat = 1f;
 	[SerializeField, Header("經驗數值"), Range(0, 500)]
-	float expValue = 30f;
+	public float expValue = 30f;
 
 	[HideInInspector]
 	public Transform player;
@@ -31,9 +31,8 @@ public class ExpSystem : MonoBehaviour
 	/// <summary>
 	/// 經驗值道具追蹤玩家
 	/// </summary>
-	public void TrackingPlayer()
+	public virtual void TrackingPlayer()
 	{
-		//Debug.Log("已發動效果");
 		transform.position = Vector3.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
 		// 如果此經驗值物件與玩家物件的距離小於 1 就吃掉
 		if (Vector3.Distance(transform.position, player.position) <= distanceEat)

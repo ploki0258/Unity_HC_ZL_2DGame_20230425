@@ -1,22 +1,47 @@
-﻿using TMPro;
+﻿using System;
+using TMPro;
 using UnityEngine;
 
+/// <summary>
+/// 基本受傷系統：
+/// 1.扣血功能
+/// 2.生成傷害值預製物
+/// 3.死亡功能
+/// </summary>
 public class DamageBasic : MonoBehaviour
 {
 	[Header("資料(Enemy)")]
 	public DataBasic data;
 	[Header("傷害值預製物")]
 	public GameObject prefabDamage = null;
-	
-	protected float hp; // 血量
-	[HideInInspector]
-	public float hpMax;	// 血量最大值
 
+	protected float _hp; // 血量
+	[HideInInspector]
+	public float hpMax; // 血量最大值
+	
 	private void Awake()
 	{
 		hpMax = data.hp;
 		hp = hpMax;
 	}
+
+	/// <summary>
+	/// Hp屬性
+	/// </summary>
+	public float hp
+	{
+		get { return _hp; }
+		set
+		{
+			_hp = value;
+
+			if (hpChangeAction != null)
+			{
+				hpChangeAction.Invoke();
+			}
+		}
+	}
+	public Action hpChangeAction;
 
 	/// <summary>
 	/// 敵人受傷功能

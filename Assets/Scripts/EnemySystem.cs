@@ -1,5 +1,10 @@
 ﻿using UnityEngine;
 
+/// <summary>
+/// 敵人系統：
+/// 1.追蹤(面向)玩家並攻擊
+/// 2.繪製攻擊範圍
+/// </summary>
 public class EnemySystem : MonoBehaviour
 {
 	[SerializeField, Header("敵人資料")]

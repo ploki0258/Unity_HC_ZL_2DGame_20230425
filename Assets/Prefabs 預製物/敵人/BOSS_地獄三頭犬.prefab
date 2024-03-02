@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4145534984871984427}
   - component: {fileID: 2692551125899256916}
   m_Layer: 0
-  m_Name: "BOSS\u5730\u7344\u4E09\u982D\u72AC"
+  m_Name: "BOSS_\u5730\u7344\u4E09\u982D\u72AC"
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

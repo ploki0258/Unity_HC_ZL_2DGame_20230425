@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
@@ -10,7 +11,8 @@ public class Weapon : MonoBehaviour
 	public float critical;
 	[SerializeField, Header("暴擊傷害")]
 	public float criticalHit = 2;
-	public float attack;
+	
+	[NonSerialized] public float attack;
 
 	Rigidbody2D rig2D;
 

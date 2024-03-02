@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-[CreateAssetMenu(fileName = "Data Spawn Enemy", menuName = "Add New Spawn Enemy Data")]
+[CreateAssetMenu(fileName = "Data Spawn Enemy", menuName = "Menu/Add New Spawn Enemy Data")]
 public class DataSpawnEnemy : ScriptableObject
 {
 	[Header("這波怪物生成的時間(s)")]

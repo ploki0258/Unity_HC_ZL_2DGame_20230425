@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-[CreateAssetMenu(fileName = "Data Basic", menuName = "Add New Data")]
+[CreateAssetMenu(fileName = "Data Basic", menuName = "Menu/Add New Data")]
 public class DataBasic : ScriptableObject
 {
     [ContextMenuItem("Reset", "ResetData")]

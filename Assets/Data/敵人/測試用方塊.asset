@@ -15,7 +15,8 @@ MonoBehaviour:
   hp: 10000
   attack: 0
   moveSpeed: 0
-  expProbability: 0
-  prefabExp: {fileID: 0}
-  attackRange: 2
-  attackInterval: 2.5
+  expProbability: 1
+  prefabExp: {fileID: 4217394551863061008, guid: 73ecec92ca99eb54f8a0e834e29f750c,
+    type: 3}
+  attackRange: 3
+  attackInterval: 1

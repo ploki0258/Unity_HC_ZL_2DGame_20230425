@@ -1,6 +1,12 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
 
+/// <summary>
+/// 敵人受傷系統：
+/// 1.敵人扣血
+/// 2.敵人死亡
+/// 3.掉落經驗值道具
+/// </summary>
 public class DamageEnemy : DamageBasic
 {
 	[Header("死亡事件")]
@@ -8,7 +14,7 @@ public class DamageEnemy : DamageBasic
 
 	private DataEnemy dataEnemy;        // 敵人資料
 	private DamagePlayer damagePlayer;  // 玩家資料
-	private SkillPlayer skillPlayer;	// 玩家技能資料
+	private SkillPlayer skillPlayer;    // 玩家技能資料
 
 	private void Start()
 	{
@@ -55,7 +61,17 @@ public class DamageEnemy : DamageBasic
 		// 如果隨機值 小於 掉落機率 就掉落經驗值道具
 		if (randomValue < dataEnemy.expProbability)
 		{
-			Instantiate(dataEnemy.prefabExp, transform.position, transform.rotation);
+			GameObject temp = Instantiate(dataEnemy.prefabExp, transform.position, transform.rotation);
+
+			// 隨機翻轉經驗值道具
+			if (Random.value < 0.5f)
+			{
+				temp.transform.rotation = new Quaternion(0f, 180f, 0f, 0f);
+			}
+			else
+			{
+				temp.transform.rotation = Quaternion.identity;
+			}
 		}
 		// Debug.Log("隨機值：" + randomValue);
 	}

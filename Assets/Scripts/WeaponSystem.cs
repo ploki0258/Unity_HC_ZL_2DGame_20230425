@@ -7,7 +7,7 @@ public class WeaponSystem : MonoBehaviour
 	[Header("武器資料")]
 	public DataBasic dataWeapon;
 	[Header("武器預製物")]
-	[SerializeField] GameObject[] prefabWeapon = null; // 要生成的武器
+	public GameObject[] prefabWeapon = null; // 要生成的武器
 													   // [Header("投擲力道"), Range(1, 30)]
 													   // [SerializeField] float force = 10f;
 	public float attack;

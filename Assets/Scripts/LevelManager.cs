@@ -23,8 +23,8 @@ public class LevelManager : MonoBehaviour
 	GameObject goLvUp = null;
 	[Header("技能按鈕1~3")]
 	[SerializeField] GameObject[] goSkillUI;
-	[Header("技能欄圖示")]
-	public Image skillIcon = null;
+	//[Header("技能欄圖示")]
+	//public Image skillIcon = null;
 	[Header("關閉按鈕")]
 	public GameObject btnClose;
 	[Header("確認按鈕")]
@@ -85,7 +85,6 @@ public class LevelManager : MonoBehaviour
 	{
 		btnSelect = FindObjectOfType<ButtonSelectManager>();
 		itemSkillSystem = FindObjectOfType<ItemSkillSystem>();
-		skillIcon.enabled = false;
 	}
 
 	private void Start()
@@ -473,7 +472,6 @@ public class LevelManager : MonoBehaviour
 		if (timer >= itemSkillSystem.itemData.skillHoldTime)
 		{
 			Debug.Log("BOSS道具效果消失");
-			skillIcon.enabled = false;
 			timer = 0;
 		}
 	}

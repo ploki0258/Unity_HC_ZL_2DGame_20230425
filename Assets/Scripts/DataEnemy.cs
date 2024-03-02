@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-[CreateAssetMenu(fileName = "Data Enemy", menuName = "Add New EnemyData")]
+[CreateAssetMenu(fileName = "Data Enemy", menuName = "Menu/Add New EnemyData")]
 public class DataEnemy : DataBasic
 {
     [Header("掉落經驗機率"), Range(0, 1)]
