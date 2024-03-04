@@ -3,7 +3,7 @@
 [CreateAssetMenu(fileName = "Data Basic", menuName = "Menu/Add New Data")]
 public class DataBasic : ScriptableObject
 {
-    [ContextMenuItem("Reset", "ResetData")]
+    [ContextMenuItem("ResetInitial", "ResetData")]
     [Header("血量"), Range(1,10000)]
     public float hp;
     [Header("攻擊力"), Range(1, 1000)]

@@ -1,199 +1,7 @@
 fileFormatVersion: 2
-guid: 5086f7f9cf02c27478fdeda4cd78894a
+guid: 0c8391968139e1345b7a7734385763f3
 TextureImporter:
-  internalIDToNameTable:
-  - first:
-      213: -204231934164799047
-    second: Swords 64x64 WHITE OUTLINE SHADE_0
-  - first:
-      213: 3848443751053658035
-    second: Swords 64x64 WHITE OUTLINE SHADE_1
-  - first:
-      213: 5962318855450255776
-    second: Swords 64x64 WHITE OUTLINE SHADE_2
-  - first:
-      213: -2539854584370071954
-    second: Swords 64x64 WHITE OUTLINE SHADE_3
-  - first:
-      213: 7674962852945769026
-    second: Swords 64x64 WHITE OUTLINE SHADE_4
-  - first:
-      213: -379349998350020594
-    second: Swords 64x64 WHITE OUTLINE SHADE_5
-  - first:
-      213: -846648520160839918
-    second: Swords 64x64 WHITE OUTLINE SHADE_6
-  - first:
-      213: -632705326370588387
-    second: Swords 64x64 WHITE OUTLINE SHADE_7
-  - first:
-      213: 7488940706672288574
-    second: Swords 64x64 WHITE OUTLINE SHADE_8
-  - first:
-      213: 6821625062270671039
-    second: Swords 64x64 WHITE OUTLINE SHADE_9
-  - first:
-      213: 8781801299295088348
-    second: Swords 64x64 WHITE OUTLINE SHADE_10
-  - first:
-      213: -7356337262207109098
-    second: Swords 64x64 WHITE OUTLINE SHADE_11
-  - first:
-      213: -2864611289372227167
-    second: Swords 64x64 WHITE OUTLINE SHADE_12
-  - first:
-      213: 6751423716575801858
-    second: Swords 64x64 WHITE OUTLINE SHADE_13
-  - first:
-      213: 6057385202221278053
-    second: Swords 64x64 WHITE OUTLINE SHADE_14
-  - first:
-      213: -1248402816776473908
-    second: Swords 64x64 WHITE OUTLINE SHADE_15
-  - first:
-      213: 1780942603520702770
-    second: Swords 64x64 WHITE OUTLINE SHADE_16
-  - first:
-      213: 4991182223075039076
-    second: Swords 64x64 WHITE OUTLINE SHADE_17
-  - first:
-      213: 5890949558154912352
-    second: Swords 64x64 WHITE OUTLINE SHADE_18
-  - first:
-      213: 9193660587408321442
-    second: Swords 64x64 WHITE OUTLINE SHADE_19
-  - first:
-      213: -3691364486182012127
-    second: Swords 64x64 WHITE OUTLINE SHADE_20
-  - first:
-      213: 7072139159776218459
-    second: Swords 64x64 WHITE OUTLINE SHADE_21
-  - first:
-      213: 7389697426362145172
-    second: Swords 64x64 WHITE OUTLINE SHADE_22
-  - first:
-      213: 2833577482277726132
-    second: Swords 64x64 WHITE OUTLINE SHADE_23
-  - first:
-      213: 5484475921171301773
-    second: Swords 64x64 WHITE OUTLINE SHADE_24
-  - first:
-      213: -1526070883552711512
-    second: Swords 64x64 WHITE OUTLINE SHADE_25
-  - first:
-      213: 3740908040130220817
-    second: Swords 64x64 WHITE OUTLINE SHADE_26
-  - first:
-      213: 2712361090179595559
-    second: Swords 64x64 WHITE OUTLINE SHADE_27
-  - first:
-      213: -7996675606459122741
-    second: Swords 64x64 WHITE OUTLINE SHADE_28
-  - first:
-      213: 5297781859401184838
-    second: Swords 64x64 WHITE OUTLINE SHADE_29
-  - first:
-      213: -3326141259359717348
-    second: Swords 64x64 WHITE OUTLINE SHADE_30
-  - first:
-      213: 8025423123893347391
-    second: Swords 64x64 WHITE OUTLINE SHADE_31
-  - first:
-      213: 3952878078222002124
-    second: Swords 64x64 WHITE OUTLINE SHADE_32
-  - first:
-      213: 4713821464816971225
-    second: Swords 64x64 WHITE OUTLINE SHADE_33
-  - first:
-      213: 5914987344284458603
-    second: Swords 64x64 WHITE OUTLINE SHADE_34
-  - first:
-      213: 3814909969697641191
-    second: Swords 64x64 WHITE OUTLINE SHADE_35
-  - first:
-      213: -7668976155118233817
-    second: Swords 64x64 WHITE OUTLINE SHADE_36
-  - first:
-      213: -7293152001335074652
-    second: Swords 64x64 WHITE OUTLINE SHADE_37
-  - first:
-      213: -5090400713334277847
-    second: Swords 64x64 WHITE OUTLINE SHADE_38
-  - first:
-      213: -4188629826817993047
-    second: Swords 64x64 WHITE OUTLINE SHADE_39
-  - first:
-      213: -5530810509796183104
-    second: Swords 64x64 WHITE OUTLINE SHADE_40
-  - first:
-      213: 7148007842669801800
-    second: Swords 64x64 WHITE OUTLINE SHADE_41
-  - first:
-      213: 4774879259607776154
-    second: Swords 64x64 WHITE OUTLINE SHADE_42
-  - first:
-      213: 2498392669791072273
-    second: Swords 64x64 WHITE OUTLINE SHADE_43
-  - first:
-      213: -7238900990259258232
-    second: Swords 64x64 WHITE OUTLINE SHADE_44
-  - first:
-      213: -6255816386296354361
-    second: Swords 64x64 WHITE OUTLINE SHADE_45
-  - first:
-      213: 2609701571877002399
-    second: Swords 64x64 WHITE OUTLINE SHADE_46
-  - first:
-      213: -7041804680753836506
-    second: Swords 64x64 WHITE OUTLINE SHADE_47
-  - first:
-      213: -7668594563398185362
-    second: Swords 64x64 WHITE OUTLINE SHADE_48
-  - first:
-      213: -6783516392271327254
-    second: Swords 64x64 WHITE OUTLINE SHADE_49
-  - first:
-      213: -530187711458370557
-    second: Swords 64x64 WHITE OUTLINE SHADE_50
-  - first:
-      213: -8327959834161042521
-    second: Swords 64x64 WHITE OUTLINE SHADE_51
-  - first:
-      213: 1650221752174138741
-    second: Swords 64x64 WHITE OUTLINE SHADE_52
-  - first:
-      213: -4343830848146968476
-    second: Swords 64x64 WHITE OUTLINE SHADE_53
-  - first:
-      213: -6500687156421893986
-    second: Swords 64x64 WHITE OUTLINE SHADE_54
-  - first:
-      213: 3055998421444949177
-    second: Swords 64x64 WHITE OUTLINE SHADE_55
-  - first:
-      213: -7848255842788151755
-    second: Swords 64x64 WHITE OUTLINE SHADE_56
-  - first:
-      213: -5594858709461972496
-    second: Swords 64x64 WHITE OUTLINE SHADE_57
-  - first:
-      213: 4546353329306663337
-    second: Swords 64x64 WHITE OUTLINE SHADE_58
-  - first:
-      213: 4658114739254564255
-    second: Swords 64x64 WHITE OUTLINE SHADE_59
-  - first:
-      213: -6464974249439375910
-    second: Swords 64x64 WHITE OUTLINE SHADE_60
-  - first:
-      213: 6764909973287478403
-    second: Swords 64x64 WHITE OUTLINE SHADE_61
-  - first:
-      213: -2253660004716553728
-    second: Swords 64x64 WHITE OUTLINE SHADE_62
-  - first:
-      213: -5889341729778299492
-    second: Swords 64x64 WHITE OUTLINE SHADE_63
+  internalIDToNameTable: []
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -212,11 +20,12 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
-  ignoreMasterTextureLimit: 0
+  ignoreMipmapLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -225,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -239,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 64
+  spritePixelsToUnits: 35
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -255,18 +64,20 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  swizzle: 50462976
   cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 0
+    textureFormat: 4
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -274,23 +85,12 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -298,11 +98,25 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -310,18 +124,19 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Swords 64x64 WHITE OUTLINE SHADE_0
+      name: Swords 64x64_0
       rect:
         serializedVersion: 2
         x: 0
@@ -335,14 +150,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9b1f050532c6a2df0800000000000000
-      internalID: -204231934164799047
+      spriteID: eae9088e2d07089429eb10f3a0cad22e
+      internalID: 1531163748
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Swords 64x64 WHITE OUTLINE SHADE_1
+      name: Swords 64x64_1
       rect:
         serializedVersion: 2
         x: 64
@@ -356,14 +171,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3b700af933b686530800000000000000
-      internalID: 3848443751053658035
+      spriteID: 6138b4d0a3c188843b0e7c6b9514076b
+      internalID: -2004015390
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Swords 64x64 WHITE OUTLINE SHADE_2
+      name: Swords 64x64_2
       rect:
         serializedVersion: 2
         x: 128
@@ -377,14 +192,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0a1e9b8c8696eb250800000000000000
-      internalID: 5962318855450255776
+      spriteID: 2e1bc5f113723b147b6f3e3ba7cb835e
+      internalID: 1474495202
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Swords 64x64 WHITE OUTLINE SHADE_3
+      name: Swords 64x64_3
       rect:
         serializedVersion: 2
         x: 192
@@ -398,14 +213,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e66797556bf90ccd0800000000000000
-      internalID: -2539854584370071954
+      spriteID: 271a1d31790afcb4fa7e09d633eb63fe
+      internalID: 969941165
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Swords 64x64 WHITE OUTLINE SHADE_4
+      name: Swords 64x64_4
       rect:
         serializedVersion: 2
         x: 256
@@ -419,14 +234,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 242b6221d02f28a60800000000000000
-      internalID: 7674962852945769026
+      spriteID: 65afd13c60673c04b96da3225359387b
+      internalID: 1766462002
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Swords 64x64 WHITE OUTLINE SHADE_5
+      name: Swords 64x64_5
       rect:
         serializedVersion: 2
         x: 320
@@ -440,14 +255,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e005dc6bf274cbaf0800000000000000
-      internalID: -379349998350020594
+      spriteID: 04e2588b33f749a49ad6a26e48c1f58e
+      internalID: -404631966
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Swords 64x64 WHITE OUTLINE SHADE_6
+      name: Swords 64x64_6
       rect:
         serializedVersion: 2
         x: 384
@@ -461,14 +276,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 217f33a18a91044f0800000000000000
-      internalID: -846648520160839918
+      spriteID: b0486835587da354981b234db411cb0e
+      internalID: -2066086460
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Swords 64x64 WHITE OUTLINE SHADE_7
+      name: Swords 64x64_7
       rect:
         serializedVersion: 2
         x: 448
@@ -482,14 +297,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d19fe2e9bdd2837f0800000000000000
-      internalID: -632705326370588387
+      spriteID: 3c9f87b12bb250e4597ffc766ec26706
+      internalID: 1021864978
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Swords 64x64 WHITE OUTLINE SHADE_8
+      name: Swords 64x64_8
       rect:
         serializedVersion: 2
         x: 0
@@ -503,14 +318,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e332a2505ef0ee760800000000000000
-      internalID: 7488940706672288574
+      spriteID: ea97c63e50c132747b38cafb8d94ad53
+      internalID: -443185832
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Swords 64x64 WHITE OUTLINE SHADE_9
+      name: Swords 64x64_9
       rect:
         serializedVersion: 2
         x: 64
@@ -524,14 +339,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fb89b830ad74bae50800000000000000
-      internalID: 6821625062270671039
+      spriteID: 789f75bf7415dca41ae693f32fa01d50
+      internalID: -1542197477
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Swords 64x64 WHITE OUTLINE SHADE_10
+      name: Swords 64x64_10
       rect:
         serializedVersion: 2
         x: 128
@@ -545,14 +360,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cde2c84f0c93fd970800000000000000
-      internalID: 8781801299295088348
+      spriteID: 293dc535e56f70a46bee73869fcaa4b5
+      internalID: 1926871059
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Swords 64x64 WHITE OUTLINE SHADE_11
+      name: Swords 64x64_11
       rect:
         serializedVersion: 2
         x: 192
@@ -566,14 +381,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 618fc2e4c3a09e990800000000000000
-      internalID: -7356337262207109098
+      spriteID: 7950c9eac57745548b567b352036e698
+      internalID: 1691107093
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Swords 64x64 WHITE OUTLINE SHADE_12
+      name: Swords 64x64_12
       rect:
         serializedVersion: 2
         x: 256
@@ -587,14 +402,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1a9056da53bde38d0800000000000000
-      internalID: -2864611289372227167
+      spriteID: f6b04d623a23bca4e8f648937187ee58
+      internalID: 834347425
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Swords 64x64 WHITE OUTLINE SHADE_13
+      name: Swords 64x64_13
       rect:
         serializedVersion: 2
         x: 320
@@ -608,14 +423,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 202f5a28910e1bd50800000000000000
-      internalID: 6751423716575801858
+      spriteID: f45ae7c7ca039034b96032441563254c
+      internalID: 578584905
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Swords 64x64 WHITE OUTLINE SHADE_14
+      name: Swords 64x64_14
       rect:
         serializedVersion: 2
         x: 384
@@ -629,14 +444,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5636b1e7fb7201450800000000000000
-      internalID: 6057385202221278053
+      spriteID: dadd4ca7d4a55f9489459a7c60fba7d0
+      internalID: -2078978886
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Swords 64x64 WHITE OUTLINE SHADE_15
+      name: Swords 64x64_15
       rect:
         serializedVersion: 2
         x: 448
@@ -650,14 +465,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cc2f071a048ccaee0800000000000000
-      internalID: -1248402816776473908
+      spriteID: b580e32817a3a2c44a8ea75ac5a8a766
+      internalID: 879281366
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Swords 64x64 WHITE OUTLINE SHADE_16
+      name: Swords 64x64_16
       rect:
         serializedVersion: 2
         x: 0
@@ -671,14 +486,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 239f530bcdd27b810800000000000000
-      internalID: 1780942603520702770
+      spriteID: 2cc0c55f0e010a743b3ce6565b63ffe2
+      internalID: -1585317768
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Swords 64x64 WHITE OUTLINE SHADE_17
+      name: Swords 64x64_17
       rect:
         serializedVersion: 2
         x: 64
@@ -692,14 +507,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 467d1a799cd344540800000000000000
-      internalID: 4991182223075039076
+      spriteID: 71121836bc7e7d8428070c029c416239
+      internalID: -326996429
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Swords 64x64 WHITE OUTLINE SHADE_18
+      name: Swords 64x64_18
       rect:
         serializedVersion: 2
         x: 128
@@ -713,14 +528,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 062619b596bd0c150800000000000000
-      internalID: 5890949558154912352
+      spriteID: 747922f8800ac284d87cb031ce76822f
+      internalID: -158080162
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Swords 64x64 WHITE OUTLINE SHADE_19
+      name: Swords 64x64_19
       rect:
         serializedVersion: 2
         x: 192
@@ -734,14 +549,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2ab6bf91891769f70800000000000000
-      internalID: 9193660587408321442
+      spriteID: 95fdb3309c671b2468c1a62e2885d9a0
+      internalID: 1894778256
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Swords 64x64 WHITE OUTLINE SHADE_20
+      name: Swords 64x64_20
       rect:
         serializedVersion: 2
         x: 256
@@ -755,14 +570,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 12bf0a8be83a5ccc0800000000000000
-      internalID: -3691364486182012127
+      spriteID: 69029ff0a227b084190fe3aab8e76b89
+      internalID: -1783037126
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Swords 64x64 WHITE OUTLINE SHADE_21
+      name: Swords 64x64_21
       rect:
         serializedVersion: 2
         x: 320
@@ -776,14 +591,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b5d47949819452260800000000000000
-      internalID: 7072139159776218459
+      spriteID: ea7616e9d7d231c4e90bb5e981a8eddf
+      internalID: 1085435493
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Swords 64x64 WHITE OUTLINE SHADE_22
+      name: Swords 64x64_22
       rect:
         serializedVersion: 2
         x: 384
@@ -797,14 +612,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4991fef28aa7d8660800000000000000
-      internalID: 7389697426362145172
+      spriteID: beed5a69c0add9e448e592b10a3e043c
+      internalID: 1536807943
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Swords 64x64 WHITE OUTLINE SHADE_23
+      name: Swords 64x64_23
       rect:
         serializedVersion: 2
         x: 448
@@ -818,14 +633,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4b7a5ba05b3e25720800000000000000
-      internalID: 2833577482277726132
+      spriteID: af1ac18e59972ba42a83b56b215f687a
+      internalID: -600739689
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Swords 64x64 WHITE OUTLINE SHADE_24
+      name: Swords 64x64_24
       rect:
         serializedVersion: 2
         x: 0
@@ -839,14 +654,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d854994dac5cc1c40800000000000000
-      internalID: 5484475921171301773
+      spriteID: d67bc6049afc98f4da550c6b1f92e2c0
+      internalID: 1157709144
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Swords 64x64 WHITE OUTLINE SHADE_25
+      name: Swords 64x64_25
       rect:
         serializedVersion: 2
         x: 64
@@ -860,14 +675,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8ac26cbed9e42dae0800000000000000
-      internalID: -1526070883552711512
+      spriteID: 1fd7f443fdbd1cf4e96e49a7c3b300d2
+      internalID: 693611048
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Swords 64x64 WHITE OUTLINE SHADE_26
+      name: Swords 64x64_26
       rect:
         serializedVersion: 2
         x: 128
@@ -881,14 +696,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1135d55da006ae330800000000000000
-      internalID: 3740908040130220817
+      spriteID: 20742b905c09a504d8a894a322efaed8
+      internalID: -442192668
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Swords 64x64 WHITE OUTLINE SHADE_27
+      name: Swords 64x64_27
       rect:
         serializedVersion: 2
         x: 192
@@ -902,14 +717,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 72dfeb27a0e34a520800000000000000
-      internalID: 2712361090179595559
+      spriteID: c831f0b0893a89a4baa32c588ca454be
+      internalID: 719077339
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Swords 64x64 WHITE OUTLINE SHADE_28
+      name: Swords 64x64_28
       rect:
         serializedVersion: 2
         x: 256
@@ -923,14 +738,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bcbf8f477e9160190800000000000000
-      internalID: -7996675606459122741
+      spriteID: a3da109a4d10ac940a01655595ee24b7
+      internalID: 869677999
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Swords 64x64 WHITE OUTLINE SHADE_29
+      name: Swords 64x64_29
       rect:
         serializedVersion: 2
         x: 320
@@ -944,14 +759,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 646bd134880858940800000000000000
-      internalID: 5297781859401184838
+      spriteID: 0379d5e0e823e964aa6457c0ab4434eb
+      internalID: -1846236314
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Swords 64x64 WHITE OUTLINE SHADE_30
+      name: Swords 64x64_30
       rect:
         serializedVersion: 2
         x: 384
@@ -965,14 +780,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c18f713b52c27d1d0800000000000000
-      internalID: -3326141259359717348
+      spriteID: c56a5f7537c0fe940969612df7ee6a03
+      internalID: 686724248
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Swords 64x64 WHITE OUTLINE SHADE_31
+      name: Swords 64x64_31
       rect:
         serializedVersion: 2
         x: 448
@@ -986,14 +801,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f346ed78fc7006f60800000000000000
-      internalID: 8025423123893347391
+      spriteID: 3f62ca75abcc7cd4a9fcd72bcab9e043
+      internalID: -1344992165
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Swords 64x64 WHITE OUTLINE SHADE_32
+      name: Swords 64x64_32
       rect:
         serializedVersion: 2
         x: 0
@@ -1007,14 +822,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cc7e9dc3ba17bd630800000000000000
-      internalID: 3952878078222002124
+      spriteID: 5131283e72acb284294df59947a2e29c
+      internalID: -2052960312
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Swords 64x64 WHITE OUTLINE SHADE_33
+      name: Swords 64x64_33
       rect:
         serializedVersion: 2
         x: 64
@@ -1028,14 +843,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9dde609b5abda6140800000000000000
-      internalID: 4713821464816971225
+      spriteID: 158698621333371449b6d5bcc4c27344
+      internalID: 2056087876
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Swords 64x64 WHITE OUTLINE SHADE_34
+      name: Swords 64x64_34
       rect:
         serializedVersion: 2
         x: 128
@@ -1049,14 +864,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b6e910396a1461250800000000000000
-      internalID: 5914987344284458603
+      spriteID: d26e9cb48713f17478e023d563bf7ae6
+      internalID: -332200316
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Swords 64x64 WHITE OUTLINE SHADE_35
+      name: Swords 64x64_35
       rect:
         serializedVersion: 2
         x: 192
@@ -1070,14 +885,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7e29ce9b76841f430800000000000000
-      internalID: 3814909969697641191
+      spriteID: 6974a561ef714df4ab69cb9148372c84
+      internalID: 1320170006
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Swords 64x64 WHITE OUTLINE SHADE_36
+      name: Swords 64x64_36
       rect:
         serializedVersion: 2
         x: 256
@@ -1091,14 +906,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7279c33a1d2529590800000000000000
-      internalID: -7668976155118233817
+      spriteID: ae0993d6df607b34c8138887eddc4b40
+      internalID: 407392845
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Swords 64x64 WHITE OUTLINE SHADE_37
+      name: Swords 64x64_37
       rect:
         serializedVersion: 2
         x: 320
@@ -1112,14 +927,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4a06e7345e489ca90800000000000000
-      internalID: -7293152001335074652
+      spriteID: 408689ef3efa78741a5619eb96fbd7b2
+      internalID: 1035481899
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Swords 64x64 WHITE OUTLINE SHADE_38
+      name: Swords 64x64_38
       rect:
         serializedVersion: 2
         x: 384
@@ -1133,14 +948,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 929b05575834b59b0800000000000000
-      internalID: -5090400713334277847
+      spriteID: 42e7c9cb880b92a46afd7b13b006258a
+      internalID: 1456183177
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Swords 64x64 WHITE OUTLINE SHADE_39
+      name: Swords 64x64_39
       rect:
         serializedVersion: 2
         x: 448
@@ -1154,14 +969,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9a658e46d5ffed5c0800000000000000
-      internalID: -4188629826817993047
+      spriteID: d1c4f2273b700b349b634d5411e2bf45
+      internalID: 2128137134
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Swords 64x64 WHITE OUTLINE SHADE_40
+      name: Swords 64x64_40
       rect:
         serializedVersion: 2
         x: 0
@@ -1175,14 +990,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0c3f993152d9e33b0800000000000000
-      internalID: -5530810509796183104
+      spriteID: 6d6e3d4fbf14b724db1fdc5efc9cfcd2
+      internalID: -1301742365
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Swords 64x64 WHITE OUTLINE SHADE_41
+      name: Swords 64x64_41
       rect:
         serializedVersion: 2
         x: 64
@@ -1196,14 +1011,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8413a0ad243d23360800000000000000
-      internalID: 7148007842669801800
+      spriteID: 1e25d1bacc83c30408559652af8eadd5
+      internalID: -1895120717
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Swords 64x64 WHITE OUTLINE SHADE_42
+      name: Swords 64x64_42
       rect:
         serializedVersion: 2
         x: 128
@@ -1217,14 +1032,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a9b3d426367c34240800000000000000
-      internalID: 4774879259607776154
+      spriteID: 56a0092f03b70b442b640e3c5b6fa828
+      internalID: -2137738858
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Swords 64x64 WHITE OUTLINE SHADE_43
+      name: Swords 64x64_43
       rect:
         serializedVersion: 2
         x: 192
@@ -1238,14 +1053,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 110365865e21ca220800000000000000
-      internalID: 2498392669791072273
+      spriteID: 1e8c02d3a06d44c498e9a692bcb2ab73
+      internalID: 2092294593
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Swords 64x64 WHITE OUTLINE SHADE_44
+      name: Swords 64x64_44
       rect:
         serializedVersion: 2
         x: 256
@@ -1259,14 +1074,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 88c9f5717e14a8b90800000000000000
-      internalID: -7238900990259258232
+      spriteID: c28ef276755657a40b8f37e88dc1690a
+      internalID: -1968557685
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Swords 64x64 WHITE OUTLINE SHADE_45
+      name: Swords 64x64_45
       rect:
         serializedVersion: 2
         x: 320
@@ -1280,14 +1095,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7c9ecb23420ee29a0800000000000000
-      internalID: -6255816386296354361
+      spriteID: 0fce7730063f6914fabf53a77f503465
+      internalID: 1108387268
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Swords 64x64 WHITE OUTLINE SHADE_46
+      name: Swords 64x64_46
       rect:
         serializedVersion: 2
         x: 384
@@ -1301,14 +1116,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f9cd189b0c5873420800000000000000
-      internalID: 2609701571877002399
+      spriteID: f9b4c42afa79dab40af94a9b09818b5d
+      internalID: 1418910252
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Swords 64x64 WHITE OUTLINE SHADE_47
+      name: Swords 64x64_47
       rect:
         serializedVersion: 2
         x: 448
@@ -1322,14 +1137,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 62e0cf1b3fb764e90800000000000000
-      internalID: -7041804680753836506
+      spriteID: b5fee92fb57d1ee4da1ce13499860faa
+      internalID: -898787044
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Swords 64x64 WHITE OUTLINE SHADE_48
+      name: Swords 64x64_48
       rect:
         serializedVersion: 2
         x: 0
@@ -1343,14 +1158,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e6ec822efdda39590800000000000000
-      internalID: -7668594563398185362
+      spriteID: c00d0113414a42949ad79b371234ddae
+      internalID: -82780436
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Swords 64x64 WHITE OUTLINE SHADE_49
+      name: Swords 64x64_49
       rect:
         serializedVersion: 2
         x: 64
@@ -1364,14 +1179,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: aefc0a628cb1cd1a0800000000000000
-      internalID: -6783516392271327254
+      spriteID: 80f1d0dc469b5bb449530cdb74667ac8
+      internalID: 806804271
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Swords 64x64 WHITE OUTLINE SHADE_50
+      name: Swords 64x64_50
       rect:
         serializedVersion: 2
         x: 128
@@ -1385,14 +1200,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 30c1f32e51564a8f0800000000000000
-      internalID: -530187711458370557
+      spriteID: 2aa6bca2a94289b40b25c84cf4fa0464
+      internalID: -1079685857
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Swords 64x64 WHITE OUTLINE SHADE_51
+      name: Swords 64x64_51
       rect:
         serializedVersion: 2
         x: 192
@@ -1406,14 +1221,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7ab2c1d77a42d6c80800000000000000
-      internalID: -8327959834161042521
+      spriteID: 428c6b20187bdb743a08840bf7332cc1
+      internalID: 13520053
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Swords 64x64 WHITE OUTLINE SHADE_52
+      name: Swords 64x64_52
       rect:
         serializedVersion: 2
         x: 256
@@ -1427,14 +1242,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 57556fab0f3c6e610800000000000000
-      internalID: 1650221752174138741
+      spriteID: 48cf2a437debc1747ac652010a0685c1
+      internalID: 1322369024
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Swords 64x64 WHITE OUTLINE SHADE_53
+      name: Swords 64x64_53
       rect:
         serializedVersion: 2
         x: 320
@@ -1448,14 +1263,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 460f0d3bbdc97b3c0800000000000000
-      internalID: -4343830848146968476
+      spriteID: 21002092bd1056a4bbe4fb388329e001
+      internalID: -342543946
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Swords 64x64 WHITE OUTLINE SHADE_54
+      name: Swords 64x64_54
       rect:
         serializedVersion: 2
         x: 384
@@ -1469,14 +1284,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e90678d297be8c5a0800000000000000
-      internalID: -6500687156421893986
+      spriteID: ee041a259d63e864d932009ca819a2e1
+      internalID: 1809889676
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Swords 64x64 WHITE OUTLINE SHADE_55
+      name: Swords 64x64_55
       rect:
         serializedVersion: 2
         x: 448
@@ -1490,14 +1305,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9b471687f56196a20800000000000000
-      internalID: 3055998421444949177
+      spriteID: 1e0f33104f7f1eb418937240c36c20c4
+      internalID: 263672648
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Swords 64x64 WHITE OUTLINE SHADE_56
+      name: Swords 64x64_56
       rect:
         serializedVersion: 2
         x: 0
@@ -1511,14 +1326,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 53e6a3094e4651390800000000000000
-      internalID: -7848255842788151755
+      spriteID: b000169d71528874fa0985845a698e51
+      internalID: 1324841358
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Swords 64x64 WHITE OUTLINE SHADE_57
+      name: Swords 64x64_57
       rect:
         serializedVersion: 2
         x: 64
@@ -1532,14 +1347,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0f9c40685a11b52b0800000000000000
-      internalID: -5594858709461972496
+      spriteID: 30682dbd3639dea45b6e71a0754a3662
+      internalID: -1033039206
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Swords 64x64 WHITE OUTLINE SHADE_58
+      name: Swords 64x64_58
       rect:
         serializedVersion: 2
         x: 128
@@ -1553,14 +1368,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9a9fcb0f344e71f30800000000000000
-      internalID: 4546353329306663337
+      spriteID: bd378808a42f8d444b28ae344c20f99d
+      internalID: 648651237
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Swords 64x64 WHITE OUTLINE SHADE_59
+      name: Swords 64x64_59
       rect:
         serializedVersion: 2
         x: 192
@@ -1574,14 +1389,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f959744fca2f4a040800000000000000
-      internalID: 4658114739254564255
+      spriteID: e5a48bef49bc4e74d8aaaf9ac445efe6
+      internalID: 970665911
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Swords 64x64 WHITE OUTLINE SHADE_60
+      name: Swords 64x64_60
       rect:
         serializedVersion: 2
         x: 256
@@ -1595,14 +1410,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: add4e1c4c2cc746a0800000000000000
-      internalID: -6464974249439375910
+      spriteID: c6780c71f3da6af4b8aa33cc8358f5b9
+      internalID: -246807996
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Swords 64x64 WHITE OUTLINE SHADE_61
+      name: Swords 64x64_61
       rect:
         serializedVersion: 2
         x: 320
@@ -1616,14 +1431,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3842c4757c9c1ed50800000000000000
-      internalID: 6764909973287478403
+      spriteID: 46ce87984963bba44820bff611f78956
+      internalID: -496026587
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Swords 64x64 WHITE OUTLINE SHADE_62
+      name: Swords 64x64_62
       rect:
         serializedVersion: 2
         x: 384
@@ -1637,14 +1452,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 00a5d568a2469b0e0800000000000000
-      internalID: -2253660004716553728
+      spriteID: dc7baf97a8cc06449a16c954b3dc54ae
+      internalID: 787779181
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Swords 64x64 WHITE OUTLINE SHADE_63
+      name: Swords 64x64_63
       rect:
         serializedVersion: 2
         x: 448
@@ -1658,8 +1473,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c9d0eab56ead44ea0800000000000000
-      internalID: -5889341729778299492
+      spriteID: 4cce0b2ed94d6df41a6e36619e7a2ef8
+      internalID: -946787059
       vertices: []
       indices: 
       edges: []
@@ -1675,73 +1490,72 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Swords 64x64 WHITE OUTLINE SHADE_12: -2864611289372227167
-      Swords 64x64 WHITE OUTLINE SHADE_13: 6751423716575801858
-      Swords 64x64 WHITE OUTLINE SHADE_53: -4343830848146968476
-      Swords 64x64 WHITE OUTLINE SHADE_2: 5962318855450255776
-      Swords 64x64 WHITE OUTLINE SHADE_21: 7072139159776218459
-      Swords 64x64 WHITE OUTLINE SHADE_29: 5297781859401184838
-      Swords 64x64 WHITE OUTLINE SHADE_4: 7674962852945769026
-      Swords 64x64 WHITE OUTLINE SHADE_0: -204231934164799047
-      Swords 64x64 WHITE OUTLINE SHADE_5: -379349998350020594
-      Swords 64x64 WHITE OUTLINE SHADE_62: -2253660004716553728
-      Swords 64x64 WHITE OUTLINE SHADE_42: 4774879259607776154
-      Swords 64x64 WHITE OUTLINE SHADE_32: 3952878078222002124
-      Swords 64x64 WHITE OUTLINE SHADE_50: -530187711458370557
-      Swords 64x64 WHITE OUTLINE SHADE_14: 6057385202221278053
-      Swords 64x64 WHITE OUTLINE SHADE_23: 2833577482277726132
-      Swords 64x64 WHITE OUTLINE SHADE_15: -1248402816776473908
-      Swords 64x64 WHITE OUTLINE SHADE_6: -846648520160839918
-      Swords 64x64 WHITE OUTLINE SHADE_36: -7668976155118233817
-      Swords 64x64 WHITE OUTLINE SHADE_33: 4713821464816971225
-      Swords 64x64 WHITE OUTLINE SHADE_46: 2609701571877002399
-      Swords 64x64 WHITE OUTLINE SHADE_20: -3691364486182012127
-      Swords 64x64 WHITE OUTLINE SHADE_61: 6764909973287478403
-      Swords 64x64 WHITE OUTLINE SHADE_7: -632705326370588387
-      Swords 64x64 WHITE OUTLINE SHADE_1: 3848443751053658035
-      Swords 64x64 WHITE OUTLINE SHADE_8: 7488940706672288574
-      Swords 64x64 WHITE OUTLINE SHADE_41: 7148007842669801800
-      Swords 64x64 WHITE OUTLINE SHADE_34: 5914987344284458603
-      Swords 64x64 WHITE OUTLINE SHADE_30: -3326141259359717348
-      Swords 64x64 WHITE OUTLINE SHADE_22: 7389697426362145172
-      Swords 64x64 WHITE OUTLINE SHADE_37: -7293152001335074652
-      Swords 64x64 WHITE OUTLINE SHADE_18: 5890949558154912352
-      Swords 64x64 WHITE OUTLINE SHADE_31: 8025423123893347391
-      Swords 64x64 WHITE OUTLINE SHADE_16: 1780942603520702770
-      Swords 64x64 WHITE OUTLINE SHADE_48: -7668594563398185362
-      Swords 64x64 WHITE OUTLINE SHADE_44: -7238900990259258232
-      Swords 64x64 WHITE OUTLINE SHADE_56: -7848255842788151755
-      Swords 64x64 WHITE OUTLINE SHADE_10: 8781801299295088348
-      Swords 64x64 WHITE OUTLINE SHADE_59: 4658114739254564255
-      Swords 64x64 WHITE OUTLINE SHADE_35: 3814909969697641191
-      Swords 64x64 WHITE OUTLINE SHADE_38: -5090400713334277847
-      Swords 64x64 WHITE OUTLINE SHADE_57: -5594858709461972496
-      Swords 64x64 WHITE OUTLINE SHADE_63: -5889341729778299492
-      Swords 64x64 WHITE OUTLINE SHADE_3: -2539854584370071954
-      Swords 64x64 WHITE OUTLINE SHADE_11: -7356337262207109098
-      Swords 64x64 WHITE OUTLINE SHADE_47: -7041804680753836506
-      Swords 64x64 WHITE OUTLINE SHADE_51: -8327959834161042521
-      Swords 64x64 WHITE OUTLINE SHADE_43: 2498392669791072273
-      Swords 64x64 WHITE OUTLINE SHADE_49: -6783516392271327254
-      Swords 64x64 WHITE OUTLINE SHADE_39: -4188629826817993047
-      Swords 64x64 WHITE OUTLINE SHADE_26: 3740908040130220817
-      Swords 64x64 WHITE OUTLINE SHADE_24: 5484475921171301773
-      Swords 64x64 WHITE OUTLINE SHADE_60: -6464974249439375910
-      Swords 64x64 WHITE OUTLINE SHADE_19: 9193660587408321442
-      Swords 64x64 WHITE OUTLINE SHADE_28: -7996675606459122741
-      Swords 64x64 WHITE OUTLINE SHADE_27: 2712361090179595559
-      Swords 64x64 WHITE OUTLINE SHADE_40: -5530810509796183104
-      Swords 64x64 WHITE OUTLINE SHADE_25: -1526070883552711512
-      Swords 64x64 WHITE OUTLINE SHADE_17: 4991182223075039076
-      Swords 64x64 WHITE OUTLINE SHADE_58: 4546353329306663337
-      Swords 64x64 WHITE OUTLINE SHADE_9: 6821625062270671039
-      Swords 64x64 WHITE OUTLINE SHADE_52: 1650221752174138741
-      Swords 64x64 WHITE OUTLINE SHADE_45: -6255816386296354361
-      Swords 64x64 WHITE OUTLINE SHADE_54: -6500687156421893986
-      Swords 64x64 WHITE OUTLINE SHADE_55: 3055998421444949177
-  spritePackingTag: 
+      Swords 64x64_0: 1531163748
+      Swords 64x64_1: -2004015390
+      Swords 64x64_10: 1926871059
+      Swords 64x64_11: 1691107093
+      Swords 64x64_12: 834347425
+      Swords 64x64_13: 578584905
+      Swords 64x64_14: -2078978886
+      Swords 64x64_15: 879281366
+      Swords 64x64_16: -1585317768
+      Swords 64x64_17: -326996429
+      Swords 64x64_18: -158080162
+      Swords 64x64_19: 1894778256
+      Swords 64x64_2: 1474495202
+      Swords 64x64_20: -1783037126
+      Swords 64x64_21: 1085435493
+      Swords 64x64_22: 1536807943
+      Swords 64x64_23: -600739689
+      Swords 64x64_24: 1157709144
+      Swords 64x64_25: 693611048
+      Swords 64x64_26: -442192668
+      Swords 64x64_27: 719077339
+      Swords 64x64_28: 869677999
+      Swords 64x64_29: -1846236314
+      Swords 64x64_3: 969941165
+      Swords 64x64_30: 686724248
+      Swords 64x64_31: -1344992165
+      Swords 64x64_32: -2052960312
+      Swords 64x64_33: 2056087876
+      Swords 64x64_34: -332200316
+      Swords 64x64_35: 1320170006
+      Swords 64x64_36: 407392845
+      Swords 64x64_37: 1035481899
+      Swords 64x64_38: 1456183177
+      Swords 64x64_39: 2128137134
+      Swords 64x64_4: 1766462002
+      Swords 64x64_40: -1301742365
+      Swords 64x64_41: -1895120717
+      Swords 64x64_42: -2137738858
+      Swords 64x64_43: 2092294593
+      Swords 64x64_44: -1968557685
+      Swords 64x64_45: 1108387268
+      Swords 64x64_46: 1418910252
+      Swords 64x64_47: -898787044
+      Swords 64x64_48: -82780436
+      Swords 64x64_49: 806804271
+      Swords 64x64_5: -404631966
+      Swords 64x64_50: -1079685857
+      Swords 64x64_51: 13520053
+      Swords 64x64_52: 1322369024
+      Swords 64x64_53: -342543946
+      Swords 64x64_54: 1809889676
+      Swords 64x64_55: 263672648
+      Swords 64x64_56: 1324841358
+      Swords 64x64_57: -1033039206
+      Swords 64x64_58: 648651237
+      Swords 64x64_59: 970665911
+      Swords 64x64_6: -2066086460
+      Swords 64x64_60: -246807996
+      Swords 64x64_61: -496026587
+      Swords 64x64_62: 787779181
+      Swords 64x64_63: -946787059
+      Swords 64x64_7: 1021864978
+      Swords 64x64_8: -443185832
+      Swords 64x64_9: -1542197477
+  mipmapLimitGroupName: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

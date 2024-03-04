@@ -13,7 +13,7 @@ public class SkillPlayer : MonoBehaviour
 	[Header("說明圖片")]
 	public Image imageDescription;
 	[Header("BOSS技能種類")]
-	public ItemEffectBossState itemEffectBossState = ItemEffectBossState.無;
+	public bossSkillEffect itemEffectBossState = bossSkillEffect.無;
 	[SerializeField, Header("BOSS道具資料")]
 	ItemData itemData = null;
 
@@ -21,39 +21,39 @@ public class SkillPlayer : MonoBehaviour
 	{
 		switch (itemEffectBossState)
 		{
-			case ItemEffectBossState.無:
+			case bossSkillEffect.無:
 				//Debug.Log("無效果");
 				break;
 
-			case ItemEffectBossState.靈魂汲取:
+			case bossSkillEffect.靈魂汲取:
 				//Debug.Log("執行" + itemEffectBossState.ToString() + "效果");
 				break;
 
-			case ItemEffectBossState.超絕防禦:
+			case bossSkillEffect.超絕防禦:
 				//Debug.Log("執行" + itemEffectBossState.ToString() + "效果");
 				break;
 
-			case ItemEffectBossState.強力打擊:
+			case bossSkillEffect.強力打擊:
 				//Debug.Log("執行" + itemEffectBossState.ToString() + "效果");
 				break;
 
-			case ItemEffectBossState.神靈轉生:
+			case bossSkillEffect.神靈轉生:
 				//Debug.Log("執行" + itemEffectBossState.ToString() + "效果");
 				break;
 
-			case ItemEffectBossState.無盡深淵:
+			case bossSkillEffect.無盡深淵:
 				//Debug.Log("執行" + itemEffectBossState.ToString() + "效果");
 				break;
 
-			case ItemEffectBossState.聖獸降臨:
+			case bossSkillEffect.聖獸降臨:
 				//Debug.Log("執行" + itemEffectBossState.ToString() + "效果");
 				break;
 
-			case ItemEffectBossState.睿智之心:
+			case bossSkillEffect.睿智之心:
 				//Debug.Log("執行" + itemEffectBossState.ToString() + "效果");
 				break;
 
-			case ItemEffectBossState.巫毒之術:
+			case bossSkillEffect.巫毒之術:
 				//Debug.Log("執行" + itemEffectBossState.ToString() + "效果");
 				break;
 		}
@@ -64,8 +64,8 @@ public class SkillPlayer : MonoBehaviour
 		if (gpDiscripen.activeInHierarchy == true)
 			return;
 
-		textDescription.text = itemData.effectBossState.ToString();
-		imageDescription.sprite = itemData.iconItem;
+		textDescription.text = itemData.bossSkillEffect.ToString();
+		imageDescription.sprite = itemData.iconSkill;
 		gpDiscripen.SetActive(true);
 	}
 

@@ -3,7 +3,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
 using System.Linq;
-using Unity.VisualScripting;
 
 /// <summary>
 /// 等級系統：管理角色的升級技能
@@ -38,7 +37,6 @@ public class LevelManager : MonoBehaviour
 	/// 2 玩家血量
 	/// 3 移動速度
 	/// 4 吸取範圍
-	/// 5 召喚萌寵
 	/// </summary>
 	[SerializeField, Header("技能資料陣列")]
 	DataSkill[] dataSkill;
@@ -54,6 +52,7 @@ public class LevelManager : MonoBehaviour
 	public ItemSkillSystem itemSkillSystem;
 	#endregion
 
+	// 右鍵選單功能
 	void OpenWindows()
 	{
 		print("測試訊息...");
@@ -71,7 +70,7 @@ public class LevelManager : MonoBehaviour
 	{
 		// Debug.Log($"<color=#0066ff>{collision.name}</color>");
 
-		if (collision.name.Contains("經驗值"))
+		if (collision.name.Contains("經驗值") || collision.name.Contains("地圖道具"))
 		{
 			collision.GetComponent<ExpSystem>().enabled = true;
 		}
@@ -466,16 +465,7 @@ public class LevelManager : MonoBehaviour
 		//	UpgradeSummonPet();
 		#endregion
 	}
-
-	public void ItemEffectForBoss()
-	{
-		if (timer >= itemSkillSystem.itemData.skillHoldTime)
-		{
-			Debug.Log("BOSS道具效果消失");
-			timer = 0;
-		}
-	}
-
+	
 	#region 技能升級方法
 	[SerializeField, Header("主角鼠：武器系統")]
 	WeaponSystem weaponSystem;

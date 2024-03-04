@@ -17,13 +17,16 @@ public class ExpSystem : MonoBehaviour
 	[HideInInspector]
 	public LevelManager levelManager;
 
-	private void Awake()
+	protected float distance;
+
+	protected virtual void Awake()
 	{
 		player = GameObject.Find("主角鼠").transform;
 		levelManager = player.GetComponent<LevelManager>();
+		this.enabled = false;
 	}
 
-	private void Update()
+	protected virtual void Update()
 	{
 		TrackingPlayer();
 	}
@@ -31,17 +34,15 @@ public class ExpSystem : MonoBehaviour
 	/// <summary>
 	/// 經驗值道具追蹤玩家
 	/// </summary>
-	public virtual void TrackingPlayer()
+	protected virtual void TrackingPlayer()
 	{
 		transform.position = Vector3.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
 		// 如果此經驗值物件與玩家物件的距離小於 1 就吃掉
-		if (Vector3.Distance(transform.position, player.position) <= distanceEat)
+		distance = Vector3.Distance(transform.position, player.position);
+		if (distance <= distanceEat)
 		{
 			levelManager.AddExp(expValue);
-			//levelManager.skillIcon.enabled = true;
-			//levelManager.skillIcon.sprite = levelManager.itemSkillSystem.itemData.iconItem;
 			Destroy(gameObject);
-			//Debug.Log("已發動效果-1");
 		}
 	}
 }

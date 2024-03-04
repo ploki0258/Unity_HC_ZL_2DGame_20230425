@@ -136,4 +136,5 @@ MonoBehaviour:
   speed: 2
   distanceEat: 0.5
   expValue: 30
+  player: {fileID: 0}
   levelManager: {fileID: 0}

@@ -56,7 +56,7 @@ public class DamageBasic : MonoBehaviour
 		Destroy(tempDamage, 1.5f);
 
 		hp = Mathf.Clamp(hp, 0f, hp);	// 限制血量上下限
-		Debug.Log($"<color=red>{ gameObject.name } 剩餘血量：{hp}</color>");
+		Debug.Log($"<color=#FF60AF>{ gameObject.name } 剩餘血量：{hp}</color>");
 
 		if (hp <= 0)
 		{

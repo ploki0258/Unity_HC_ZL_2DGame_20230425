@@ -3,18 +3,16 @@
 [CreateAssetMenu(fileName = "Data Item", menuName = "Menu/Add New ItemBossData")]
 public class ItemData : ScriptableObject
 {
-	[Header("道具名稱")]
-	public string iconName;
-	[Header("道具圖示")]
-	public Sprite iconItem;
-	[Header("Boss道具效果類型")]
-	public ItemEffectBossState effectBossState = ItemEffectBossState.無;
-	[Header("Boss道具效果描述"), TextArea(4, 8)]
-	public string itemBossDescription;
-	[Header("技能持續時間"), Range(0f, 20f)]
+	[Header("技能名稱")]
+	public string nameSkill;
+	[Header("技能圖示")]
+	public Sprite iconSkill;
+	[Header("Boss技能效果類型")]
+	public bossSkillEffect bossSkillEffect = bossSkillEffect.無;
+	[Header("Boss技能效果描述"), TextArea(4, 8)]
+	public string bossSkillDescription;
+	[Header("技能持續時間"), Range(0f, 200f)]
 	public float skillHoldTime = 1f;
-	[Header("道具存在時間"), Range(0f, 20f)]
-	public float itemExistTime;
 
 	/*
 	private void UpdateItemBossDescription()
@@ -63,7 +61,7 @@ public class ItemData : ScriptableObject
 /// 7.聖獸降臨：可以召喚一隻聖獸幫忙攻擊敵人		()
 /// 8.無盡深淵：以自身為中心範圍內的敵人直接死亡	()
 /// </summary>
-public enum ItemEffectBossState
+public enum bossSkillEffect
 {
 	無, 靈魂汲取, 睿智之心, 超絕防禦, 強力打擊, 神靈轉生, 巫毒之術, 聖獸降臨, 無盡深淵
 }

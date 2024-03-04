@@ -25,20 +25,21 @@ public class DamagePlayer : DamageBasic
 	private void Start()
 	{
 		hpBar.fillAmount = hpMax;
-		// Damage(100);
-		hpChangeAction += HpChange;
+		hpChangeAction += HpBarChange;
+		// 測試用
+		//Damage(100);
 	}
 
 	private void OnDisable()
 	{
-		hpChangeAction -= HpChange;
+		hpChangeAction -= HpBarChange;
 	}
 
 	/// <summary>
 	/// 刷新血條
 	/// 當Hp發生變化時
 	/// </summary>
-	void HpChange()
+	void HpBarChange()
 	{
 		hpBar.fillAmount = _hp / hpMax;
 	}
