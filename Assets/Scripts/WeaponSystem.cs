@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using Fungus;
+using System.Collections;
+using UnityEngine;
 
 public class WeaponSystem : MonoBehaviour
 {
@@ -12,6 +14,7 @@ public class WeaponSystem : MonoBehaviour
 											 // [SerializeField] float force = 10f;
 	[HideInInspector]
 	public float attack;
+	ItemSkillSystem itemSkillSystem;
 
 	[Header("武器推力")]
 	[SerializeField] Vector2 power;
@@ -19,6 +22,9 @@ public class WeaponSystem : MonoBehaviour
 	[SerializeField] Transform pointWeapon;
 	[Header("等級管理器")]
 	[SerializeField] LevelManager levelManager;
+
+	[Tooltip("暫存生成出來的武器物件")]
+	GameObject tempWeapon;
 
 	private void Start()
 	{
@@ -54,10 +60,13 @@ public class WeaponSystem : MonoBehaviour
 		// 生成的武器.取得武器元件.攻擊力 = 此腳本的攻擊力 * 暴擊傷害
 		if (randomValue <= rate)
 			tempWeapon.GetComponent<Weapon>().attack = this.attack * hit;
-		
+		Debug.Log($"<color=#FF7575>玩家傷害：{tempWeapon.GetComponent<Weapon>().attack}</color>");
+
 		// 播放攻擊音效
 		AudioClip sound = SoundManager.instance.soundFireWeapon;
 		SoundManager.instance.PlaySound(sound);
+
+		//StartCoroutine(ItemEffect());
 	}
 
 	/// <summary>
@@ -75,5 +84,34 @@ public class WeaponSystem : MonoBehaviour
 	public void Stop()
 	{
 		CancelInvoke("SpawnWeapon");
+	}
+
+	/// <summary>
+	/// 道具效果：
+	/// 增加暴擊率、暴擊傷害
+	/// </summary>
+	/// <returns></returns>
+	private IEnumerator ItemEffect()
+	{
+		// 增加武器的暴擊率、暴擊傷害
+		for (int i = 0; i < prefabWeapon.Length; i++)
+		{
+			tempWeapon.GetComponent<Weapon>().critical += itemSkillSystem.criticalImprove;
+			tempWeapon.GetComponent<Weapon>().criticalHit += itemSkillSystem.criticalHitImprove;
+
+			tempWeapon.GetComponent<Weapon>().critical = Mathf.Clamp(tempWeapon.GetComponent<Weapon>().critical, 0f, 100f);
+		}
+
+		// 持續指定時間(指定時間內效果有效)
+		yield return new WaitForSeconds(itemSkillSystem.effectHoldTime);
+
+		// 恢復武器原本的暴擊率、暴擊傷害
+		for (int i = 0; i < prefabWeapon.Length; i++)
+		{
+			tempWeapon.GetComponent<Weapon>().critical -= itemSkillSystem.criticalImprove;
+			tempWeapon.GetComponent<Weapon>().criticalHit -= itemSkillSystem.criticalHitImprove;
+
+			tempWeapon.GetComponent<Weapon>().critical = Mathf.Clamp(tempWeapon.GetComponent<Weapon>().critical, 0f, 100f);
+		}
 	}
 }

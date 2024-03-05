@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4594504086613349849}
   - component: {fileID: -7720549342319837673}
   m_Layer: 0
-  m_Name: "\u5730\u5716\u9053\u5177_\u947D\u77F3_\u7DA0"
+  m_Name: "\u5730\u5716\u9053\u5177_\u947D\u77F3_\u7D05"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28,11 +28,11 @@ Transform:
   m_GameObject: {fileID: 4217394551863061008}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.15, y: 0.15, z: 0.15}
+  m_LocalScale: {x: 0.12, y: 0.12, z: 0.12}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &5153082996811688164
 SpriteRenderer:
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 5ff1879e57211ee43a51cdbc89403c6a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b5816cebecf407446977608ba1cb226a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -142,4 +142,4 @@ MonoBehaviour:
   criticalImprove: 0
   criticalHitImprove: 0
   itemExistTime: 10
-  itemData: {fileID: 11400000, guid: c0a8323197e26b6469ed28471a0ee253, type: 2}
+  itemData: {fileID: 11400000, guid: 56eca9cdf31684e419ffab323c98461d, type: 2}

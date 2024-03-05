@@ -111,9 +111,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   force: 50
   pos: {x: -5, y: 2}
-  critical: 50
+  critical: 30
   criticalHit: 3
-  attack: 0
 --- !u!1 &7204261767447664838
 GameObject:
   m_ObjectHideFlags: 0

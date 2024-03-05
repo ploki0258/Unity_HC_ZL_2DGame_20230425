@@ -46,7 +46,7 @@ public class LevelManager : MonoBehaviour
 
 	[HideInInspector]
 	public int lv = 1;      // 等級
-	private float exp = 0;  // 經驗值
+	private float _exp = 0;  // 經驗值
 	public float timer = 0; // 計時器
 	private ButtonSelectManager btnSelect;
 	public ItemSkillSystem itemSkillSystem;
@@ -90,6 +90,7 @@ public class LevelManager : MonoBehaviour
 	{
 		imgExp.fillAmount = 0f;                 // 歸零經驗條
 		textLv.text = "LV " + lv.ToString();    // 恢復玩家起始等級
+		expChangeAction += ExpBarChange;
 
 		// 恢復技能起始等級
 		for (int i = 0; i < dataSkill.Length; i++)
@@ -107,6 +108,11 @@ public class LevelManager : MonoBehaviour
 		}
 		*/
 		#endregion
+	}
+
+	private void OnDisable()
+	{
+		expChangeAction -= ExpBarChange;
 	}
 
 	private void Update()
@@ -136,6 +142,41 @@ public class LevelManager : MonoBehaviour
 	{
 		this.exp += exp;
 
+		/*
+		// 目前的等級 = lv - 1
+		if (this.exp >= expNeeds[lv - 1])
+		{
+			this.exp -= expNeeds[lv - 1];   // 計算多出的經驗值
+			lv++;                           // 等級+1
+			textLv.text = "LV " + lv;       // 更新等級文字
+			LevelUp();                      // 顯示升級介面
+		}
+
+		textExp.text = this.exp + " / " + expNeeds[lv - 1]; // 更新經驗值數值
+		imgExp.fillAmount = this.exp / expNeeds[lv - 1];    // 更新經驗值條
+		*/
+	}
+
+	float exp
+	{
+		get { return _exp; }
+		set
+		{
+			_exp = value;
+
+			if (expChangeAction != null)
+			{
+				expChangeAction.Invoke();
+			}
+		}
+	}
+	public System.Action expChangeAction;
+
+	/// <summary>
+	/// 刷新經驗條
+	/// </summary>
+	void ExpBarChange()
+	{
 		// 目前的等級 = lv - 1
 		if (this.exp >= expNeeds[lv - 1])
 		{
