@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: be5778118a08f9f438699ff98f739647, type: 3}
-  m_Name: "Boss\u9053\u5177\u947D\u77F3"
+  m_Name: "BOSS\u9053\u5177\u947D\u77F3"
   m_EditorClassIdentifier: 
   nameSkill: "\u7D05\u8272\u947D\u77F3"
   iconSkill: {fileID: 21300000, guid: b5816cebecf407446977608ba1cb226a, type: 3}

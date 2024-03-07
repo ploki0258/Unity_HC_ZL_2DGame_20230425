@@ -1,25 +1,42 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.Collections;
 
+/// <summary>
+/// 玩家技能
+/// </summary>
 public class SkillPlayer : MonoBehaviour
 {
 	[Header("說明介面")]
 	public GameObject gpDiscripen;
 	[Header("說明標題")]
-	public TextMeshProUGUI textDescription;
-	[Header("技能說明")]
-	public TextMeshProUGUI textSkillDescription;
+	public TextMeshProUGUI titleDescription;
 	[Header("說明圖片")]
 	public Image imageDescription;
+	[Header("道具說明")]
+	public TextMeshProUGUI ItemDescription;
 	[Header("BOSS技能種類")]
 	public bossSkillEffect itemEffectBossState = bossSkillEffect.無;
 	[SerializeField, Header("BOSS道具資料")]
 	ItemData itemData = null;
+	[SerializeField] CircleCollider2D colliderEat = null;
+	[SerializeField] WeaponSystem weaponSystem = null;
+
+	[SerializeField] float criticalImprove, criticalHitImprove, effectHoldTime;
+
+	ItemSkillSystem itemSkillSystem;
+	DamageBasic damageBasic;
+	float distance;
+
+	private void Awake()
+	{
+		damageBasic = GetComponent<DamageBasic>();
+	}
 
 	private void Update()
 	{
-		switch (itemEffectBossState)
+		/*switch (itemEffectBossState)
 		{
 			case bossSkillEffect.無:
 				//Debug.Log("無效果");
@@ -56,6 +73,26 @@ public class SkillPlayer : MonoBehaviour
 			case bossSkillEffect.巫毒之術:
 				//Debug.Log("執行" + itemEffectBossState.ToString() + "效果");
 				break;
+		}*/
+
+		if (distance < itemSkillSystem.distanceEat)
+		{
+			damageBasic.hp += itemSkillSystem.hpRestore;
+			StartCoroutine(ItemEffect());
+		}
+	}
+
+	private void OnTriggerEnter2D(Collider2D collision)
+	{
+		if (collision.name.Contains("道具"))
+		{
+			itemSkillSystem = collision.GetComponent<ItemSkillSystem>();
+
+			criticalImprove = itemSkillSystem.criticalImprove;
+			criticalHitImprove = itemSkillSystem.criticalHitImprove;
+			effectHoldTime = itemSkillSystem.effectHoldTime;
+
+			distance = Vector3.Distance(transform.position, collision.transform.position);
 		}
 	}
 
@@ -64,18 +101,45 @@ public class SkillPlayer : MonoBehaviour
 		if (gpDiscripen.activeInHierarchy == true)
 			return;
 
-		textDescription.text = itemData.bossSkillEffect.ToString();
+		titleDescription.text = itemData.bossSkillEffect.ToString();
 		imageDescription.sprite = itemData.iconSkill;
 		gpDiscripen.SetActive(true);
 	}
 
+	/// <summary>
+	/// 道具效果：
+	/// 增加暴擊率、暴擊傷害
+	/// </summary>
+	/// <returns></returns>
+	private IEnumerator ItemEffect()
+	{
+		for (int i = 0; i < weaponSystem.prefabWeapon.Length; i++)
+		{
+			// 增加武器的暴擊率、暴擊傷害
+			weaponSystem.prefabWeapon[i].GetComponent<Weapon>().critical += criticalImprove;
+			weaponSystem.prefabWeapon[i].GetComponent<Weapon>().critical = Mathf.Clamp(weaponSystem.prefabWeapon[i].GetComponent<Weapon>().critical, 0f, 100f);
+			weaponSystem.prefabWeapon[i].GetComponent<Weapon>().criticalHit += criticalHitImprove;
+
+			// 持續指定時間(指定時間內效果有效)
+			yield return new WaitForSeconds(effectHoldTime);
+
+			// 恢復武器原本的暴擊率、暴擊傷害
+			weaponSystem.prefabWeapon[i].GetComponent<Weapon>().critical -= criticalImprove;
+			weaponSystem.prefabWeapon[i].GetComponent<Weapon>().critical = Mathf.Clamp(weaponSystem.prefabWeapon[i].GetComponent<Weapon>().critical, 0f, 100f);
+			weaponSystem.prefabWeapon[i].GetComponent<Weapon>().criticalHit -= criticalHitImprove;
+		}
+	}
+
+	/*
 	#region BOSS道具技能方法
 	// 靈魂汲取：擊殺敵人後回復自身10%血量
+	[Space(50f)]
+	
 	[Header("主角鼠：玩家資料")]
 	[SerializeField] DataBasic dataBasicPlater;
 	private void 靈魂汲取()
 	{
-		
+
 	}
 
 	// 超絕防禦：不會受到任何攻擊
@@ -83,7 +147,7 @@ public class SkillPlayer : MonoBehaviour
 	[SerializeField] DamageBasic damageBasic;
 	private void 超絕防禦()
 	{
-		
+
 	}
 
 	[Header("主角鼠：玩家資料")]
@@ -91,7 +155,7 @@ public class SkillPlayer : MonoBehaviour
 	// 強力打擊：吸收範圍內的所有道具
 	private void 萬有引力()
 	{
-		
+
 	}
 
 	// 神靈轉生：血量歸零時，有一定機率滿血復活
@@ -124,4 +188,5 @@ public class SkillPlayer : MonoBehaviour
 
 	}
 	#endregion
+	*/
 }

@@ -65,8 +65,6 @@ public class WeaponSystem : MonoBehaviour
 		// 播放攻擊音效
 		AudioClip sound = SoundManager.instance.soundFireWeapon;
 		SoundManager.instance.PlaySound(sound);
-
-		//StartCoroutine(ItemEffect());
 	}
 
 	/// <summary>
@@ -84,34 +82,5 @@ public class WeaponSystem : MonoBehaviour
 	public void Stop()
 	{
 		CancelInvoke("SpawnWeapon");
-	}
-
-	/// <summary>
-	/// 道具效果：
-	/// 增加暴擊率、暴擊傷害
-	/// </summary>
-	/// <returns></returns>
-	private IEnumerator ItemEffect()
-	{
-		// 增加武器的暴擊率、暴擊傷害
-		for (int i = 0; i < prefabWeapon.Length; i++)
-		{
-			tempWeapon.GetComponent<Weapon>().critical += itemSkillSystem.criticalImprove;
-			tempWeapon.GetComponent<Weapon>().criticalHit += itemSkillSystem.criticalHitImprove;
-
-			tempWeapon.GetComponent<Weapon>().critical = Mathf.Clamp(tempWeapon.GetComponent<Weapon>().critical, 0f, 100f);
-		}
-
-		// 持續指定時間(指定時間內效果有效)
-		yield return new WaitForSeconds(itemSkillSystem.effectHoldTime);
-
-		// 恢復武器原本的暴擊率、暴擊傷害
-		for (int i = 0; i < prefabWeapon.Length; i++)
-		{
-			tempWeapon.GetComponent<Weapon>().critical -= itemSkillSystem.criticalImprove;
-			tempWeapon.GetComponent<Weapon>().criticalHit -= itemSkillSystem.criticalHitImprove;
-
-			tempWeapon.GetComponent<Weapon>().critical = Mathf.Clamp(tempWeapon.GetComponent<Weapon>().critical, 0f, 100f);
-		}
 	}
 }

@@ -29,7 +29,7 @@ public class ItemSkillSystem : ExpSystem
 	{
 		base.Update();
 	}
-
+	/*
 	protected override void TrackingPlayer()
 	{
 		base.TrackingPlayer();
@@ -44,4 +44,5 @@ public class ItemSkillSystem : ExpSystem
 			}
 		}
 	}
+	*/
 }
