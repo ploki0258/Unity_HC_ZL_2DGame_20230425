@@ -14,14 +14,14 @@ public class ItemSkillSystem : ExpSystem
 	[SerializeField, Header("道具效果持續時間"), Range(0f, 50f)]
 	public float effectHoldTime;
 
-	private DamageBasic damageBasic;
-	private WeaponSystem dataWeapon;
+	//private DamageBasic damageBasic;
+	//private WeaponSystem dataWeapon;
 
 	protected override void Awake()
 	{
 		base.Awake();
-		damageBasic = player.GetComponent<DamageBasic>();
-		dataWeapon = player.GetComponentInChildren<WeaponSystem>();
+		//damageBasic = player.GetComponent<DamageBasic>();
+		//dataWeapon = player.GetComponentInChildren<WeaponSystem>();
 		Destroy(this.gameObject, itemExistTime);
 	}
 

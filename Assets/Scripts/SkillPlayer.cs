@@ -20,66 +20,19 @@ public class SkillPlayer : MonoBehaviour
 	public bossSkillEffect itemEffectBossState = bossSkillEffect.無;
 	[SerializeField, Header("BOSS道具資料")]
 	ItemData itemData = null;
-	[SerializeField] CircleCollider2D colliderEat = null;
-	[SerializeField] WeaponSystem weaponSystem = null;
-
+	//[SerializeField] CircleCollider2D colliderEat = null;
 	[SerializeField] float criticalImprove, criticalHitImprove, effectHoldTime;
 
-	ItemSkillSystem itemSkillSystem;
-	DamageBasic damageBasic;
+	[SerializeField] DamageBasic damageBasic;
+	[SerializeField] WeaponSystem weaponSystem;
+	[SerializeField] ItemSkillSystem itemSkillSystem;
 	float distance;
+	float distanceEat;
 
 	private void Awake()
 	{
 		damageBasic = GetComponent<DamageBasic>();
-	}
-
-	private void Update()
-	{
-		/*switch (itemEffectBossState)
-		{
-			case bossSkillEffect.無:
-				//Debug.Log("無效果");
-				break;
-
-			case bossSkillEffect.靈魂汲取:
-				//Debug.Log("執行" + itemEffectBossState.ToString() + "效果");
-				break;
-
-			case bossSkillEffect.超絕防禦:
-				//Debug.Log("執行" + itemEffectBossState.ToString() + "效果");
-				break;
-
-			case bossSkillEffect.強力打擊:
-				//Debug.Log("執行" + itemEffectBossState.ToString() + "效果");
-				break;
-
-			case bossSkillEffect.神靈轉生:
-				//Debug.Log("執行" + itemEffectBossState.ToString() + "效果");
-				break;
-
-			case bossSkillEffect.無盡深淵:
-				//Debug.Log("執行" + itemEffectBossState.ToString() + "效果");
-				break;
-
-			case bossSkillEffect.聖獸降臨:
-				//Debug.Log("執行" + itemEffectBossState.ToString() + "效果");
-				break;
-
-			case bossSkillEffect.睿智之心:
-				//Debug.Log("執行" + itemEffectBossState.ToString() + "效果");
-				break;
-
-			case bossSkillEffect.巫毒之術:
-				//Debug.Log("執行" + itemEffectBossState.ToString() + "效果");
-				break;
-		}*/
-
-		if (distance < itemSkillSystem.distanceEat)
-		{
-			damageBasic.hp += itemSkillSystem.hpRestore;
-			StartCoroutine(ItemEffect());
-		}
+		weaponSystem = GetComponentInChildren<WeaponSystem>();
 	}
 
 	private void OnTriggerEnter2D(Collider2D collision)
@@ -91,8 +44,15 @@ public class SkillPlayer : MonoBehaviour
 			criticalImprove = itemSkillSystem.criticalImprove;
 			criticalHitImprove = itemSkillSystem.criticalHitImprove;
 			effectHoldTime = itemSkillSystem.effectHoldTime;
+			distanceEat = itemSkillSystem.distanceEat;
 
 			distance = Vector3.Distance(transform.position, collision.transform.position);
+
+			if (distance < distanceEat)
+			{
+				damageBasic.hp += itemSkillSystem.hpRestore;
+				StartCoroutine(ItemEffect());
+			}
 		}
 	}
 
@@ -113,6 +73,7 @@ public class SkillPlayer : MonoBehaviour
 	/// <returns></returns>
 	private IEnumerator ItemEffect()
 	{
+		Debug.Log("已吃到道具");
 		for (int i = 0; i < weaponSystem.prefabWeapon.Length; i++)
 		{
 			// 增加武器的暴擊率、暴擊傷害
@@ -128,6 +89,14 @@ public class SkillPlayer : MonoBehaviour
 			weaponSystem.prefabWeapon[i].GetComponent<Weapon>().critical = Mathf.Clamp(weaponSystem.prefabWeapon[i].GetComponent<Weapon>().critical, 0f, 100f);
 			weaponSystem.prefabWeapon[i].GetComponent<Weapon>().criticalHit -= criticalHitImprove;
 		}
+		/*
+		for (int i = 0; i < weaponSystem.prefabWeapon.Length; i++)
+		{
+			// 恢復武器原本的暴擊率、暴擊傷害
+			weaponSystem.prefabWeapon[i].GetComponent<Weapon>().critical -= criticalImprove;
+			weaponSystem.prefabWeapon[i].GetComponent<Weapon>().critical = Mathf.Clamp(weaponSystem.prefabWeapon[i].GetComponent<Weapon>().critical, 0f, 100f);
+			weaponSystem.prefabWeapon[i].GetComponent<Weapon>().criticalHit -= criticalHitImprove;
+		}*/
 	}
 
 	/*
