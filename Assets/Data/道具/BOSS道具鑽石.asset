@@ -14,6 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nameSkill: "\u7D05\u8272\u947D\u77F3"
   iconSkill: {fileID: 21300000, guid: b5816cebecf407446977608ba1cb226a, type: 3}
+  itemType: 1
   bossSkillEffect: 0
   bossSkillDescription: 
+  hpRestore: 50
+  criticalImprove: 0
+  criticalHitImprove: 0
+  itemExistTime: 0
+  effectHoldTime: 0
   skillHoldTime: 3

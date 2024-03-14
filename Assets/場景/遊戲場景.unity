@@ -12154,7 +12154,7 @@ MonoBehaviour:
   imageDescription: {fileID: 1477073380}
   ItemDescription: {fileID: 572321842}
   itemEffectBossState: 0
-  itemData: {fileID: 11400000, guid: 3683d8454468e8a49b667af3462e3783, type: 2}
+  itemData: {fileID: 11400000, guid: 56eca9cdf31684e419ffab323c98461d, type: 2}
   criticalImprove: 0
   criticalHitImprove: 0
   effectHoldTime: 0
@@ -36153,11 +36153,12 @@ MonoBehaviour:
   expValue: 0
   player: {fileID: 0}
   levelManager: {fileID: 0}
-  hpRestore: 0
+  hpRestore: 50
   criticalImprove: 50
   criticalHitImprove: 0
   itemExistTime: 10
   effectHoldTime: 3
+  itemData: {fileID: 11400000, guid: 56eca9cdf31684e419ffab323c98461d, type: 2}
 --- !u!1 &4217394552843977743
 GameObject:
   m_ObjectHideFlags: 0

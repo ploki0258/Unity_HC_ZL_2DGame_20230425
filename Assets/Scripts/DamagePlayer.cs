@@ -27,7 +27,7 @@ public class DamagePlayer : DamageBasic
 		hpBar.fillAmount = hpMax;
 		hpChangeAction += HpBarChange;
 		// 測試用
-		//Damage(100);
+		Damage(100);
 	}
 
 	private void OnDisable()
@@ -51,7 +51,7 @@ public class DamagePlayer : DamageBasic
 		// 播放玩家受傷音效
 		AudioClip sound = SoundManager.instance.soundPlayerHurt;
 		SoundManager.instance.PlaySound(sound);
-
+		Debug.Log("玩家血量：" + _hp);
 		//hpBar.fillAmount = _hp / hpMax;
 	}
 

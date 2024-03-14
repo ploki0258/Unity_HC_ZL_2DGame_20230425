@@ -50,6 +50,7 @@ public class SkillPlayer : MonoBehaviour
 
 			if (distance < distanceEat)
 			{
+				// 回復HP
 				damageBasic.hp += itemSkillSystem.hpRestore;
 				StartCoroutine(ItemEffect());
 			}

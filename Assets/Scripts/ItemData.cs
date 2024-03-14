@@ -7,10 +7,22 @@ public class ItemData : ScriptableObject
 	public string nameSkill;
 	[Header("技能圖示")]
 	public Sprite iconSkill;
+	[Header("道具類型")]
+	public ItemType itemType = ItemType.Non;
 	[Header("Boss技能效果類型")]
 	public bossSkillEffect bossSkillEffect = bossSkillEffect.無;
 	[Header("Boss技能效果描述"), TextArea(4, 8)]
 	public string bossSkillDescription;
+	[SerializeField, Header("恢復生命"), Range(0, 100)]
+	public float hpRestore = 0;
+	[SerializeField, Header("暴擊率提升"), Range(0, 50)]
+	public float criticalImprove = 0;
+	[SerializeField, Header("暴擊傷害提升"), Range(0, 50)]
+	public float criticalHitImprove = 0;
+	[SerializeField, Header("道具存在時間"), Range(0f, 50f)]
+	public float itemExistTime;
+	[SerializeField, Header("道具效果持續時間"), Range(0f, 50f)]
+	public float effectHoldTime;
 	[Header("技能持續時間"), Range(0f, 200f)]
 	public float skillHoldTime = 1f;
 
@@ -48,6 +60,11 @@ public class ItemData : ScriptableObject
 				break;
 		}
 	}*/
+}
+
+public enum ItemType
+{
+	Non, MapItem, BossSkill
 }
 
 /// <summary>
