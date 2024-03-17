@@ -8,6 +8,7 @@ using System.Collections;
 /// </summary>
 public class SkillPlayer : MonoBehaviour
 {
+	#region 欄位
 	[Header("說明介面")]
 	public GameObject gpDiscripen;
 	[Header("說明標題")]
@@ -28,6 +29,7 @@ public class SkillPlayer : MonoBehaviour
 	[SerializeField] ItemSkillSystem itemSkillSystem;
 	float distance;
 	float distanceEat;
+	#endregion
 
 	private void Awake()
 	{
