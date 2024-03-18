@@ -16,14 +16,19 @@ public class ItemSkillSystem : ExpSystem
 	[SerializeField]
 	ItemData itemData = null;
 
-	//private DamageBasic damageBasic;
-	//private WeaponSystem dataWeapon;
+	private DamageBasic damageBasic;
+	private WeaponSystem dataWeapon;
+	private SpriteRenderer spriteRenderer;
+	private CircleCollider2D circleCollider;
 
 	protected override void Awake()
 	{
 		base.Awake();
-		//damageBasic = player.GetComponent<DamageBasic>();
-		//dataWeapon = player.GetComponentInChildren<WeaponSystem>();
+		damageBasic = player.GetComponent<DamageBasic>();
+		dataWeapon = player.GetComponentInChildren<WeaponSystem>();
+		spriteRenderer = GetComponent<SpriteRenderer>();
+		circleCollider = GetComponent<CircleCollider2D>();
+
 		Destroy(this.gameObject, itemExistTime);
 	}
 
@@ -31,19 +36,51 @@ public class ItemSkillSystem : ExpSystem
 	{
 		base.Update();
 	}
-	/*
+
 	protected override void TrackingPlayer()
 	{
 		base.TrackingPlayer();
 		if (distance <= distanceEat)
 		{
-			damageBasic.hp += hpRestore;
+			spriteRenderer.enabled = false;
+			circleCollider.enabled = false;
 
-			foreach (GameObject tempWeapon in dataWeapon.prefabWeapon)
-			{
-				tempWeapon.GetComponent<Weapon>().critical += criticalImprove;
-				tempWeapon.GetComponent<Weapon>().criticalHit += criticalHitImprove;
-			}
+			damageBasic.hp += hpRestore;
+			StartCoroutine(ItemEffect(criticalImprove, criticalHitImprove));
+			DestroyObject(this.gameObject, effectHoldTime, true);
 		}
-	}*/
+	}
+
+	/// <summary>
+	/// 道具效果：
+	/// 增加暴擊率、暴擊傷害
+	/// </summary>
+	/// <returns></returns>
+	public IEnumerator ItemEffect(float criticalImprove, float criticalHitImprove)
+	{
+		Debug.Log("<color=green>已吃到道具</color>");
+		for (int i = 0; i < dataWeapon.prefabWeapon.Length; i++)
+		{
+			// 增加武器的暴擊率、暴擊傷害
+			dataWeapon.prefabWeapon[i].GetComponent<Weapon>().critical += criticalImprove;
+			dataWeapon.prefabWeapon[i].GetComponent<Weapon>().critical = Mathf.Clamp(dataWeapon.prefabWeapon[i].GetComponent<Weapon>().critical, 0f, 100f);
+			dataWeapon.prefabWeapon[i].GetComponent<Weapon>().criticalHit += criticalHitImprove;
+
+			// 效果持續時間(指定時間內效果有效)
+			yield return new WaitForSeconds(effectHoldTime);
+
+			// 恢復武器原本的暴擊率、暴擊傷害
+			dataWeapon.prefabWeapon[i].GetComponent<Weapon>().critical -= criticalImprove;
+			dataWeapon.prefabWeapon[i].GetComponent<Weapon>().critical = Mathf.Clamp(dataWeapon.prefabWeapon[i].GetComponent<Weapon>().critical, 0f, 100f);
+			dataWeapon.prefabWeapon[i].GetComponent<Weapon>().criticalHit -= criticalHitImprove;
+		}
+		/*
+		for (int i = 0; i < dataWeapon.prefabWeapon.Length; i++)
+		{
+			// 恢復武器原本的暴擊率、暴擊傷害
+			dataWeapon.prefabWeapon[i].GetComponent<Weapon>().critical -= criticalImprove;
+			dataWeapon.prefabWeapon[i].GetComponent<Weapon>().critical = Mathf.Clamp(dataWeapon.prefabWeapon[i].GetComponent<Weapon>().critical, 0f, 100f);
+			dataWeapon.prefabWeapon[i].GetComponent<Weapon>().criticalHit -= criticalHitImprove;
+		}*/
+	}
 }

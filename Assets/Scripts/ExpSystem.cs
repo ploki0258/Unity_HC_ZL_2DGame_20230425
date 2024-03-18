@@ -36,13 +36,26 @@ public class ExpSystem : MonoBehaviour
 	/// </summary>
 	protected virtual void TrackingPlayer()
 	{
+		// 追蹤玩家
 		transform.position = Vector3.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
 		// 如果此經驗值物件與玩家物件的距離小於 1 就吃掉
 		distance = Vector3.Distance(transform.position, player.position);
 		if (distance <= distanceEat)
 		{
 			levelManager.AddExp(expValue);
-			Destroy(gameObject);
+			//Destroy(gameObject);
+		}
+	}
+
+	public void DestroyObject(GameObject obj, float t, bool quik)
+	{
+		if (quik == false)
+		{
+			Destroy(obj);
+		}
+		else
+		{
+			Destroy(obj, t);
 		}
 	}
 }

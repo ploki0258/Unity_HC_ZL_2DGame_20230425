@@ -37,11 +37,25 @@ public class SkillPlayer : MonoBehaviour
 		weaponSystem = GetComponentInChildren<WeaponSystem>();
 	}
 
+	private void Update()
+	{
+		/*if (itemSkillSystem != null)
+		{
+			if (distance <= distanceEat)
+			{
+				// 回復HP
+				damageBasic.hp += itemSkillSystem.hpRestore;
+				// 道具效果
+				StartCoroutine(itemSkillSystem.ItemEffect(criticalImprove, criticalHitImprove));
+			}
+		}*/
+	}
+
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
 		if (collision.name.Contains("道具"))
 		{
-			itemSkillSystem = collision.GetComponent<ItemSkillSystem>();
+			itemSkillSystem = collision.gameObject.GetComponent<ItemSkillSystem>();
 
 			criticalImprove = itemSkillSystem.criticalImprove;
 			criticalHitImprove = itemSkillSystem.criticalHitImprove;
@@ -49,13 +63,6 @@ public class SkillPlayer : MonoBehaviour
 			distanceEat = itemSkillSystem.distanceEat;
 
 			distance = Vector3.Distance(transform.position, collision.transform.position);
-
-			if (distance < distanceEat)
-			{
-				// 回復HP
-				damageBasic.hp += itemSkillSystem.hpRestore;
-				StartCoroutine(ItemEffect());
-			}
 		}
 	}
 
@@ -76,7 +83,6 @@ public class SkillPlayer : MonoBehaviour
 	/// <returns></returns>
 	private IEnumerator ItemEffect()
 	{
-		Debug.Log("已吃到道具");
 		for (int i = 0; i < weaponSystem.prefabWeapon.Length; i++)
 		{
 			// 增加武器的暴擊率、暴擊傷害
@@ -102,11 +108,12 @@ public class SkillPlayer : MonoBehaviour
 		}*/
 	}
 
+
 	/*
 	#region BOSS道具技能方法
 	// 靈魂汲取：擊殺敵人後回復自身10%血量
 	[Space(50f)]
-	
+
 	[Header("主角鼠：玩家資料")]
 	[SerializeField] DataBasic dataBasicPlater;
 	private void 靈魂汲取()
