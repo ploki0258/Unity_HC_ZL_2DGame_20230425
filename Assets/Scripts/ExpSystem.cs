@@ -28,34 +28,34 @@ public class ExpSystem : MonoBehaviour
 
 	protected virtual void Update()
 	{
-		TrackingPlayer();
+		TrackingPlayer(player.position);
 	}
 
 	/// <summary>
 	/// 經驗值道具追蹤玩家
 	/// </summary>
-	protected virtual void TrackingPlayer()
+	/// <param name="target">要追蹤的目標</param>
+	/// <param name="delayTime">延遲刪除的時間(秒)</param>
+	/// <param name="quick">是否立即刪除</param>
+	protected virtual void TrackingPlayer(Vector3 target, float delayTime = 0f, bool quick = true)
 	{
 		// 追蹤玩家
-		transform.position = Vector3.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
+		transform.position = Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);
 		// 如果此經驗值物件與玩家物件的距離小於 1 就吃掉
-		distance = Vector3.Distance(transform.position, player.position);
+		distance = Vector3.Distance(transform.position, target);
 		if (distance <= distanceEat)
 		{
+			// 增加經驗值
 			levelManager.AddExp(expValue);
-			//Destroy(gameObject);
-		}
-	}
-
-	public void DestroyObject(GameObject obj, float t, bool quik)
-	{
-		if (quik == false)
-		{
-			Destroy(obj);
-		}
-		else
-		{
-			Destroy(obj, t);
+			// 判斷是否立即刪除
+			if (quick)
+			{
+				Destroy(gameObject);
+			}
+			else
+			{
+				Destroy(gameObject, delayTime);
+			}
 		}
 	}
 }

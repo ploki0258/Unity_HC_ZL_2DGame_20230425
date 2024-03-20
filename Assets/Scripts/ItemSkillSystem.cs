@@ -35,30 +35,37 @@ public class ItemSkillSystem : ExpSystem
 	protected override void Update()
 	{
 		base.Update();
+		TrackingPlayer(player.position, effectHoldTime, false);
 	}
 
-	protected override void TrackingPlayer()
+	protected override void TrackingPlayer(Vector3 target, float delayTime = 0, bool quick = true)
 	{
-		base.TrackingPlayer();
+		base.TrackingPlayer(target, delayTime, quick);
+
 		if (distance <= distanceEat)
 		{
 			spriteRenderer.enabled = false;
 			circleCollider.enabled = false;
 
-			damageBasic.hp += hpRestore;
-			StartCoroutine(ItemEffect(criticalImprove, criticalHitImprove));
-			DestroyObject(this.gameObject, effectHoldTime, true);
+			StartCoroutine(ItemEffect(hpRestore, criticalImprove, criticalHitImprove, effectHoldTime));
 		}
 	}
 
 	/// <summary>
 	/// 道具效果：
-	/// 增加暴擊率、暴擊傷害
+	/// 回復血量、增加暴擊率、暴擊傷害
 	/// </summary>
+	/// <param name="hpRestore">血量回復值</param>
+	/// <param name="criticalImprove">暴擊率提升值</param>
+	/// <param name="criticalHitImprove">暴擊傷害提升值</param>
+	/// <param name="effectHoldTime">效果持續時間(秒)</param>
 	/// <returns></returns>
-	public IEnumerator ItemEffect(float criticalImprove, float criticalHitImprove)
+	public IEnumerator ItemEffect(float hpRestore, float criticalImprove, float criticalHitImprove, float effectHoldTime)
 	{
 		Debug.Log("<color=green>已吃到道具</color>");
+
+		damageBasic.hp += hpRestore;
+
 		for (int i = 0; i < dataWeapon.prefabWeapon.Length; i++)
 		{
 			// 增加武器的暴擊率、暴擊傷害

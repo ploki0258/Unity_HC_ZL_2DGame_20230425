@@ -12160,7 +12160,7 @@ MonoBehaviour:
   effectHoldTime: 0
   damageBasic: {fileID: 1538510113}
   weaponSystem: {fileID: 278752198}
-  itemSkillSystem: {fileID: 1502822693639000072}
+  itemSkillSystem: {fileID: 0}
 --- !u!114 &1538510115
 MonoBehaviour:
   m_ObjectHideFlags: 0
