@@ -36154,7 +36154,7 @@ MonoBehaviour:
   player: {fileID: 0}
   levelManager: {fileID: 0}
   hpRestore: 50
-  criticalImprove: 50
+  criticalImprove: 1
   criticalHitImprove: 0
   itemExistTime: 10
   effectHoldTime: 3

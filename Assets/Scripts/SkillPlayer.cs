@@ -39,16 +39,14 @@ public class SkillPlayer : MonoBehaviour
 
 	private void Update()
 	{
-		/*if (itemSkillSystem != null)
+		if (itemSkillSystem != null)
 		{
 			if (distance <= distanceEat)
 			{
-				// 回復HP
-				damageBasic.hp += itemSkillSystem.hpRestore;
 				// 道具效果
-				StartCoroutine(itemSkillSystem.ItemEffect(criticalImprove, criticalHitImprove));
+				//StartCoroutine(itemSkillSystem.ItemEffect(itemSkillSystem.hpRestore, criticalImprove, criticalHitImprove, effectHoldTime));
 			}
-		}*/
+		}
 	}
 
 	private void OnTriggerEnter2D(Collider2D collision)

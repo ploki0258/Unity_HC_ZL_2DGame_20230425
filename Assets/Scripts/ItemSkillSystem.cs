@@ -38,16 +38,30 @@ public class ItemSkillSystem : ExpSystem
 		TrackingPlayer(player.position, effectHoldTime, false);
 	}
 
-	protected override void TrackingPlayer(Vector3 target, float delayTime = 0, bool quick = true)
+	new private void TrackingPlayer(Vector3 target, float delayTime = 0f, bool quick = true)
 	{
-		base.TrackingPlayer(target, delayTime, quick);
-
+		// 追蹤玩家
+		transform.position = Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);
+		// 如果此經驗值物件與玩家物件的距離小於 1 就吃掉
+		distance = Vector3.Distance(transform.position, target);
 		if (distance <= distanceEat)
 		{
 			spriteRenderer.enabled = false;
 			circleCollider.enabled = false;
 
+			// 增加經驗值
+			levelManager.AddExp(expValue);
 			StartCoroutine(ItemEffect(hpRestore, criticalImprove, criticalHitImprove, effectHoldTime));
+
+			// 判斷是否立即刪除
+			if (quick)
+			{
+				Destroy(gameObject);
+			}
+			else
+			{
+				Destroy(gameObject, delayTime);
+			}
 		}
 	}
 
