@@ -81,7 +81,7 @@ public class SkillPlayer : MonoBehaviour
 	/// <returns></returns>
 	private IEnumerator ItemEffect()
 	{
-		for (int i = 0; i < weaponSystem.prefabWeapon.Length; i++)
+		for (int i = 0; i < weaponSystem.prefabWeapon.Count; i++)
 		{
 			// 增加武器的暴擊率、暴擊傷害
 			weaponSystem.prefabWeapon[i].GetComponent<Weapon>().critical += criticalImprove;

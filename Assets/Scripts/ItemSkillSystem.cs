@@ -13,8 +13,8 @@ public class ItemSkillSystem : ExpSystem
 	public float itemExistTime;
 	[SerializeField, Header("道具效果持續時間"), Range(0f, 50f)]
 	public float effectHoldTime;
-	[SerializeField]
-	ItemData itemData = null;
+	//[SerializeField]
+	//ItemData itemData = null;
 
 	private DamageBasic damageBasic;
 	private WeaponSystem dataWeapon;
@@ -80,7 +80,7 @@ public class ItemSkillSystem : ExpSystem
 
 		damageBasic.hp += hpRestore;
 
-		for (int i = 0; i < dataWeapon.prefabWeapon.Length; i++)
+		for (int i = 0; i < dataWeapon.prefabWeapon.Count; i++)
 		{
 			// 增加武器的暴擊率、暴擊傷害
 			dataWeapon.prefabWeapon[i].GetComponent<Weapon>().critical += criticalImprove;
