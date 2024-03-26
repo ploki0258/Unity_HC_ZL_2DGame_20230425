@@ -3910,7 +3910,7 @@ MonoBehaviour:
   pointWeapon: {fileID: 278752197}
   levelManager: {fileID: 1538510112}
   keyword: "\u984D\u5916\u6B66\u5668_\u70B8\u5F48"
-  num: 1
+  usageCount: 1
   tempWeapons: []
   attack: 50
 --- !u!1 &334133934
@@ -12151,8 +12151,6 @@ MonoBehaviour:
   damageBasic: {fileID: 1538510113}
   playerMoveSpeed: {fileID: 1538510108}
   playerExpRange: {fileID: 1538510111}
-  playerPet: {fileID: 7205291075082735112, guid: 3d18d345fc0a1a0469cae5d205c707df,
-    type: 3}
 --- !u!114 &1538510113
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -78,6 +78,11 @@ public class LevelManager : MonoBehaviour
 		{
 			collision.GetComponent<ItemSkillSystem>().enabled = true;
 		}
+
+		if (collision.name.Contains(weaponSystem.keyword))
+		{
+			weaponSystem.AddWeaponToList(weaponSystem.keyword);
+		}
 	}
 
 	private void Awake()
@@ -288,8 +293,9 @@ public class LevelManager : MonoBehaviour
 				UpgradeMoveSpeed();
 			if (randomSkill[skillID].skillName == "經驗值範圍增加")
 				UpgradeAbsorbExpRange();
+			/*
 			if (randomSkill[skillID].skillName == "召喚獸數量增加")
-				UpgradeSummonPet();
+				UpgradeSummonPet();*/
 			#endregion
 		}
 
@@ -506,8 +512,9 @@ public class LevelManager : MonoBehaviour
 		//	UpgradeSummonPet();
 		#endregion
 	}
-	
+
 	#region 技能升級方法
+	[Space(30f), Header("\n技能升級方法")]
 	[SerializeField, Header("主角鼠：武器系統")]
 	WeaponSystem weaponSystem;
 	// 武器攻擊提升
@@ -553,7 +560,7 @@ public class LevelManager : MonoBehaviour
 		int lv = dataSkill[4].skillLv - 1;
 		playerExpRange.radius = dataSkill[4].skillValues[lv];
 	}
-
+	/*
 	[SerializeField, Header("主角鼠：召喚系統")]
 	GameObject playerPet;
 	// 經驗範圍增加
@@ -563,6 +570,6 @@ public class LevelManager : MonoBehaviour
 		int random = Random.Range(0, pointPetArray.Length);
 		Vector3 posPet = pointPetArray[random].position;
 		Instantiate(playerPet, posPet, Quaternion.identity);
-	}
+	}*/
 	#endregion
 }

@@ -1,6 +1,4 @@
-﻿using Fungus;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 
@@ -23,8 +21,8 @@ public class WeaponSystem : MonoBehaviour
 	[SerializeField] Transform pointWeapon;
 	[Header("等級管理器")]
 	[SerializeField] LevelManager levelManager;
-	[SerializeField, Header("關鍵字")] string keyword;
-	[SerializeField] int num;
+	[Header("關鍵字")] public string keyword;
+	[Header("使用次數")] public int usageCount;
 
 	public List<GameObject> tempWeapons = new List<GameObject>();
 	[HideInInspector]
@@ -35,6 +33,14 @@ public class WeaponSystem : MonoBehaviour
 	{
 		InvokeRepeating("SpawnWeapon", 0f, interval);
 		attack = dataWeapon.attack;
+	}
+
+	private void Update()
+	{
+		if (usageCount <= 0)
+		{
+			tempWeapons.Clear();
+		}
 	}
 
 	/// <summary>
@@ -59,7 +65,7 @@ public class WeaponSystem : MonoBehaviour
 		if (tempWeapons.Count != 0)
 		{
 			tempWeapon = Instantiate(tempWeapons[index_2], pointWeapon.position, pointWeapon.rotation);
-			num--;
+			usageCount--;
 		}
 		else
 		{
@@ -86,24 +92,14 @@ public class WeaponSystem : MonoBehaviour
 		SoundManager.instance.PlaySound(sound);
 	}
 
-	private void OnTriggerEnter2D(Collider2D collision)
-	{
-		if (collision.gameObject.name.Contains(keyword))
-		{
-			Debug.Log(collision.gameObject.name);
-			//AddWeapon(keyword);
-		}
-	}
-
-	private void AddWeapon(string name)
+	/// <summary>
+	/// 添加新武器至列表
+	/// </summary>
+	/// <param name="name">要添加的武器名稱</param>
+	public void AddWeaponToList(string name)
 	{
 		//prefabWeapon.AddRange(prefabAddWeapons.Where(weapon => weapon.name.Contains(name)));
 		tempWeapons = prefabAddWeapons.Where(weapon => weapon.name.Contains(name)).ToList();
-		//tempWeapons = prefabWeapon.Take(prefabWeapon.Count).ToList();
-		if(num <= 0)
-		{
-			tempWeapons.Clear();
-		}
 	}
 
 	void Shoot()

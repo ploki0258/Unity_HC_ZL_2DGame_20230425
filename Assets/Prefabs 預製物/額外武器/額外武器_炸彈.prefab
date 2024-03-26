@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6329748968473028887}
   - component: {fileID: 2247907685169236607}
   - component: {fileID: 2120444248611379030}
-  - component: {fileID: 6338384120015521034}
+  - component: {fileID: 4284850640145011027}
   m_Layer: 0
   m_Name: "\u984D\u5916\u6B66\u5668_\u70B8\u5F48"
   m_TagString: Untagged
@@ -27,12 +27,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3377400425706822808}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.52, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 23
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2247907685169236607
 SpriteRenderer:
@@ -121,7 +121,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.4
---- !u!114 &6338384120015521034
+--- !u!114 &4284850640145011027
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -130,8 +130,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 3377400425706822808}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0897ac2379ff9b4ea7a65e4f1e838f9, type: 3}
+  m_Script: {fileID: 11500000, guid: 0de9a63abe3ffde44bf4e81f466a82d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rangeExplode: 0
-  damageExplode: 0
