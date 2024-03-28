@@ -21,7 +21,6 @@ public class WeaponSystem : MonoBehaviour
 	[SerializeField] Transform pointWeapon;
 	[Header("等級管理器")]
 	[SerializeField] LevelManager levelManager;
-	[Header("關鍵字")] public string keyword;
 	[Header("使用次數")] public int usageCount;
 
 	public List<GameObject> tempWeapons = new List<GameObject>();
@@ -79,6 +78,11 @@ public class WeaponSystem : MonoBehaviour
 		tempWeapon.GetComponent<Weapon>().attack = this.attack;
 		float randomValue = Random.value;
 
+		if (tempWeapon.name.Contains(WeaponType.炸彈.ToString()))
+		{
+			tempWeapon.GetComponent<Weapon>().ThrowBomb();
+		}
+
 		// 如果機率 小於等於 該武器的暴擊率
 		// 生成的武器.取得武器元件.攻擊力 = 此腳本的攻擊力 * 暴擊傷害
 		float rate = prefabWeapon[index].GetComponent<Weapon>().critical / 100;
@@ -100,11 +104,6 @@ public class WeaponSystem : MonoBehaviour
 	{
 		//prefabWeapon.AddRange(prefabAddWeapons.Where(weapon => weapon.name.Contains(name)));
 		tempWeapons = prefabAddWeapons.Where(weapon => weapon.name.Contains(name)).ToList();
-	}
-
-	void Shoot()
-	{
-		//
 	}
 
 	/// <summary>

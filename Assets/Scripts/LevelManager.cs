@@ -17,7 +17,7 @@ public class LevelManager : MonoBehaviour
 	TextMeshProUGUI textLv;
 	[SerializeField, Header("文字經驗值")]
 	TextMeshProUGUI textExp;
-	[ContextMenuItem("Open\"Close", "OpenWindows")] // 在Inspector中右鍵可執行自定義方法
+	[ContextMenuItem("Open\\Close", "OpenWindows")] // 在Inspector中右鍵可執行自定義方法
 	[SerializeField, Header("升級介面")]
 	GameObject goLvUp = null;
 	[Header("技能按鈕1~3")]
@@ -55,7 +55,7 @@ public class LevelManager : MonoBehaviour
 	// 右鍵選單功能
 	void OpenWindows()
 	{
-		print("測試訊息...");
+		//print("測試訊息...");
 		if (goLvUp.activeInHierarchy == false)
 			goLvUp.SetActive(true);
 		else
@@ -79,10 +79,16 @@ public class LevelManager : MonoBehaviour
 			collision.GetComponent<ItemSkillSystem>().enabled = true;
 		}
 
-		if (collision.name.Contains(weaponSystem.keyword))
+		if (collision.gameObject.name.Contains(WeaponType.炸彈.ToString()))
 		{
-			weaponSystem.AddWeaponToList(weaponSystem.keyword);
+			Debug.Log($"<color=#C7C7E2>{collision.gameObject.name}</color>");
+			weaponSystem.AddWeaponToList(WeaponType.炸彈.ToString());
 		}
+	}
+
+	private void OnCollisionEnter2D(Collision2D collision)
+	{
+		
 	}
 
 	private void Awake()

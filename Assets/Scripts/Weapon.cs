@@ -4,8 +4,7 @@ using UnityEngine;
 public class Weapon : MonoBehaviour
 {
 	[SerializeField, Header("武器種類")] WeaponType weaponType = WeaponType.劍;
-	[Header("投擲力道"), Range(1, 50)]
-	[SerializeField] float force = 10f;
+	[SerializeField, Header("投擲力道"), Range(1, 50)] float force = 10f;
 	[SerializeField, Header("投擲座標")] Vector2 pos;
 	[SerializeField, Header("暴擊率"), Range(0f, 100f), Tooltip("轉換機率為0~1之間的數值")]
 	public float critical;
@@ -15,13 +14,22 @@ public class Weapon : MonoBehaviour
 	[NonSerialized] public float attack;
 
 	Rigidbody2D rig2D;
+	float timer = 0f;
 
 	private void Awake()
 	{
 		rig2D = GetComponent<Rigidbody2D>();
 		rig2D.AddForce(pos * force);
+	}
 
-		Destroy(gameObject, 5f);
+	private void Update()
+	{
+		timer += Time.deltaTime;
+
+		if (timer > 5f)
+		{
+			Destroy(gameObject);
+		}
 	}
 
 	/// <summary>
@@ -50,8 +58,13 @@ public class Weapon : MonoBehaviour
 				critical = 30f;
 				criticalHit = 3f;
 				break;
+			case WeaponType.炸彈:
+				force = 15f;
+				pos = new Vector2(3f, 5f);
+				critical = 0f;
+				criticalHit = 0f;
+				break;
 		}
-
 		/*
 		if (weaponType == WeaponType.劍)
 		{
@@ -77,5 +90,18 @@ public class Weapon : MonoBehaviour
 		*/
 	}
 
-	public enum WeaponType { 劍, 靈劍, 骷髏劍 }
+	/// <summary>
+	/// 投擲炸彈：隨機座標、力道
+	/// </summary>
+	public void ThrowBomb()
+	{
+		float i = UnityEngine.Random.value;
+		float j = UnityEngine.Random.Range(0f, 2f);
+		float _force = force * j;
+		if (i <= 0.5f)
+			rig2D.AddForce(-pos * _force);
+
+	}
 }
+
+public enum WeaponType { 劍, 靈劍, 骷髏劍, 炸彈 }

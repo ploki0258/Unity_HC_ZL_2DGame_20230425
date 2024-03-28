@@ -51,7 +51,7 @@ public class SkillPlayer : MonoBehaviour
 
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
-		if (collision.name.Contains("道具"))
+		if (collision.name.Contains("地圖道具"))
 		{
 			itemSkillSystem = collision.gameObject.GetComponent<ItemSkillSystem>();
 
