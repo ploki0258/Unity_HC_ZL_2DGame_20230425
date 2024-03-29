@@ -3909,7 +3909,7 @@ MonoBehaviour:
   power: {x: 100, y: 800}
   pointWeapon: {fileID: 278752197}
   levelManager: {fileID: 1538510112}
-  usageCount: 5
+  usageCount: 10
   tempWeapons: []
   attack: 50
 --- !u!1 &334133934

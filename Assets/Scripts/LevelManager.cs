@@ -81,7 +81,7 @@ public class LevelManager : MonoBehaviour
 
 		if (collision.gameObject.name.Contains(WeaponType.炸彈.ToString()))
 		{
-			Debug.Log($"<color=#C7C7E2>{collision.gameObject.name}</color>");
+			//Debug.Log($"<color=#C7C7E2>{collision.gameObject.name}</color>");
 			weaponSystem.AddWeaponToList(WeaponType.炸彈.ToString());
 		}
 	}

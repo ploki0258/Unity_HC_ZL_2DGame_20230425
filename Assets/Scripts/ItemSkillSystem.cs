@@ -35,14 +35,12 @@ public class ItemSkillSystem : ExpSystem
 	protected override void Update()
 	{
 		base.Update();
-		TrackingPlayer(player.position, effectHoldTime, false);
+		//EatEffect(player.position, true, effectHoldTime, false);
 	}
 
-	new private void TrackingPlayer(Vector3 target, float delayTime = 0f, bool quick = true)
+	protected override void EatEffect(Vector3 target, bool canMove, float delayTime = 0, bool quick = true)
 	{
-		// 追蹤玩家
-		transform.position = Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);
-		// 如果此經驗值物件與玩家物件的距離小於 1 就吃掉
+		base.EatEffect(target, canMove, delayTime, quick);
 		distance = Vector3.Distance(transform.position, target);
 		if (distance <= distanceEat)
 		{
@@ -52,16 +50,6 @@ public class ItemSkillSystem : ExpSystem
 			// 增加經驗值
 			levelManager.AddExp(expValue);
 			StartCoroutine(ItemEffect(hpRestore, criticalImprove, criticalHitImprove, effectHoldTime));
-
-			// 判斷是否立即刪除
-			if (quick)
-			{
-				Destroy(gameObject);
-			}
-			else
-			{
-				Destroy(gameObject, delayTime);
-			}
 		}
 	}
 

@@ -4,8 +4,8 @@ using UnityEngine;
 public class Weapon : MonoBehaviour
 {
 	[SerializeField, Header("武器種類")] WeaponType weaponType = WeaponType.劍;
-	[SerializeField, Header("投擲力道"), Range(1, 50)] float force = 10f;
-	[SerializeField, Header("投擲座標")] Vector2 pos;
+	[SerializeField, Header("投擲力道"), Range(1, 50)] public float force = 10f;
+	[SerializeField, Header("投擲座標")]public Vector2 pos;
 	[SerializeField, Header("暴擊率"), Range(0f, 100f), Tooltip("轉換機率為0~1之間的數值")]
 	public float critical;
 	[SerializeField, Header("暴擊傷害"), Tooltip("原本傷害的倍率")]
@@ -13,7 +13,7 @@ public class Weapon : MonoBehaviour
 
 	[NonSerialized] public float attack;
 
-	Rigidbody2D rig2D;
+	protected Rigidbody2D rig2D;
 	float timer = 0f;
 
 	private void Awake()
@@ -88,19 +88,6 @@ public class Weapon : MonoBehaviour
 			criticalHit = 3f;
 		}
 		*/
-	}
-
-	/// <summary>
-	/// 投擲炸彈：隨機座標、力道
-	/// </summary>
-	public void ThrowBomb()
-	{
-		float i = UnityEngine.Random.value;
-		float j = UnityEngine.Random.Range(0f, 2f);
-		float _force = force * j;
-		if (i <= 0.5f)
-			rig2D.AddForce(-pos * _force);
-
 	}
 }
 

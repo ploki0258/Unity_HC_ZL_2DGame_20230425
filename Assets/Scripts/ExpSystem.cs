@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Fungus;
+using UnityEngine;
 
 /// <summary>
 /// 經驗值系統
@@ -28,19 +29,33 @@ public class ExpSystem : MonoBehaviour
 
 	protected virtual void Update()
 	{
-		TrackingPlayer(player.position);
+		EatEffect(player.position, true);
 	}
 
 	/// <summary>
 	/// 經驗值道具追蹤玩家
 	/// </summary>
 	/// <param name="target">要追蹤的目標</param>
-	/// <param name="delayTime">延遲刪除的時間(秒)</param>
-	/// <param name="quick">是否立即刪除</param>
-	protected virtual void TrackingPlayer(Vector3 target, float delayTime = 0f, bool quick = true)
+	/// <param name="canMove">是否要跟隨</param>
+	protected virtual void TrackingPlayer(Vector3 target, bool canMove)
 	{
 		// 追蹤玩家
-		transform.position = Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);
+		if (canMove == true)
+			transform.position = Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);
+		else
+			return;
+	}
+
+	/// <summary>
+	/// 道具效果
+	/// </summary>
+	/// <param name="target">要追蹤的目標</param>
+	/// <param name="canMove">是否要跟隨</param>
+	/// <param name="delayTime">延遲刪除的時間</param>
+	/// <param name="quick">是否立即刪除</param>
+	protected virtual void EatEffect(Vector3 target, bool canMove, float delayTime = 0f, bool quick = true)
+	{
+		TrackingPlayer(target, canMove);
 		// 如果此經驗值物件與玩家物件的距離小於 1 就吃掉
 		distance = Vector3.Distance(transform.position, target);
 		if (distance <= distanceEat)
