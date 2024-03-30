@@ -162,9 +162,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponType: 3
-  force: 15
-  pos: {x: 3, y: 5}
+  force: 12
+  pos: {x: 10, y: 5}
   critical: 0
   criticalHit: 0
-  rangeExplode: 0
-  damageExplode: 0
+  rangeExplode: 3
+  damageExplode: 50
+  colliders2D: []
+  damageArray: []

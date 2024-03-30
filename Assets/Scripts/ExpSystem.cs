@@ -1,4 +1,5 @@
 ﻿using Fungus;
+using Unity.VisualScripting;
 using UnityEngine;
 
 /// <summary>
@@ -29,6 +30,7 @@ public class ExpSystem : MonoBehaviour
 
 	protected virtual void Update()
 	{
+		TrackingPlayer(player.position, true);
 		EatEffect(player.position, true);
 	}
 
@@ -55,7 +57,6 @@ public class ExpSystem : MonoBehaviour
 	/// <param name="quick">是否立即刪除</param>
 	protected virtual void EatEffect(Vector3 target, bool canMove, float delayTime = 0f, bool quick = true)
 	{
-		TrackingPlayer(target, canMove);
 		// 如果此經驗值物件與玩家物件的距離小於 1 就吃掉
 		distance = Vector3.Distance(transform.position, target);
 		if (distance <= distanceEat)

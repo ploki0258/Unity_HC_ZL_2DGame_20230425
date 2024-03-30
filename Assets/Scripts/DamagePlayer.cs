@@ -16,7 +16,7 @@ public class DamagePlayer : DamageBasic
 	public PlayCtrl playCtrl;
 	[Header("武器生成系統")]
 	public WeaponSystem weaponSystem;
-	[ContextMenuItem("Open\"Close", "OpenWindows")]
+	[ContextMenuItem("Open/Close", "OpenWindows")]
 	[Header("結束介面")]
 	public GameObject gpFinal;
 	[Header("結束標題")]
@@ -27,7 +27,7 @@ public class DamagePlayer : DamageBasic
 		hpBar.fillAmount = hpMax;
 		hpChangeAction += HpBarChange;
 		// 測試用
-		Damage(100);
+		//Damage(100);
 	}
 
 	private void OnDisable()
@@ -84,6 +84,7 @@ public class DamagePlayer : DamageBasic
 		gpFinal.SetActive(true);
 	}
 
+	// 右鍵自訂功能
 	void OpenWindows()
 	{
 		print("測試訊息...");

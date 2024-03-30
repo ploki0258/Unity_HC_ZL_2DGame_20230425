@@ -3906,10 +3906,10 @@ MonoBehaviour:
   - {fileID: 969034769822350505, guid: 0b4d49bc900bec64ea5e160b5a64297b, type: 3}
   prefabAddWeapons:
   - {fileID: 3440681557418846658, guid: acfba0d0110885a45855df3d2bbc17de, type: 3}
-  power: {x: 100, y: 800}
+  power: {x: 0, y: 800}
   pointWeapon: {fileID: 278752197}
   levelManager: {fileID: 1538510112}
-  usageCount: 10
+  usageCount: 100
   tempWeapons: []
   attack: 50
 --- !u!1 &334133934
@@ -8654,11 +8654,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2120444248611379030, guid: 14b7ed9a0b1fb0046b84800ff7cc480f,
-        type: 3}
-      propertyPath: m_IsTrigger
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3377400425706822808, guid: 14b7ed9a0b1fb0046b84800ff7cc480f,
         type: 3}
       propertyPath: m_Name

@@ -24,8 +24,7 @@ public class WeaponSystem : MonoBehaviour
 	[Header("使用次數")] public int usageCount;
 
 	public List<GameObject> tempWeapons = new List<GameObject>();
-	[HideInInspector]
-	public float attack;
+	[HideInInspector] public float attack;
 	#endregion
 
 	private void Start()
@@ -89,7 +88,7 @@ public class WeaponSystem : MonoBehaviour
 		float hit = prefabWeapon[index].GetComponent<Weapon>().criticalHit;
 		if (randomValue <= rate)
 			tempWeapon.GetComponent<Weapon>().attack = this.attack * hit;
-		Debug.Log($"<color=#FF7575>玩家傷害：{tempWeapon.GetComponent<Weapon>().attack}</color>");
+		Debug.Log($"<color=#FF7575>玩家攻擊力：{tempWeapon.GetComponent<Weapon>().attack}</color>");
 
 		// 播放攻擊音效
 		AudioClip sound = SoundManager.instance.soundFireWeapon;

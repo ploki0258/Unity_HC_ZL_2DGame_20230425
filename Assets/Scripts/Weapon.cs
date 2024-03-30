@@ -26,7 +26,7 @@ public class Weapon : MonoBehaviour
 	{
 		timer += Time.deltaTime;
 
-		if (timer > 5f)
+		if (timer > 8f)
 		{
 			Destroy(gameObject);
 		}
@@ -60,7 +60,7 @@ public class Weapon : MonoBehaviour
 				break;
 			case WeaponType.炸彈:
 				force = 15f;
-				pos = new Vector2(3f, 5f);
+				pos = new Vector2(5f, 10f);
 				critical = 0f;
 				criticalHit = 0f;
 				break;
