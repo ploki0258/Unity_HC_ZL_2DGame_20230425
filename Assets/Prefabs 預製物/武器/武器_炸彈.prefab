@@ -163,10 +163,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponType: 3
   force: 12
-  pos: {x: 10, y: 5}
+  pos: {x: 5, y: 8}
   critical: 0
   criticalHit: 0
+  attack: 0
   rangeExplode: 3
   damageExplode: 50
+  explosionObj: {fileID: 139366, guid: b185c1a9cf067374586d095111b15bd1, type: 3}
+  damageEnemy: {fileID: 0}
   colliders2D: []
   damageArray: []

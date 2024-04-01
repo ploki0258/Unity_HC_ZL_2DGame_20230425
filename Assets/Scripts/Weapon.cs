@@ -5,13 +5,13 @@ public class Weapon : MonoBehaviour
 {
 	[SerializeField, Header("武器種類")] WeaponType weaponType = WeaponType.劍;
 	[SerializeField, Header("投擲力道"), Range(1, 50)] public float force = 10f;
-	[SerializeField, Header("投擲座標")]public Vector2 pos;
+	[SerializeField, Header("投擲座標")] public Vector2 pos;
 	[SerializeField, Header("暴擊率"), Range(0f, 100f), Tooltip("轉換機率為0~1之間的數值")]
 	public float critical;
 	[SerializeField, Header("暴擊傷害"), Tooltip("原本傷害的倍率")]
 	public float criticalHit = 2;
-
-	[NonSerialized] public float attack;
+	// NonSerialized
+	[HideInInspector] public float attack;
 
 	protected Rigidbody2D rig2D;
 	float timer = 0f;
@@ -64,8 +64,14 @@ public class Weapon : MonoBehaviour
 				critical = 0f;
 				criticalHit = 0f;
 				break;
+			case WeaponType.其他:
+				force = 0f;
+				pos = new Vector2(0f, 0f);
+				critical = 0f;
+				criticalHit = 0f;
+				break;
 		}
-		/*
+		/*// if判斷式
 		if (weaponType == WeaponType.劍)
 		{
 			force = 10f;
@@ -91,4 +97,4 @@ public class Weapon : MonoBehaviour
 	}
 }
 
-public enum WeaponType { 劍, 靈劍, 骷髏劍, 炸彈 }
+public enum WeaponType { 劍, 靈劍, 骷髏劍, 炸彈, 其他 }

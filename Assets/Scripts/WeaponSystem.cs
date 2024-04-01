@@ -18,7 +18,7 @@ public class WeaponSystem : MonoBehaviour
 	[Header("武器推力")]
 	[SerializeField] Vector2 power;
 	[Header("生成點")]
-	[SerializeField] Transform pointWeapon;
+	[SerializeField] Transform pointWeapon, pointBomb;
 	[Header("等級管理器")]
 	[SerializeField] LevelManager levelManager;
 	[Header("使用次數")] public int usageCount;
@@ -62,7 +62,7 @@ public class WeaponSystem : MonoBehaviour
 
 		if (tempWeapons.Count != 0)
 		{
-			tempWeapon = Instantiate(tempWeapons[index_2], pointWeapon.position, pointWeapon.rotation);
+			tempWeapon = Instantiate(tempWeapons[index_2], pointBomb.position, pointBomb.rotation);
 			usageCount--;
 		}
 		else

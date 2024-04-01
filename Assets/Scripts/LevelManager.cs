@@ -78,12 +78,6 @@ public class LevelManager : MonoBehaviour
 		{
 			collision.GetComponent<ItemSkillSystem>().enabled = true;
 		}
-
-		if (collision.gameObject.name.Contains(WeaponType.炸彈.ToString()))
-		{
-			//Debug.Log($"<color=#C7C7E2>{collision.gameObject.name}</color>");
-			weaponSystem.AddWeaponToList(WeaponType.炸彈.ToString());
-		}
 	}
 
 	private void OnCollisionEnter2D(Collision2D collision)
