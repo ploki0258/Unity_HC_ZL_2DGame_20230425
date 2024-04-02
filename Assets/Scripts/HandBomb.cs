@@ -6,17 +6,16 @@ public class HandBomb : Weapon
 	#region Äæ¦ì
 	[SerializeField, Header("Ãz¬µ½d³ò"), Range(0f, 10f)] float rangeExplode = 0;
 	[SerializeField, Header("Ãz¬µ¶Ë®`"), Range(0f, 100f)] float damageExplode = 0;
-	[SerializeField] [Header("Ãz¬µª«¥ó")] GameObject explosionObj = null;
-	[SerializeField] DamageEnemy[] damageEnemys;
+	[SerializeField][Header("Ãz¬µª«¥ó")] GameObject explosionObj = null;
 
 	public Collider2D[] colliders2D;
-	public List<float> damageArray = new List<float>();
+	public DamageEnemy[] hurtEnemys;
+	//public List<float> damageArray = new List<float>();
 	#endregion
 
 	private void Awake()
 	{
 		rig2D = GetComponent<Rigidbody2D>();
-		//damageEnemys = GameObject.FindObjectsOfType<DamageEnemy>();
 	}
 
 	private void Start()
@@ -29,10 +28,12 @@ public class HandBomb : Weapon
 		if (collision.gameObject.CompareTag("Enemy"))
 		{
 			//Debug.Log($"<color=#C7C7E2>{collision.gameObject.name}</color>");
+			//Debug.Log($"<color=#C7C7E2>¸I¼²¡G{colliders2D.Length}\n¶Ë®`¡G{damageArray.Count}</color>");
 			ExplosionDamage();
-			Debug.Log($"<color=#C7C7E2>¸I¼²¡G{colliders2D.Length}\n¶Ë®`¡G{ExplosionDamage().Count}</color>");
-			/*for (int i = 0; i < ExplosionDamage().Count; i++)
+
+			/*for (int i = 0; i < colliders2D.Length; i++)
 			{
+				DamageEnemy[] hurtEnemys = colliders2D[i].GetComponents<DamageEnemy>();
 				damageEnemys[i].Damage(ExplosionDamage()[i]);
 			}*/
 
@@ -67,17 +68,29 @@ public class HandBomb : Weapon
 			rig2D.AddForce(pos * new Vector2(1.0f, 1f) * force);
 	}
 
-	public List<float> ExplosionDamage()
+	public void ExplosionDamage()
 	{
 		colliders2D = Physics2D.OverlapCircleAll(transform.position, rangeExplode);
 
 		for (int i = 0; i < colliders2D.Length; i++)
 		{
-			float dis = Mathf.Max(1 - (Vector2.Distance(transform.position, colliders2D[i].gameObject.transform.position) / rangeExplode), 0f);
-			float tempDamage = damageExplode * dis;
-			damageArray.Add(tempDamage);
-		}
+			float per_distance = Mathf.Max(1 - (Vector2.Distance(transform.position, colliders2D[i].gameObject.transform.position) / rangeExplode), 0f);
+			float tempDamage = damageExplode * per_distance;
+			// µL±ø¥ó±Ë¥hªk
+			//damageArray.Add(Mathf.FloorToInt(tempDamage));
 
-		return damageArray;
+			hurtEnemys = colliders2D[i].GetComponents<DamageEnemy>();
+
+			if (hurtEnemys != null)
+			{
+				if (colliders2D[i].gameObject.CompareTag("Enemy"))
+				{
+					for (int j = 0; j < hurtEnemys.Length; j++)
+					{
+						hurtEnemys[i].Damage(Mathf.FloorToInt(tempDamage));
+					}
+				}
+			}
+		}
 	}
 }
