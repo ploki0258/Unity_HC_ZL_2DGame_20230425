@@ -3142,7 +3142,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 204079045}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.55, y: -0.3, z: 0}
+  m_LocalPosition: {x: 1, y: -0.3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3910,7 +3910,7 @@ MonoBehaviour:
   pointWeapon: {fileID: 278752197}
   pointBomb: {fileID: 204079046}
   levelManager: {fileID: 1538510112}
-  usageCount: 100
+  usageCount: 10
   tempWeapons: []
   attack: 50
 --- !u!1 &334133934
@@ -6562,6 +6562,10 @@ MonoBehaviour:
   - {fileID: 1478510940}
   - {fileID: 1457731952}
   - {fileID: 1233078669}
+  spawnObjects:
+  - {fileID: 3377400425706822808, guid: 14b7ed9a0b1fb0046b84800ff7cc480f, type: 3}
+  spawnLv: 15
+  spawnInterval: 30
 --- !u!1 &745791173
 GameObject:
   m_ObjectHideFlags: 0

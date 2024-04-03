@@ -2,5 +2,43 @@ using UnityEngine;
 
 public class ItemSpawnManager : MonoBehaviour
 {
-    [SerializeField][Header("ネΘ跋办")] Collider2D[] spawnAreas = new Collider2D[0];
+	[SerializeField][Header("ネΘ跋办")] BoxCollider2D[] spawnAreas = new BoxCollider2D[0];
+	[SerializeField][Header("ネΘン")] GameObject[] spawnObjects = null;
+	[SerializeField][Header("兵ン单")] int spawnLv;
+	[SerializeField][Header("ネΘ丁筳")] float spawnInterval;
+
+	LevelManager levelManager;
+	float width_1, width_2, width_3, width_4,
+		  hight_1, hight_2, hight_3, hight_4;
+
+	private void Awake()
+	{
+		levelManager = GameObject.Find("à公").GetComponent<LevelManager>();
+	}
+
+	private void Start()
+	{
+		width_1 = spawnAreas[0].size.x;
+		hight_1 = spawnAreas[0].size.y;
+
+		width_2 = spawnAreas[1].size.x;
+		hight_2 = spawnAreas[1].size.y;
+
+		width_3 = spawnAreas[2].size.x;
+		hight_3 = spawnAreas[2].size.y;
+
+		width_4 = spawnAreas[3].size.x;
+		hight_4 = spawnAreas[3].size.y;
+
+		InvokeRepeating("GenerateItem", 0, spawnInterval);
+	}
+
+	void GenerateItem()
+	{
+		if (levelManager.lv >= spawnLv)
+		{
+			//Debug.Log("秈ネΘ");
+			Instantiate(spawnObjects[0], spawnAreas[0].transform.position, Quaternion.identity);
+		}
+	}
 }

@@ -162,14 +162,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponType: 3
-  force: 12
-  pos: {x: 5, y: 8}
+  force: 15
+  pos: {x: 8, y: 5}
   critical: 0
   criticalHit: 0
   attack: 0
-  rangeExplode: 3
-  damageExplode: 50
+  rangeExplode: 5
+  damageExplode: 100
   explosionObj: {fileID: 139366, guid: b185c1a9cf067374586d095111b15bd1, type: 3}
-  damageEnemy: {fileID: 0}
+  explosionThrust: {x: 5, y: 5}
   colliders2D: []
+  hurtEnemys: []
   damageArray: []

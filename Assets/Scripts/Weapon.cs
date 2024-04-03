@@ -60,7 +60,7 @@ public class Weapon : MonoBehaviour
 				break;
 			case WeaponType.炸彈:
 				force = 15f;
-				pos = new Vector2(5f, 10f);
+				pos = new Vector2(8f, 5f);
 				critical = 0f;
 				criticalHit = 0f;
 				break;
