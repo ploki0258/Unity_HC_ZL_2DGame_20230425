@@ -25,6 +25,7 @@ public class SpawnEnemyManager : MonoBehaviour
 	/// </summary>
 	private void ChangeSpawEnemy()
 	{
+		// 計時
 		timer += Time.deltaTime;
 
 		if (index >= dataSpawnEnemys.Length)

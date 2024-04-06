@@ -4,8 +4,8 @@ using UnityEngine;
 public class HandBomb : Weapon
 {
 	#region Äæ¦ì
-	[SerializeField, Header("Ãz¬µ½d³ò"), Range(0f, 10f)] float rangeExplode = 0;
-	[SerializeField, Header("Ãz¬µ¶Ë®`"), Range(0f, 500f)] float damageExplode = 0;
+	[SerializeField][Header("Ãz¬µ½d³ò"), Range(0f, 10f)] float rangeExplode = 0;
+	[SerializeField][Header("Ãz¬µ¶Ë®`"), Range(0f, 500f)] float damageExplode = 0;
 	[SerializeField][Header("Ãz¬µª«¥ó")] GameObject explosionObj = null;
 	[SerializeField][Header("Ãz¬µ±À¤O")] Vector3 explosionThrust = new Vector2();
 
@@ -61,8 +61,6 @@ public class HandBomb : Weapon
 			rig2D.AddForce(-pos * force);
 		else
 			rig2D.AddForce(pos * force);
-
-		//rig2D.AddForce(pos * new Vector2(1.0f, 1f) * force);
 	}
 
 	public void ExplosionDamage()
@@ -85,7 +83,7 @@ public class HandBomb : Weapon
 					for (int j = 0; j < hurtEnemys.Length; j++)
 					{
 						hurtEnemys[j].Damage(Mathf.FloorToInt(tempDamage));
-						hurtEnemys[j].gameObject.transform.position += explosionThrust;
+						//hurtEnemys[j].gameObject.transform.position += explosionThrust;
 					}
 				}
 			}

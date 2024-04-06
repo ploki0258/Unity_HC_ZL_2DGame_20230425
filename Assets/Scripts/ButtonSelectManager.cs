@@ -76,12 +76,12 @@ public class ButtonSelectManager : MonoBehaviour
 	{
 		if (select == true)
 		{
-			Debug.Log($"已添加至列表：{idBtn}");
+			//Debug.Log($"已添加至列表：{idBtn}");
 			buttonSelectList.Add(idBtn);
 		}
 		else
 		{
-			Debug.Log($"已從列表移除：{idBtn}");
+			//Debug.Log($"已從列表移除：{idBtn}");
 			buttonSelectList.Remove(idBtn);
 		}
 	}

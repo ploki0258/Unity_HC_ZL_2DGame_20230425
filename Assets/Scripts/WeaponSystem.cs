@@ -25,12 +25,14 @@ public class WeaponSystem : MonoBehaviour
 
 	public List<GameObject> tempWeapons = new List<GameObject>();
 	[HideInInspector] public float attack;
+	int newUsageCount;
 	#endregion
 
 	private void Start()
 	{
 		InvokeRepeating("SpawnWeapon", 0f, interval);
 		attack = dataWeapon.attack;
+		newUsageCount = usageCount;
 	}
 
 	private void Update()
@@ -103,6 +105,7 @@ public class WeaponSystem : MonoBehaviour
 	{
 		//prefabWeapon.AddRange(prefabAddWeapons.Where(weapon => weapon.name.Contains(name)));
 		tempWeapons = prefabAddWeapons.Where(weapon => weapon.name.Contains(name)).ToList();
+		usageCount = newUsageCount;
 	}
 
 	/// <summary>

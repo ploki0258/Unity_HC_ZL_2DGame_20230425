@@ -351,7 +351,7 @@ public class LevelManager : MonoBehaviour
 					// 如果選擇的按鈕不包含在原本的列表裡 就添加至列表中 顏色變為黃色
 					if (btnSelect.SelectButton(skillID))
 					{
-						Debug.Log($"<color=#9966ff>點擊技能編號：{skillID}</color>");
+						//Debug.Log($"<color=#9966ff>點擊技能編號：{skillID}</color>");
 						btnSelect.ButtonIsSelect(skillID, btnSelect.SelectButton(skillID));
 						//btnSelect.buttonSelectList.Add(skillID);  // 添加至列表
 						goSkillUI[skillID].GetComponent<Image>().color = btnSelect.selectColor;

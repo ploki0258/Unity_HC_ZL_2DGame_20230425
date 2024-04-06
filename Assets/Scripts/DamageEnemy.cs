@@ -26,8 +26,8 @@ public class DamageEnemy : DamageBasic
 		skillPlayer = GameObject.Find("主角鼠").GetComponent<SkillPlayer>();
 
 		if (name.Contains("BOSS"))
-			onDead.AddListener(() => skillPlayer.SkillBossDiscripen());
-		//onDead.AddListener(() => damagePlayer.Win());
+			onDead.AddListener(() => damagePlayer.Win());
+		//onDead.AddListener(() => skillPlayer.SkillBossDiscripen());
 	}
 
 	private void OnCollisionEnter2D(Collision2D collision)

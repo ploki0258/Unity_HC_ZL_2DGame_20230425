@@ -2,14 +2,12 @@ using UnityEngine;
 
 public class ItemSpawnManager : MonoBehaviour
 {
-	[SerializeField][Header("生成區域")] BoxCollider2D[] spawnAreas = new BoxCollider2D[0];
+	[SerializeField][Header("生成資料")] SpawnItem[] spawnItems;
 	[SerializeField][Header("生成物件")] GameObject[] spawnObjects = null;
 	[SerializeField][Header("條件等級")] int spawnLv;
 	[SerializeField][Header("生成間隔")] float spawnInterval;
 
 	LevelManager levelManager;
-	float width_1, width_2, width_3, width_4,
-		  hight_1, hight_2, hight_3, hight_4;
 
 	private void Awake()
 	{
@@ -18,27 +16,16 @@ public class ItemSpawnManager : MonoBehaviour
 
 	private void Start()
 	{
-		width_1 = spawnAreas[0].size.x;
-		hight_1 = spawnAreas[0].size.y;
-
-		width_2 = spawnAreas[1].size.x;
-		hight_2 = spawnAreas[1].size.y;
-
-		width_3 = spawnAreas[2].size.x;
-		hight_3 = spawnAreas[2].size.y;
-
-		width_4 = spawnAreas[3].size.x;
-		hight_4 = spawnAreas[3].size.y;
-
-		InvokeRepeating("GenerateItem", 0, spawnInterval);
+		InvokeRepeating("CreateItem", 0, spawnInterval);
 	}
 
-	void GenerateItem()
+	void CreateItem()
 	{
 		if (levelManager.lv >= spawnLv)
 		{
 			//Debug.Log("進入生成");
-			Instantiate(spawnObjects[0], spawnAreas[0].transform.position, Quaternion.identity);
+			int x = Random.Range(0, spawnItems.Length);
+			Instantiate(spawnObjects[0], spawnItems[x].SpawnMapItemPos(), Quaternion.identity);
 		}
 	}
 }

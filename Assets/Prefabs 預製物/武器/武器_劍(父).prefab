@@ -114,6 +114,7 @@ MonoBehaviour:
   pos: {x: 10, y: 10}
   critical: 5
   criticalHit: 2
+  attack: 0
 --- !u!1 &4501338600510746470
 GameObject:
   m_ObjectHideFlags: 0
