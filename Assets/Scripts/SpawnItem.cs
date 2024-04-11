@@ -11,7 +11,7 @@ public class SpawnItem : MonoBehaviour
 
 	private void OnDrawGizmos()
 	{
-		Gizmos.color = new Color(0f, 0.8f, 0.5f, 0.3f);
+		Gizmos.color = new Color(0f, 0.8f, 0.5f, 0.15f);
 		Gizmos.DrawCube(transform.position + (Vector3)offset, new Vector3(rangeWidth, rangeHeight, 0f));
 	}
 

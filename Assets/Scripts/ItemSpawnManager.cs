@@ -25,7 +25,13 @@ public class ItemSpawnManager : MonoBehaviour
 		{
 			//Debug.Log("進入生成");
 			int x = Random.Range(0, spawnItems.Length);
-			Instantiate(spawnObjects[0], spawnItems[x].SpawnMapItemPos(), Quaternion.identity);
+			Vector3 originalVec = spawnItems[x].SpawnMapItemPos();
+			GameObject tempObj = Instantiate(spawnObjects[0], originalVec, Quaternion.identity);
+
+			if (tempObj.transform.position == originalVec)
+			{
+				CreateItem();
+			}
 		}
 	}
 }

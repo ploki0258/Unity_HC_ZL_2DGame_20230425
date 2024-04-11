@@ -7,10 +7,10 @@ public class HandBomb : Weapon
 	[SerializeField][Header("爆炸範圍"), Range(0f, 10f)] float rangeExplode = 0;
 	[SerializeField][Header("爆炸傷害"), Range(0f, 500f)] float damageExplode = 0;
 	[SerializeField][Header("爆炸物件")] GameObject explosionObj = null;
-	[SerializeField][Header("爆炸推力")] Vector3 explosionThrust = new Vector2();
+	[SerializeField][Header("爆炸推力")] Vector2 explosionThrust = new Vector2();
 
-	public Collider2D[] colliders2D;
-	public DamageEnemy[] hurtEnemys;
+	Collider2D[] colliders2D;
+	DamageEnemy[] hurtEnemys;
 	public List<float> damageArray = new List<float>();
 	#endregion
 
@@ -83,7 +83,19 @@ public class HandBomb : Weapon
 					for (int j = 0; j < hurtEnemys.Length; j++)
 					{
 						hurtEnemys[j].Damage(Mathf.FloorToInt(tempDamage));
-						//hurtEnemys[j].gameObject.transform.position += explosionThrust;
+						// 計算炸彈與碰到的東西之間的向量
+						Vector3 ab = (transform.position - hurtEnemys[j].transform.position);
+						// 紀錄敵人原本的旋轉方向
+						Vector3 originalVec = hurtEnemys[j].transform.rotation.eulerAngles;
+						// 把敵人轉向炸彈位置的方向
+						hurtEnemys[j].transform.rotation = Quaternion.LookRotation(ab, Vector3.up);
+						// 把炸彈推力的本地座標 轉為 世界座標
+						Vector3 vecWorld = transform.TransformDirection(explosionThrust);
+						// 把敵人的方向轉為原本的方向
+						hurtEnemys[j].transform.rotation = Quaternion.Euler(originalVec);
+						// 對敵人施加轉換後的炸彈推力(敵人被炸飛)
+						Rigidbody2D rig2D = hurtEnemys[j].gameObject.GetComponent<Rigidbody2D>();
+						rig2D.AddForce(vecWorld, ForceMode2D.Impulse);
 					}
 				}
 			}
