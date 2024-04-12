@@ -10,7 +10,7 @@ public class ItemSkillSystem : ExpSystem
 	[SerializeField, Header("暴擊傷害提升"), Range(0, 50)]
 	public float criticalHitImprove = 0;
 	[SerializeField, Header("道具存在時間"), Range(0f, 50f)]
-	public float itemExistTime;
+	public float itemExistTime = 10f;
 	[SerializeField, Header("道具效果持續時間"), Range(0f, 50f)]
 	public float effectHoldTime;
 	//[SerializeField]

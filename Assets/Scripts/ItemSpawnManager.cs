@@ -16,16 +16,21 @@ public class ItemSpawnManager : MonoBehaviour
 
 	private void Start()
 	{
-		InvokeRepeating("CreateItem", 0, spawnInterval);
+		//InvokeRepeating("CreateItem", 0, spawnInterval);
+	}
+
+	private void Update()
+	{
+		CreateItem();
 	}
 
 	void CreateItem()
 	{
+		// 生成 武器道具_炸彈
 		if (levelManager.lv >= spawnLv)
 		{
-			//Debug.Log("進入生成");
 			int x = Random.Range(0, spawnItems.Length);
-			Vector3 originalVec = spawnItems[x].SpawnMapItemPos();
+			Vector3 originalVec = (Vector3)spawnItems[x].SpawnMapItemPos();
 			GameObject tempObj = Instantiate(spawnObjects[0], originalVec, Quaternion.identity);
 
 			if (tempObj.transform.position == originalVec)

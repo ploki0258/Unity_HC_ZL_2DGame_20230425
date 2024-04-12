@@ -4,9 +4,9 @@ public class SpawnItem : MonoBehaviour
 {
 	[SerializeField][Header("簿")] Vector2 offset = new Vector2(0, 0);
 	[SerializeField][Header("糴絛瞅")] float rangeWidth, rangeHeight;
-	[SerializeField]
-	[Header("程/程_糴蔼")]
+	[SerializeField][Header("程/程_糴蔼")]
 	float minWidth, minHight, maxWidth, maxHight;
+	
 	Vector2 spawnRange;
 
 	private void OnDrawGizmos()

@@ -27,7 +27,7 @@ public class DamagePlayer : DamageBasic
 		hpBar.fillAmount = hpMax;
 		hpChangeAction += HpBarChange;
 		// 測試用
-		//Damage(100);
+		Damage(100);
 	}
 
 	private void OnDisable()

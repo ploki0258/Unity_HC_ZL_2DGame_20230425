@@ -6,11 +6,9 @@ public class HandBomb : Weapon
 	#region 欄位
 	[SerializeField][Header("爆炸範圍"), Range(0f, 10f)] float rangeExplode = 0;
 	[SerializeField][Header("爆炸傷害"), Range(0f, 500f)] float damageExplode = 0;
-	[SerializeField][Header("爆炸物件")] GameObject explosionObj = null;
+	[SerializeField][Header("爆炸特效")] GameObject explosionObj = null;
 	[SerializeField][Header("爆炸推力")] Vector2 explosionThrust = new Vector2();
 
-	Collider2D[] colliders2D;
-	DamageEnemy[] hurtEnemys;
 	public List<float> damageArray = new List<float>();
 	#endregion
 
@@ -63,18 +61,23 @@ public class HandBomb : Weapon
 			rig2D.AddForce(pos * force);
 	}
 
+	/// <summary>
+	/// 炸彈功能：扣血、炸飛
+	/// </summary>
 	public void ExplosionDamage()
 	{
-		colliders2D = Physics2D.OverlapCircleAll(transform.position, rangeExplode);
+		Collider2D[] colliders2D = Physics2D.OverlapCircleAll(transform.position, rangeExplode);
 
 		for (int i = 0; i < colliders2D.Length; i++)
 		{
+			// 計算與中心點的距離百分比
 			float per_distance = Mathf.Max(1 - (Vector2.Distance(transform.position, colliders2D[i].gameObject.transform.position) / rangeExplode), 0f);
+			// 依據百分比計算傷害比例
 			float tempDamage = damageExplode * per_distance;
 			// 無條件捨去法
 			damageArray.Add(Mathf.FloorToInt(tempDamage));
 
-			hurtEnemys = colliders2D[i].GetComponents<DamageEnemy>();
+			DamageEnemy[] hurtEnemys = colliders2D[i].GetComponents<DamageEnemy>();
 
 			if (hurtEnemys != null)
 			{
@@ -82,6 +85,8 @@ public class HandBomb : Weapon
 				{
 					for (int j = 0; j < hurtEnemys.Length; j++)
 					{
+						#region 敵人被炸飛
+						// 敵人扣血
 						hurtEnemys[j].Damage(Mathf.FloorToInt(tempDamage));
 						// 計算炸彈與碰到的東西之間的向量
 						Vector3 ab = (transform.position - hurtEnemys[j].transform.position);
@@ -93,9 +98,10 @@ public class HandBomb : Weapon
 						Vector3 vecWorld = transform.TransformDirection(explosionThrust);
 						// 把敵人的方向轉為原本的方向
 						hurtEnemys[j].transform.rotation = Quaternion.Euler(originalVec);
-						// 對敵人施加轉換後的炸彈推力(敵人被炸飛)
+						// 對敵人施加轉換後的炸彈推力()
 						Rigidbody2D rig2D = hurtEnemys[j].gameObject.GetComponent<Rigidbody2D>();
 						rig2D.AddForce(vecWorld, ForceMode2D.Impulse);
+						#endregion
 					}
 				}
 			}
