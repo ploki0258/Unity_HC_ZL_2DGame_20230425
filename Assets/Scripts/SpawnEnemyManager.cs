@@ -42,7 +42,7 @@ public class SpawnEnemyManager : MonoBehaviour
 				Instantiate(dataSpawnEnemys[index].prefabEnemy, pos, Quaternion.identity);
 				index++;
 
-				SpawBossSkillItem();
+				//SpawBossSkillItem();
 				Debug.Log("生成BOSS道具-2");
 				return;
 			}
