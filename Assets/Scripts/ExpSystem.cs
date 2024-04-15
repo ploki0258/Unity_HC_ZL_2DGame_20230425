@@ -7,15 +7,15 @@ using UnityEngine;
 /// </summary>
 public class ExpSystem : MonoBehaviour
 {
-	[SerializeField, Header("移動速度"), Range(0, 10)]
+	[SerializeField, Header("移動速度"), Range(0, 100)]
 	public float speed = 2f;
-	[SerializeField, Header("被吃掉的距離"), Range(0, 5)]
+	[SerializeField, Header("被吃掉的距離"), Range(0, 10)]
 	public float distanceEat = 1f;
 	[SerializeField, Header("經驗數值"), Range(0, 500)]
 	public float expValue = 30f;
 
 	[HideInInspector]
-	public Transform player;
+	protected Transform player;
 	[HideInInspector]
 	public LevelManager levelManager;
 
@@ -57,8 +57,8 @@ public class ExpSystem : MonoBehaviour
 	/// <param name="quick">是否立即刪除</param>
 	protected virtual void EatEffect(Vector3 target, bool canMove, float delayTime = 0f, bool quick = true)
 	{
-		// 如果此經驗值物件與玩家物件的距離小於 1 就吃掉
 		distance = Vector3.Distance(transform.position, target);
+		// 如果此經驗值物件與玩家物件的距離小於 1 就吃掉
 		if (distance <= distanceEat)
 		{
 			// 增加經驗值

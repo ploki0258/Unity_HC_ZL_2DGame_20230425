@@ -11,9 +11,10 @@ public class DataBasic : ScriptableObject
     [Header("移動速度"), Range(1, 100)]
     public float moveSpeed;
 
-    void ResetData()
+	[ContextMenu("恢復初始數值")]
+	void ResetData()
     {
-        hp = 200f;
+        hp = 100f;
         attack = 50f;
         moveSpeed = 10f;
 	}

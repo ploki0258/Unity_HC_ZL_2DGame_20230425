@@ -8,7 +8,7 @@ public class ItemSpawnManager : MonoBehaviour
 	[SerializeField][Header("生成間隔")] float spawnInterval;
 
 	LevelManager levelManager;
-	int index;
+	//int index;
 
 	private void Awake()
 	{
@@ -17,7 +17,7 @@ public class ItemSpawnManager : MonoBehaviour
 
 	private void Start()
 	{
-		SpawnSystem();
+		RepeatSpawnSystem();
 	}
 
 	private void Update()
@@ -35,15 +35,20 @@ public class ItemSpawnManager : MonoBehaviour
 		*/
 	}
 
+	int id;
 	/// <summary>
 	/// 生成道具
 	/// </summary>
 	void CreateItem()
 	{
-		Vector3 originalVec;
-		GameObject tempObj;
 
-		if (levelManager.lv >= spawnLvArray[0])
+		for (int i = 0; i < spawnObjects.Length; i++)
+		{
+			if (levelManager.lv >= spawnLvArray[i])
+				//                                        5 - (4 - 0)
+				id = Random.Range(0, spawnObjects.Length - (4 - i));
+		}
+		/*if (levelManager.lv >= spawnLvArray[0])
 			index = Random.Range(0, spawnObjects.Length - 4);
 		else if (levelManager.lv >= spawnLvArray[1])
 			index = Random.Range(0, spawnObjects.Length - 3);
@@ -53,15 +58,16 @@ public class ItemSpawnManager : MonoBehaviour
 			index = Random.Range(0, spawnObjects.Length - 1);
 		else if (levelManager.lv >= spawnLvArray[4])
 			index = Random.Range(0, spawnObjects.Length);
+		*/
 
 		int x = Random.Range(0, spawnItems.Length);
-		originalVec = (Vector3)spawnItems[x].SpawnMapItemPos();
+		Vector3 originalVec = (Vector3)spawnItems[x].SpawnMapItemPos();
 		//Collider2D[] collider2D = Physics2D.OverlapBoxAll(originalVec, Vector3.one, 0f);
 
 		// 生成 武器道具_炸彈
 		if (levelManager.lv >= spawnLvArray[0])
 		{
-			tempObj = Instantiate(spawnObjects[index], originalVec, Quaternion.identity);
+			GameObject tempObj = Instantiate(spawnObjects[id], originalVec, Quaternion.identity);
 
 			// 沒有物件存在了
 			/*if (collider2D.Length > 0)
@@ -92,7 +98,7 @@ public class ItemSpawnManager : MonoBehaviour
 	/// <summary>
 	/// 生成系統：重複生成道具
 	/// </summary>
-	void SpawnSystem()
+	void RepeatSpawnSystem()
 	{
 		InvokeRepeating("CreateItem", 0, spawnInterval);
 	}
@@ -103,6 +109,6 @@ public class ItemSpawnManager : MonoBehaviour
 	void ReSpawn()
 	{
 		CancelInvoke();
-		SpawnSystem();
+		RepeatSpawnSystem();
 	}
 }

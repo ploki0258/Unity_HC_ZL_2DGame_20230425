@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class ExtraWeapon : MonoBehaviour
 {
-    [SerializeField][Header("消失距離")] float distance = 1f;
-    
+	[SerializeField][Header("消失距離")] float distanceEat = 1f;
+	[SerializeField][Header("存在時間")] float existTime = 0f;
+
 	Transform player;
 	WeaponSystem weaponSystem;
 
@@ -13,6 +14,11 @@ public class ExtraWeapon : MonoBehaviour
 	{
 		player = GameObject.Find("主角鼠").GetComponent<Transform>();
 		weaponSystem = GameObject.FindObjectOfType<WeaponSystem>();
+	}
+
+	private void Start()
+	{
+		Destroy(this.gameObject, existTime);
 	}
 
 	private void Update()
@@ -27,7 +33,7 @@ public class ExtraWeapon : MonoBehaviour
 	bool EatWeaponItem()
 	{
 		float distance = Vector3.Distance(transform.position, player.position);
-		if (distance <= this.distance)
+		if (distance <= this.distanceEat)
 		{
 			return true;
 		}

@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f76fee3c3af435d4e8e20f60b0cb1b26, type: 3}
+  m_Name: "Boss_\u96D9\u982D\u72AC"
+  m_EditorClassIdentifier: 
+  hp: 2000
+  attack: 100
+  moveSpeed: 5
+  expProbability: 1
+  prefabExp: {fileID: 4811321873194844745, guid: 5960f484d33ee254680372637dbc2b84,
+    type: 3}
+  attackRange: 5
+  attackInterval: 2

@@ -133,8 +133,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35ba53501f8ad7c4a90514d889daccf8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
+  speed: 30
   distanceEat: 0.5
   expValue: 30
-  player: {fileID: 0}
   levelManager: {fileID: 0}

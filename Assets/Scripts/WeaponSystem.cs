@@ -39,6 +39,11 @@ public class WeaponSystem : MonoBehaviour
 	{
 		if (usageCount <= 0)
 		{
+			foreach (GameObject tempWeapon in tempWeapons)
+			{
+				//Destroy(tempWeapon);
+				DestroyImmediate(tempWeapon, true);
+			}
 			tempWeapons.Clear();
 		}
 	}
@@ -79,11 +84,6 @@ public class WeaponSystem : MonoBehaviour
 		tempWeapon.GetComponent<Weapon>().attack = this.attack;
 		float randomValue = Random.value;
 
-		/*if (tempWeapon.name.Contains(WeaponType.炸彈.ToString()))
-		{
-			tempWeapon.GetComponent<Weapon>().ThrowBomb();
-		}*/
-
 		// 如果機率 小於等於 該武器的暴擊率
 		// 生成的武器.取得武器元件.攻擊力 = 此腳本的攻擊力 * 暴擊傷害
 		float rate = prefabWeapon[index].GetComponent<Weapon>().critical / 100;
@@ -103,6 +103,7 @@ public class WeaponSystem : MonoBehaviour
 	/// <param name="name">要添加的武器名稱</param>
 	public void AddWeaponToList(string name)
 	{
+		//Debug.Log("<color=blue>添加至列表</color>");
 		//prefabWeapon.AddRange(prefabAddWeapons.Where(weapon => weapon.name.Contains(name)));
 		tempWeapons = prefabAddWeapons.Where(weapon => weapon.name.Contains(name)).ToList();
 		usageCount = newUsageCount;
