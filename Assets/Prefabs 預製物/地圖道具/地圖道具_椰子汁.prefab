@@ -134,9 +134,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0
-  distanceEat: 2
+  distanceEat: 3
   expValue: 0
-  player: {fileID: 0}
   levelManager: {fileID: 0}
   hpRestore: 50
   criticalImprove: 0

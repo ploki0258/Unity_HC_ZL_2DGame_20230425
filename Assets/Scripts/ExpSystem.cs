@@ -31,7 +31,7 @@ public class ExpSystem : MonoBehaviour
 	protected virtual void Update()
 	{
 		TrackingPlayer(player.position, true);
-		EatEffect(player.position, true);
+		EatEffect(player.position);
 	}
 
 	/// <summary>
@@ -52,10 +52,9 @@ public class ExpSystem : MonoBehaviour
 	/// 道具效果
 	/// </summary>
 	/// <param name="target">要追蹤的目標</param>
-	/// <param name="canMove">是否要跟隨</param>
 	/// <param name="delayTime">延遲刪除的時間</param>
 	/// <param name="quick">是否立即刪除</param>
-	protected virtual void EatEffect(Vector3 target, bool canMove, float delayTime = 0f, bool quick = true)
+	protected virtual void EatEffect(Vector3 target, float delayTime = 0f, bool quick = true)
 	{
 		distance = Vector3.Distance(transform.position, target);
 		// 如果此經驗值物件與玩家物件的距離小於 1 就吃掉
@@ -63,6 +62,7 @@ public class ExpSystem : MonoBehaviour
 		{
 			// 增加經驗值
 			levelManager.AddExp(expValue);
+			Debug.Log("<color=green>已增加經驗值</color>");
 			// 判斷是否立即刪除
 			if (quick)
 			{

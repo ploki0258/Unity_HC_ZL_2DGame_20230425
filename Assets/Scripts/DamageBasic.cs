@@ -15,9 +15,9 @@ public class DamageBasic : MonoBehaviour
 	[Header("傷害值預製物")]
 	public GameObject prefabDamage = null;
 
-	protected float _hp; // 血量
-	[HideInInspector]
-	public float hpMax; // 血量最大值
+	[SerializeField]
+	public float hpMax;		// 血量最大值
+	protected float _hp;	// 血量
 	
 	private void Awake()
 	{
@@ -55,7 +55,7 @@ public class DamageBasic : MonoBehaviour
 
 		Destroy(tempDamage, 1.5f);
 
-		hp = Mathf.Clamp(hp, 0f, hp);	// 限制血量上下限
+		hp = Mathf.Clamp(hp, 0f, hpMax);	// 限制血量上下限
 		//Debug.Log($"<color=#FF60AF>{ gameObject.name } 剩餘血量：{hp}</color>");
 
 		if (hp <= 0)

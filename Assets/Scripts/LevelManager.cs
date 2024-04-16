@@ -523,6 +523,7 @@ public class LevelManager : MonoBehaviour
 		int lv = dataSkill[0].skillLv - 1;
 		weaponSystem.attack = dataSkill[0].skillValues[lv];
 	}
+
 	// 武器間隔縮短
 	private void UpgradeWeaponInterval()
 	{
@@ -540,7 +541,8 @@ public class LevelManager : MonoBehaviour
 	{
 		int lv = dataSkill[2].skillLv - 1;
 		dataBasic.hp = dataSkill[2].skillValues[lv];
-		damagePlayer.hpBar.fillAmount = damageBasic.hpMax;
+		float max = damageBasic.hpMax = dataBasic.hp;
+		damagePlayer.hpBar.fillAmount = max;
 	}
 
 	[SerializeField, Header("主角鼠：角色控制")]

@@ -13,8 +13,6 @@ public class ItemSkillSystem : ExpSystem
 	public float itemExistTime = 10f;
 	[SerializeField, Header("道具效果持續時間"), Range(0f, 50f)]
 	public float effectHoldTime;
-	//[SerializeField]
-	//ItemData itemData = null;
 
 	private DamageBasic damageBasic;
 	protected WeaponSystem dataWeapon;
@@ -34,22 +32,24 @@ public class ItemSkillSystem : ExpSystem
 
 	protected override void Update()
 	{
-		base.Update();
-		//EatEffect(player.position, true, effectHoldTime, false);
+		//base.Update();
+		EatEffect(player.position, effectHoldTime, false);
 	}
 
-	protected override void EatEffect(Vector3 target, bool canMove, float delayTime = 0, bool quick = true)
+	protected override void EatEffect(Vector3 target, float delayTime = 0, bool quick = true)
 	{
-		//base.EatEffect(target, canMove, delayTime, quick);
+		base.EatEffect(target, delayTime, quick);
 		distance = Vector3.Distance(transform.position, target);
 		if (distance <= distanceEat)
 		{
 			spriteRenderer.enabled = false;
 			circleCollider.enabled = false;
 
-			// 增加經驗值
-			levelManager.AddExp(expValue);
-			StartCoroutine(ItemEffect(hpRestore, criticalImprove, criticalHitImprove, effectHoldTime));
+			// 回復血量
+			damageBasic.hp += hpRestore;
+			damageBasic.hp = Mathf.Clamp(damageBasic.hp, 0f, damageBasic.hpMax);
+			Debug.Log("<color=green>已回復血量</color>");
+			StartCoroutine(ItemEffect(criticalImprove, criticalHitImprove, effectHoldTime));
 		}
 	}
 
@@ -62,20 +62,15 @@ public class ItemSkillSystem : ExpSystem
 	/// <param name="criticalHitImprove">暴擊傷害提升值</param>
 	/// <param name="effectHoldTime">效果持續時間(秒)</param>
 	/// <returns></returns>
-	public IEnumerator ItemEffect(float hpRestore, float criticalImprove, float criticalHitImprove, float effectHoldTime)
+	public IEnumerator ItemEffect(float criticalImprove, float criticalHitImprove, float effectHoldTime)
 	{
-		Debug.Log("<color=green>已吃到道具</color>");
-
-		damageBasic.hp += hpRestore;
-		damageBasic.hp = Mathf.Clamp(damageBasic.hp, 0f, damageBasic.hpMax);
-
 		for (int i = 0; i < dataWeapon.prefabWeapon.Count; i++)
 		{
 			// 增加武器的暴擊率、暴擊傷害
 			dataWeapon.prefabWeapon[i].GetComponent<Weapon>().critical += criticalImprove;
 			dataWeapon.prefabWeapon[i].GetComponent<Weapon>().critical = Mathf.Clamp(dataWeapon.prefabWeapon[i].GetComponent<Weapon>().critical, 0f, 100f);
 			dataWeapon.prefabWeapon[i].GetComponent<Weapon>().criticalHit += criticalHitImprove;
-
+			Debug.Log("<color=green>已增加暴擊率、暴擊傷害</color>");
 			// 恢復武器原本的暴擊率、暴擊傷害
 			//dataWeapon.prefabWeapon[i].GetComponent<Weapon>().critical -= criticalImprove;
 			//dataWeapon.prefabWeapon[i].GetComponent<Weapon>().critical = Mathf.Clamp(dataWeapon.prefabWeapon[i].GetComponent<Weapon>().critical, 0f, 100f);
@@ -91,6 +86,7 @@ public class ItemSkillSystem : ExpSystem
 			dataWeapon.prefabWeapon[i].GetComponent<Weapon>().critical -= criticalImprove;
 			dataWeapon.prefabWeapon[i].GetComponent<Weapon>().critical = Mathf.Clamp(dataWeapon.prefabWeapon[i].GetComponent<Weapon>().critical, 0f, 100f);
 			dataWeapon.prefabWeapon[i].GetComponent<Weapon>().criticalHit -= criticalHitImprove;
+			Debug.Log("<color=green>已恢復暴擊率、暴擊傷害</color>");
 		}
 	}
 }

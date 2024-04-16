@@ -31,6 +31,11 @@ public class HandBomb : Weapon
 			ExplosionDamage();
 
 			GameObject tempExplosion = Instantiate(explosionObj, transform.position, transform.rotation);
+
+			// ¼½©ñÃz¬µ­µ®Ä
+			AudioClip sound = SoundManager.instance.soundBombExplode;
+			SoundManager.instance.PlaySound(sound);
+
 			Destroy(this.gameObject, 0.2f);
 			Destroy(tempExplosion, 1.0f);
 		}

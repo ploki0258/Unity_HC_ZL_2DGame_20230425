@@ -27,7 +27,7 @@ public class DamagePlayer : DamageBasic
 		hpBar.fillAmount = hpMax;
 		hpChangeAction += HpBarChange;
 		// 測試用
-		//Damage(100);
+		//Damage(50);
 	}
 
 	private void OnDisable()
@@ -36,7 +36,7 @@ public class DamagePlayer : DamageBasic
 	}
 
 	/// <summary>
-	/// 刷新血條
+	/// 刷新血條顯示
 	/// 當Hp發生變化時
 	/// </summary>
 	void HpBarChange()
@@ -55,6 +55,9 @@ public class DamagePlayer : DamageBasic
 		//hpBar.fillAmount = _hp / hpMax;
 	}
 
+	/// <summary>
+	/// 玩家死亡功能
+	/// </summary>
 	protected override void Dead()
 	{
 		base.Dead();
@@ -75,8 +78,20 @@ public class DamagePlayer : DamageBasic
 		gpFinal.SetActive(true);
 	}
 
+	/// <summary>
+	/// 玩家勝利功能
+	/// </summary>
 	public void Win()
 	{
+		// 播放玩家勝利音效
+		AudioClip sound = SoundManager.instance.soundPlayerVictory;
+		SoundManager.instance.PlaySound(sound);
+
+		// 終止玩家控制器
+		playCtrl.enabled = false;
+		// 停止武器生成系統
+		weaponSystem.Stop();
+
 		if (gpFinal.activeInHierarchy == true)
 			return;
 
@@ -87,7 +102,7 @@ public class DamagePlayer : DamageBasic
 	// 右鍵自訂功能
 	void OpenWindows()
 	{
-		print("測試訊息...");
+		//print("測試訊息...");
 		if (gpFinal.activeSelf == false)
 			gpFinal.SetActive(true);
 		else

@@ -22,17 +22,7 @@ public class ItemSpawnManager : MonoBehaviour
 
 	private void Update()
 	{
-		/*if (levelManager.lv >= spawnLvArray[0])
-			ReSpawn();
-		else if (levelManager.lv >= spawnLvArray[1])
-			ReSpawn();
-		else if (levelManager.lv >= spawnLvArray[2])
-			ReSpawn();
-		else if (levelManager.lv >= spawnLvArray[3])
-			ReSpawn();
-		else if (levelManager.lv >= spawnLvArray[4])
-			ReSpawn();
-		*/
+
 	}
 
 	int id;
@@ -42,6 +32,7 @@ public class ItemSpawnManager : MonoBehaviour
 	void CreateItem()
 	{
 
+		// 升等時增加生成道具
 		for (int i = 0; i < spawnObjects.Length; i++)
 		{
 			if (levelManager.lv >= spawnLvArray[i])
@@ -64,7 +55,7 @@ public class ItemSpawnManager : MonoBehaviour
 		Vector3 originalVec = (Vector3)spawnItems[x].SpawnMapItemPos();
 		//Collider2D[] collider2D = Physics2D.OverlapBoxAll(originalVec, Vector3.one, 0f);
 
-		// 生成 武器道具_炸彈
+		// 生成道具
 		if (levelManager.lv >= spawnLvArray[0])
 		{
 			GameObject tempObj = Instantiate(spawnObjects[id], originalVec, Quaternion.identity);
