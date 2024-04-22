@@ -26,8 +26,10 @@ public class DamageEnemy : DamageBasic
 		skillPlayer = GameObject.Find("主角鼠").GetComponent<SkillPlayer>();
 
 		if (name.Contains("BOSS"))
-			onDead.AddListener(() => damagePlayer.Win());
-		//onDead.AddListener(() => skillPlayer.SkillBossDiscripen());
+			onDead.AddListener
+			(
+				() => damagePlayer.Win()
+			);
 	}
 
 	private void OnCollisionEnter2D(Collision2D collision)
@@ -42,17 +44,6 @@ public class DamageEnemy : DamageBasic
 			AudioClip sound = SoundManager.instance.soundEnemyHurt;
 			SoundManager.instance.PlaySound(sound);
 		}
-		/*
-		if (collision.gameObject.name.Contains("炸彈"))
-		{
-			HandBomb bomb = collision.gameObject.GetComponent<HandBomb>();
-			
-			for (int i = 0; i < bomb.colliders2D.Length; i++)
-			{
-				Debug.Log(bomb.damageArray[i]);
-				Damage(bomb.ExplosionDamage()[i]);
-			}
-		}*/
 	}
 
 	/// <summary>

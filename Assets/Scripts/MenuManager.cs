@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace Jack
+namespace Jack_Chiu
 {
     /// <summary>
     /// 選單管理器

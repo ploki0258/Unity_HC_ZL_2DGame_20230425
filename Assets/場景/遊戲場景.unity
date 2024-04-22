@@ -3503,12 +3503,12 @@ MonoBehaviour:
   soundLvUp: {fileID: 8300000, guid: 7be127f6f6788a442b19c142dddb4702, type: 3}
   soundSkillLvUp: {fileID: 8300000, guid: 0812d5de4089f6842a0cadfe4cf2c895, type: 3}
   soundPlayerHurt: {fileID: 8300000, guid: 8534bd1e664369c4aaac14bf1659d908, type: 3}
-  soundPlayerVictory: {fileID: 0}
+  soundPlayerVictory: {fileID: 8300000, guid: 28fbf0841b6711d4a9fd21a845e048ce, type: 3}
   soundPlayerDead: {fileID: 8300000, guid: f3f85ec6c6a26864c8311298ac3fdc2c, type: 3}
   soundEnemyHurt: {fileID: 8300000, guid: 60aaa722a54d13944b1b88e5f7fce4d7, type: 3}
   soundEnemyDead: {fileID: 8300000, guid: 50223b605ec895449bd6576330b31bab, type: 3}
   soundFireWeapon: {fileID: 8300000, guid: c85ae3fa0329fa44881a955cd80f3db8, type: 3}
-  soundBombExplode: {fileID: 0}
+  soundBombExplode: {fileID: 8300000, guid: cf3a19c172b972644b616b8a60e34a08, type: 3}
 --- !u!4 &255565051
 Transform:
   m_ObjectHideFlags: 0
@@ -4927,7 +4927,7 @@ GameObject:
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &496656901
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6723,7 +6723,7 @@ GameObject:
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &745791174
 Transform:
   m_ObjectHideFlags: 0
@@ -10242,7 +10242,7 @@ GameObject:
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1425297773
 Transform:
   m_ObjectHideFlags: 0
@@ -12642,7 +12642,7 @@ GameObject:
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1619563848
 Transform:
   m_ObjectHideFlags: 0
@@ -15080,6 +15080,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   data: {fileID: 11400000, guid: 7c7c7f785fad05d4ca8117300ac88d37, type: 2}
   offset: {x: 0, y: 0, z: 0}
+  isHeadRight: 0
 --- !u!1001 &1974157553
 PrefabInstance:
   m_ObjectHideFlags: 0
