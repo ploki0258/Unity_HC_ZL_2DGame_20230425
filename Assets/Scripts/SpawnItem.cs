@@ -31,9 +31,4 @@ public class SpawnItem : MonoBehaviour
 		spawnRange = new Vector2(_width, _hight);
 		return spawnRange;
 	}
-
-	void SpawnItems()
-	{
-
-	}
 }

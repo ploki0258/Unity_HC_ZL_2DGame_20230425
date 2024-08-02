@@ -80,11 +80,6 @@ public class LevelManager : MonoBehaviour
 		}
 	}
 
-	private void OnCollisionEnter2D(Collision2D collision)
-	{
-		
-	}
-
 	private void Awake()
 	{
 		btnSelect = FindObjectOfType<ButtonSelectManager>();
@@ -293,8 +288,7 @@ public class LevelManager : MonoBehaviour
 				UpgradeMoveSpeed();
 			if (randomSkill[skillID].skillName == "經驗值範圍增加")
 				UpgradeAbsorbExpRange();
-			/*
-			if (randomSkill[skillID].skillName == "召喚獸數量增加")
+			/*if (randomSkill[skillID].skillName == "召喚獸數量增加")
 				UpgradeSummonPet();*/
 			#endregion
 		}

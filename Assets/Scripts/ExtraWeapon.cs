@@ -1,18 +1,18 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class ExtraWeapon : MonoBehaviour
 {
-	[SerializeField][Header("®ø¥¢¶ZÂ÷")] float distanceEat = 1f;
-	[SerializeField][Header("¦s¦b®É¶¡")] float existTime = 0f;
+	[SerializeField][Header("æ¶ˆå¤±è·é›¢")] float distanceEat = 1f;
+	[SerializeField][Header("å­˜åœ¨æ™‚é–“")] float existTime = 0f;
 
 	Transform player;
 	WeaponSystem weaponSystem;
 
 	private void Awake()
 	{
-		player = GameObject.Find("¥D¨¤¹«").GetComponent<Transform>();
+		player = GameObject.Find("ä¸»è§’é¼ ").GetComponent<Transform>();
 		weaponSystem = GameObject.FindObjectOfType<WeaponSystem>();
 	}
 
@@ -25,7 +25,7 @@ public class ExtraWeapon : MonoBehaviour
 	{
 		if (EatWeaponItem())
 		{
-			weaponSystem.AddWeaponToList(WeaponType.¬µ¼u.ToString());
+			weaponSystem.AddWeaponToList(WeaponType.ç‚¸å½ˆ.ToString());
 			Destroy(this.gameObject, 0.1f);
 		}
 	}
