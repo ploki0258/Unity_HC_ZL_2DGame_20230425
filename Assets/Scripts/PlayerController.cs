@@ -1,8 +1,7 @@
 ﻿using System;
 using UnityEngine;
-using UnityEngine.UI;
 
-public class PlayCtrl : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
 	[Header("玩家資料")]
 	public DataBasic dataPlayer;
@@ -17,7 +16,6 @@ public class PlayCtrl : MonoBehaviour
 	private void Awake()
 	{
 		// Debug.Log($"{10+20}");
-
 		rig = GetComponent<Rigidbody2D>();
 		ani = GetComponent<Animator>();
 	}
@@ -29,7 +27,6 @@ public class PlayCtrl : MonoBehaviour
 
 	private void Update()
 	{
-		// Debug.Log("<color=red>更新事件</color>");
 		Move();
 	}
 

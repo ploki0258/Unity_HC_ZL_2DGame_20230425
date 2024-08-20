@@ -13,7 +13,7 @@ public class DamagePlayer : DamageBasic
 	[Header("血條")]
 	public Image hpBar = null;
 	[Header("玩家控制器")]
-	public PlayCtrl playCtrl;
+	public PlayerController playCtrl;
 	[Header("武器生成系統")]
 	public WeaponSystem weaponSystem;
 	[ContextMenuItem("Open/Close", "OpenWindows")]

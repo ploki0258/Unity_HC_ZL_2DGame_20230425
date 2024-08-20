@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class PetSystem : PlayCtrl
+public class PetSystem : PlayerController
 {
 	[SerializeField, Header("敵人資料")]
 	DataEnemy data;

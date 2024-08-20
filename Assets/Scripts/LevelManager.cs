@@ -272,7 +272,7 @@ public class LevelManager : MonoBehaviour
 		// 播放技能升級音效
 		AudioClip sound = SoundManager.instance.soundSkillLvUp;
 		SoundManager.instance.PlaySound(sound);
-
+		
 		foreach (int skillID in btnSelect.buttonSelectList)
 		{
 			randomSkill[skillID].skillLv++; // 技能等級+1
@@ -288,8 +288,6 @@ public class LevelManager : MonoBehaviour
 				UpgradeMoveSpeed();
 			if (randomSkill[skillID].skillName == "經驗值範圍增加")
 				UpgradeAbsorbExpRange();
-			/*if (randomSkill[skillID].skillName == "召喚獸數量增加")
-				UpgradeSummonPet();*/
 			#endregion
 		}
 
@@ -540,7 +538,7 @@ public class LevelManager : MonoBehaviour
 	}
 
 	[SerializeField, Header("主角鼠：角色控制")]
-	PlayCtrl playerMoveSpeed;
+	PlayerController playerMoveSpeed;
 	// 玩家移動提升
 	private void UpgradeMoveSpeed()
 	{
